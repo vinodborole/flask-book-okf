@@ -1,0 +1,1614 @@
+{
+  "generator": "okf-kit",
+  "okf_version": "0.1",
+  "root_url": "https://flask.palletsprojects.com/en/stable",
+  "updated_at": "2026-07-07T08:53:11.246189+00:00",
+  "config": {
+    "max_depth": 3,
+    "max_pages": 90,
+    "fetcher": "http",
+    "respect_robots": true,
+    "path_prefix": "/en/stable/"
+  },
+  "page_count": 76,
+  "pages": [
+    {
+      "path": "pages/en/stable.md",
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "hash": "93bf52f0aafe015469fb550f16bf893f86f96ad358bd1218d4a44e034328eccc"
+    },
+    {
+      "path": "pages/en/stable/api.md",
+      "url": "https://flask.palletsprojects.com/en/stable/api",
+      "title": "API — Flask Documentation (3.1.x)",
+      "hash": "5034a6ba2c0545dfeb53a94e0c2e9bd476eef3ebe96f028032589769e15f0fd2"
+    },
+    {
+      "path": "pages/en/stable/appcontext.md",
+      "url": "https://flask.palletsprojects.com/en/stable/appcontext",
+      "title": "The Application Context — Flask Documentation (3.1.x)",
+      "hash": "3a0a2e0f31cd68ab2532ddc58374c4ac0909e250db26cbb22bec2801ec681816"
+    },
+    {
+      "path": "pages/en/stable/async-await.md",
+      "url": "https://flask.palletsprojects.com/en/stable/async-await",
+      "title": "Using async and await — Flask Documentation (3.1.x)",
+      "hash": "1dc271bd2108845e02b18d4a40a1b15389fb25bfb31a5b707e0ef42f49714f26"
+    },
+    {
+      "path": "pages/en/stable/blueprints.md",
+      "url": "https://flask.palletsprojects.com/en/stable/blueprints",
+      "title": "Modular Applications with Blueprints — Flask Documentation (3.1.x)",
+      "hash": "89466d1b0f518460791b72d0507f6512c3e7a59c5171eac7a1b5092b45f5d46d"
+    },
+    {
+      "path": "pages/en/stable/changes.md",
+      "url": "https://flask.palletsprojects.com/en/stable/changes",
+      "title": "Changes — Flask Documentation (3.1.x)",
+      "hash": "23cc4762b412b8bdd54158d73cb50c43e28ad6b4fffaac41360218f1b7de72f7"
+    },
+    {
+      "path": "pages/en/stable/cli.md",
+      "url": "https://flask.palletsprojects.com/en/stable/cli",
+      "title": "Command Line Interface — Flask Documentation (3.1.x)",
+      "hash": "b16064cac0673f3ceab80440df1ee7dd8e3e95169933b98470b243b3f0a6db97"
+    },
+    {
+      "path": "pages/en/stable/config.md",
+      "url": "https://flask.palletsprojects.com/en/stable/config",
+      "title": "Configuration Handling — Flask Documentation (3.1.x)",
+      "hash": "aeb9ee60d8ca1c01afe8c6bb32de8f2865a0d594a0f7f7e106e21d3c154ebc4e"
+    },
+    {
+      "path": "pages/en/stable/contributing.md",
+      "url": "https://flask.palletsprojects.com/en/stable/contributing",
+      "title": "Contributing — Flask Documentation (3.1.x)",
+      "hash": "eb3cdab608662cb42e7f462dda079dc038526a1e13fa47a8cdffbc4a5c07c837"
+    },
+    {
+      "path": "pages/en/stable/debugging.md",
+      "url": "https://flask.palletsprojects.com/en/stable/debugging",
+      "title": "Debugging Application Errors — Flask Documentation (3.1.x)",
+      "hash": "de71f16f40460c70093cadd84162519463287027e8152756304b300e47e0248e"
+    },
+    {
+      "path": "pages/en/stable/deploying.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying",
+      "title": "Deploying to Production — Flask Documentation (3.1.x)",
+      "hash": "6e8cf06d190e93920249803a7d53428ed5e446064b42da5a8b9a1c468839bfe1"
+    },
+    {
+      "path": "pages/en/stable/deploying/apache-httpd.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/apache-httpd",
+      "title": "Apache httpd — Flask Documentation (3.1.x)",
+      "hash": "e6d1f9c5f7a997021d613d252b13f69397ae083b3997e047ccd610f32501e30b"
+    },
+    {
+      "path": "pages/en/stable/deploying/asgi.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/asgi",
+      "title": "ASGI — Flask Documentation (3.1.x)",
+      "hash": "b27f08823d4023e11f8fd1de988dd833192fc7aa110dd1e015148d81d074ff4b"
+    },
+    {
+      "path": "pages/en/stable/deploying/gevent.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/gevent",
+      "title": "gevent — Flask Documentation (3.1.x)",
+      "hash": "866964939f4ce7a625dac540b22931c51c3efb2f5693c10bd1aa69509a32a7f6"
+    },
+    {
+      "path": "pages/en/stable/deploying/gunicorn.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/gunicorn",
+      "title": "Gunicorn — Flask Documentation (3.1.x)",
+      "hash": "734d162055f40443841dd05520a0386f8f3702dd18edc1f013daac6cce43d596"
+    },
+    {
+      "path": "pages/en/stable/deploying/mod_wsgi.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/mod_wsgi",
+      "title": "mod_wsgi — Flask Documentation (3.1.x)",
+      "hash": "ba1643843506653ffe3991e3e9d946a47f5d817ae98171e8b668da00426c3052"
+    },
+    {
+      "path": "pages/en/stable/deploying/nginx.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/nginx",
+      "title": "nginx — Flask Documentation (3.1.x)",
+      "hash": "94084a90dacf0ffe9239e37e0729804b5f89dea01d891762de704c4034a3df1f"
+    },
+    {
+      "path": "pages/en/stable/deploying/proxy_fix.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/proxy_fix",
+      "title": "Tell Flask it is Behind a Proxy — Flask Documentation (3.1.x)",
+      "hash": "c218559f90248ffba07df6dda81a29b7e099ca0bc933caad4f13117b69f5319f"
+    },
+    {
+      "path": "pages/en/stable/deploying/uwsgi.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/uwsgi",
+      "title": "uWSGI — Flask Documentation (3.1.x)",
+      "hash": "44d0b45ce042ba272a51286148829f7413a98a309ceb795cfe404ef07addaf4d"
+    },
+    {
+      "path": "pages/en/stable/deploying/waitress.md",
+      "url": "https://flask.palletsprojects.com/en/stable/deploying/waitress",
+      "title": "Waitress — Flask Documentation (3.1.x)",
+      "hash": "efbf991190d59409ed1198fd43ffd3e4053d3a6d32c02df576d044456b66fe00"
+    },
+    {
+      "path": "pages/en/stable/design.md",
+      "url": "https://flask.palletsprojects.com/en/stable/design",
+      "title": "Design Decisions in Flask — Flask Documentation (3.1.x)",
+      "hash": "7ae38f0c70085d1335a925247cb73316287310571323acafb5e783aa4efbf912"
+    },
+    {
+      "path": "pages/en/stable/errorhandling.md",
+      "url": "https://flask.palletsprojects.com/en/stable/errorhandling",
+      "title": "Handling Application Errors — Flask Documentation (3.1.x)",
+      "hash": "085a4c720331b9a000dcbfe1b7a10563634b3dfa345d7a5d2c95116ac0642073"
+    },
+    {
+      "path": "pages/en/stable/extensiondev.md",
+      "url": "https://flask.palletsprojects.com/en/stable/extensiondev",
+      "title": "Flask Extension Development — Flask Documentation (3.1.x)",
+      "hash": "cd8b2256f861408fffe73c523c957c194664b34e1667497b0dcbbf31b59e0b8f"
+    },
+    {
+      "path": "pages/en/stable/extensions.md",
+      "url": "https://flask.palletsprojects.com/en/stable/extensions",
+      "title": "Extensions — Flask Documentation (3.1.x)",
+      "hash": "faf92ce2a5d80fa68f772626807662957000a4e7759539ab0953547e70b52077"
+    },
+    {
+      "path": "pages/en/stable/genindex.md",
+      "url": "https://flask.palletsprojects.com/en/stable/genindex",
+      "title": "Index — Flask Documentation (3.1.x)",
+      "hash": "c625f1e78da56302ff84ef5f7779786d47c5433629d2a2211525b1936dcb9ec8"
+    },
+    {
+      "path": "pages/en/stable/gevent.md",
+      "url": "https://flask.palletsprojects.com/en/stable/gevent",
+      "title": "Async with Gevent — Flask Documentation (3.1.x)",
+      "hash": "87e2f975b5156cb3d67df056c9e4fda90fbed3e7ab606e47fb73e8a517c2ce7c"
+    },
+    {
+      "path": "pages/en/stable/installation.md",
+      "url": "https://flask.palletsprojects.com/en/stable/installation",
+      "title": "Installation — Flask Documentation (3.1.x)",
+      "hash": "d56a37316a97ce30bd588726a08a6d4fcb5c12247bd77c2adae33d3ba83dc320"
+    },
+    {
+      "path": "pages/en/stable/license.md",
+      "url": "https://flask.palletsprojects.com/en/stable/license",
+      "title": "BSD-3-Clause License — Flask Documentation (3.1.x)",
+      "hash": "63276b782134d588f7cb0d15a230708a89c33d7340c5b08049a9a980618dc467"
+    },
+    {
+      "path": "pages/en/stable/lifecycle.md",
+      "url": "https://flask.palletsprojects.com/en/stable/lifecycle",
+      "title": "Application Structure and Lifecycle — Flask Documentation (3.1.x)",
+      "hash": "aeb604fedbb00c09dbb6445203019cefafc91e59ccd9081a43144707d5ea869a"
+    },
+    {
+      "path": "pages/en/stable/logging.md",
+      "url": "https://flask.palletsprojects.com/en/stable/logging",
+      "title": "Logging — Flask Documentation (3.1.x)",
+      "hash": "86a89098dbbb543e928c7a8a797279f056dbfeeb9bce593bb177555e8ca7f3cb"
+    },
+    {
+      "path": "pages/en/stable/patterns.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns",
+      "title": "Patterns for Flask — Flask Documentation (3.1.x)",
+      "hash": "10812bb465ff782fae31ac3e8c2d04c0ec03bb14b60c8a1130981a6b9842006c"
+    },
+    {
+      "path": "pages/en/stable/patterns/appdispatch.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/appdispatch",
+      "title": "Application Dispatching — Flask Documentation (3.1.x)",
+      "hash": "ec14b3f88f0cbfd2c025374ebcf455d1fb069c49b65f271108794859059b0dba"
+    },
+    {
+      "path": "pages/en/stable/patterns/appfactories.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/appfactories",
+      "title": "Application Factories — Flask Documentation (3.1.x)",
+      "hash": "2a8b3daa64d66d71f8b0cd4cd84c123ff3251b0d0c9212f88bc7bb61011a64db"
+    },
+    {
+      "path": "pages/en/stable/patterns/caching.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/caching",
+      "title": "Caching — Flask Documentation (3.1.x)",
+      "hash": "361c90539bb2b9c5147f7c1f9baeafe65bbd5a121339a972800f3fd01abb2bb7"
+    },
+    {
+      "path": "pages/en/stable/patterns/celery.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/celery",
+      "title": "Background Tasks with Celery — Flask Documentation (3.1.x)",
+      "hash": "bbe0f2de5176dc07c799534623de9173621a756928c212f0950377c7d5d924e4"
+    },
+    {
+      "path": "pages/en/stable/patterns/deferredcallbacks.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/deferredcallbacks",
+      "title": "Deferred Request Callbacks — Flask Documentation (3.1.x)",
+      "hash": "e0cbb3cc03efe631de41082d159380aa4ecc6f45df6bb00dfa0a01483edfa5c5"
+    },
+    {
+      "path": "pages/en/stable/patterns/favicon.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/favicon",
+      "title": "Adding a favicon — Flask Documentation (3.1.x)",
+      "hash": "91529203459b7cf2b3dc5edbe7f13e8baf521df5174064815dd807ebdcbf7d87"
+    },
+    {
+      "path": "pages/en/stable/patterns/fileuploads.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/fileuploads",
+      "title": "Uploading Files — Flask Documentation (3.1.x)",
+      "hash": "8e450f420d0526e569f1c74d4e37a44ba7982d98b0d42fadcb9f15c4a2bc69e4"
+    },
+    {
+      "path": "pages/en/stable/patterns/flashing.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/flashing",
+      "title": "Message Flashing — Flask Documentation (3.1.x)",
+      "hash": "60f30ccc76fd9eb5aeb4c1485dcd6e59e60256a4e67f3147554421d2de2a36f2"
+    },
+    {
+      "path": "pages/en/stable/patterns/javascript.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/javascript",
+      "title": "JavaScript, fetch, and JSON — Flask Documentation (3.1.x)",
+      "hash": "e48b066b40b08161df64995be9cef0008fcb579a2102aa73526e9936e2675b5d"
+    },
+    {
+      "path": "pages/en/stable/patterns/lazyloading.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/lazyloading",
+      "title": "Lazily Loading Views — Flask Documentation (3.1.x)",
+      "hash": "17a32a0255fb69dc5cc6436ea5c23305025428bf327d470c0c3c10720f63de1d"
+    },
+    {
+      "path": "pages/en/stable/patterns/methodoverrides.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/methodoverrides",
+      "title": "Adding HTTP Method Overrides — Flask Documentation (3.1.x)",
+      "hash": "cad385f300ae68cf5b582ef17664d683bb794d40f89b3e18066d6e04053a607c"
+    },
+    {
+      "path": "pages/en/stable/patterns/mongoengine.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/mongoengine",
+      "title": "MongoDB with MongoEngine — Flask Documentation (3.1.x)",
+      "hash": "4d85e8b5a2c663888fda044811a08de3492c21305e922797188593c8a5cd5910"
+    },
+    {
+      "path": "pages/en/stable/patterns/packages.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/packages",
+      "title": "Large Applications as Packages — Flask Documentation (3.1.x)",
+      "hash": "58bbe93c227745c1db75b4ee02470aa229dd4fcb492bf6bf90c3fefa7415b9b2"
+    },
+    {
+      "path": "pages/en/stable/patterns/requestchecksum.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/requestchecksum",
+      "title": "Request Content Checksums — Flask Documentation (3.1.x)",
+      "hash": "3d23b7a08f0e5337c17c8f33eba52190b2d588c59f7c1c48c98c866016eb98b9"
+    },
+    {
+      "path": "pages/en/stable/patterns/singlepageapplications.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/singlepageapplications",
+      "title": "Single-Page Applications — Flask Documentation (3.1.x)",
+      "hash": "94a40b4bed40949978b3cd33a039607fb7a08f80458baa44a5d1cb91d4278bf0"
+    },
+    {
+      "path": "pages/en/stable/patterns/sqlalchemy.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/sqlalchemy",
+      "title": "SQLAlchemy in Flask — Flask Documentation (3.1.x)",
+      "hash": "ad061b88efea4ad39b5927f6ee6e5948c06d3a238fb4706add381c6e72cc9977"
+    },
+    {
+      "path": "pages/en/stable/patterns/sqlite3.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/sqlite3",
+      "title": "Using SQLite 3 with Flask — Flask Documentation (3.1.x)",
+      "hash": "fe852c6f7d8acf5c948337883ab5a9c1d5e966de3067346a37c85908e81e650c"
+    },
+    {
+      "path": "pages/en/stable/patterns/streaming.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/streaming",
+      "title": "Streaming Contents — Flask Documentation (3.1.x)",
+      "hash": "dfe35776c6cf244c3be2116e3db21d967f14d6840863d3a21d0bb8fcee6c4864"
+    },
+    {
+      "path": "pages/en/stable/patterns/subclassing.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/subclassing",
+      "title": "Subclassing Flask — Flask Documentation (3.1.x)",
+      "hash": "6f2f1b07dcb9bb9063e0107cebb34b3f2ed384e995ead144f937eeb447d5b37e"
+    },
+    {
+      "path": "pages/en/stable/patterns/templateinheritance.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/templateinheritance",
+      "title": "Template Inheritance — Flask Documentation (3.1.x)",
+      "hash": "eff4a4e0402e2047ddc235f68edf8c296a2e1a0fa43de5e006e5b50f10f993fc"
+    },
+    {
+      "path": "pages/en/stable/patterns/urlprocessors.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/urlprocessors",
+      "title": "Using URL Processors — Flask Documentation (3.1.x)",
+      "hash": "94ead108b775bdebaecd474d92a3d3cf9fd4a5b362f4924b218573ae17165a0c"
+    },
+    {
+      "path": "pages/en/stable/patterns/viewdecorators.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/viewdecorators",
+      "title": "View Decorators — Flask Documentation (3.1.x)",
+      "hash": "705e35895a90f4701a712abb4549b78e7eed3a874ffdec349a21a61f43cad248"
+    },
+    {
+      "path": "pages/en/stable/patterns/wtforms.md",
+      "url": "https://flask.palletsprojects.com/en/stable/patterns/wtforms",
+      "title": "Form Validation with WTForms — Flask Documentation (3.1.x)",
+      "hash": "8dc5f5dc0285133e726cdba32162c1aea32c2fb55015c4a20c433acd5276283a"
+    },
+    {
+      "path": "pages/en/stable/py-modindex.md",
+      "url": "https://flask.palletsprojects.com/en/stable/py-modindex",
+      "title": "Python Module Index — Flask Documentation (3.1.x)",
+      "hash": "bb75f007d52a3f30523a2c24d2a972c8ac62a5642defff9513a9ed82c60d467d"
+    },
+    {
+      "path": "pages/en/stable/quickstart.md",
+      "url": "https://flask.palletsprojects.com/en/stable/quickstart",
+      "title": "Quickstart — Flask Documentation (3.1.x)",
+      "hash": "d9ef9639d9bb59937a5383393c4e281df675bf23a0c04342e3f377336bc4fe7b"
+    },
+    {
+      "path": "pages/en/stable/reqcontext.md",
+      "url": "https://flask.palletsprojects.com/en/stable/reqcontext",
+      "title": "The Request Context — Flask Documentation (3.1.x)",
+      "hash": "4bdfdc770bf2d5ac18ad559c2e061164fcd8e8d71692aa2ca272756f6fb52a5b"
+    },
+    {
+      "path": "pages/en/stable/server.md",
+      "url": "https://flask.palletsprojects.com/en/stable/server",
+      "title": "Development Server — Flask Documentation (3.1.x)",
+      "hash": "120352a224e2a8fcdbb26907a66e6f20643627985c97176cab417369f37722ed"
+    },
+    {
+      "path": "pages/en/stable/shell.md",
+      "url": "https://flask.palletsprojects.com/en/stable/shell",
+      "title": "Working with the Shell — Flask Documentation (3.1.x)",
+      "hash": "181158243be94f045e71b60d765e6921d95eaf378a5b2ce1f35ce57bf9a3688e"
+    },
+    {
+      "path": "pages/en/stable/signals.md",
+      "url": "https://flask.palletsprojects.com/en/stable/signals",
+      "title": "Signals — Flask Documentation (3.1.x)",
+      "hash": "d30a29ad574d7653819233e4ca48e3495df2c26026e96f220842be5d89900afb"
+    },
+    {
+      "path": "pages/en/stable/templating.md",
+      "url": "https://flask.palletsprojects.com/en/stable/templating",
+      "title": "Templates — Flask Documentation (3.1.x)",
+      "hash": "0c7a52f94e82d55f3f4d3b2056b7b6c9e7126f980ece089ba199492b50afa144"
+    },
+    {
+      "path": "pages/en/stable/testing.md",
+      "url": "https://flask.palletsprojects.com/en/stable/testing",
+      "title": "Testing Flask Applications — Flask Documentation (3.1.x)",
+      "hash": "b41682c0f108d711c301acb8c00ff9a7874bfac2fefa10d2907d40d843536c72"
+    },
+    {
+      "path": "pages/en/stable/tutorial.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial",
+      "title": "Tutorial — Flask Documentation (3.1.x)",
+      "hash": "64779f11d68cd16bbc669a2f4bc1b435400ea11a5e7ff07cfadc7460f1338100"
+    },
+    {
+      "path": "pages/en/stable/tutorial/blog.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/blog",
+      "title": "Blog Blueprint — Flask Documentation (3.1.x)",
+      "hash": "d23579cf96b39d3855b637c2a546e86216ba9dfd3ce4e79d7dc217a7b76fe104"
+    },
+    {
+      "path": "pages/en/stable/tutorial/database.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/database",
+      "title": "Define and Access the Database — Flask Documentation (3.1.x)",
+      "hash": "ca97817f1535de53c78e6c90c786e0927a698e0a55f7aedb4c08cf6b7dffd5e3"
+    },
+    {
+      "path": "pages/en/stable/tutorial/deploy.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/deploy",
+      "title": "Deploy to Production — Flask Documentation (3.1.x)",
+      "hash": "631a68b4df72c23f56f3909b3e9555bbf27fd5bf961f94be0fac57584f60d70f"
+    },
+    {
+      "path": "pages/en/stable/tutorial/factory.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/factory",
+      "title": "Application Setup — Flask Documentation (3.1.x)",
+      "hash": "67ab5e46197f7e97883e38792df5ef4829e87a4d6a6c7be1adc95920620f20b9"
+    },
+    {
+      "path": "pages/en/stable/tutorial/install.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/install",
+      "title": "Make the Project Installable — Flask Documentation (3.1.x)",
+      "hash": "d0059827fc059b390dda6531e3c8a049283fa2efb783ef01f64b076a71189faa"
+    },
+    {
+      "path": "pages/en/stable/tutorial/layout.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/layout",
+      "title": "Project Layout — Flask Documentation (3.1.x)",
+      "hash": "67a0af708759ca9f4b3ca06af538e82db449bd01e1fd7119c6a77aafc47bab32"
+    },
+    {
+      "path": "pages/en/stable/tutorial/next.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/next",
+      "title": "Keep Developing! — Flask Documentation (3.1.x)",
+      "hash": "36044647411704415fee2b114578d1a28035822c1e54b574b0ebc050920f7b9f"
+    },
+    {
+      "path": "pages/en/stable/tutorial/static.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/static",
+      "title": "Static Files — Flask Documentation (3.1.x)",
+      "hash": "b5f9d93985ecc6ab98d21da2dc2dd6d79499f2b7f297d241d25118b7a01c6adc"
+    },
+    {
+      "path": "pages/en/stable/tutorial/templates.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/templates",
+      "title": "Templates — Flask Documentation (3.1.x)",
+      "hash": "dfda629af6ae9eda7b776d2efe3411782ef472b5bc1b3bf003018c5bb85fb12a"
+    },
+    {
+      "path": "pages/en/stable/tutorial/tests.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/tests",
+      "title": "Test Coverage — Flask Documentation (3.1.x)",
+      "hash": "1a63bf0d50cd95ac2c79ef2ded095fc5deb8906906e549429974a77dab5bac02"
+    },
+    {
+      "path": "pages/en/stable/tutorial/views.md",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/views",
+      "title": "Blueprints and Views — Flask Documentation (3.1.x)",
+      "hash": "46f0ee4a64eb637a9a967c5846c0289c8f2792b9fc73faf0c0ee50a944c5ce21"
+    },
+    {
+      "path": "pages/en/stable/views.md",
+      "url": "https://flask.palletsprojects.com/en/stable/views",
+      "title": "Class-based Views — Flask Documentation (3.1.x)",
+      "hash": "8017b564477070819f44fe8ba26398c2153a78959739bac1ca3a239da970e200"
+    },
+    {
+      "path": "pages/en/stable/web-security.md",
+      "url": "https://flask.palletsprojects.com/en/stable/web-security",
+      "title": "Security Considerations — Flask Documentation (3.1.x)",
+      "hash": "5c343ce5e58fcf03cc0db12f9a9058b4810d24093166b42856f0193cc36386c0"
+    }
+  ],
+  "edges": [
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/appcontext.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/async-await.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/blueprints.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/changes.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/contributing.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/debugging.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/design.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/errorhandling.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/extensiondev.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/extensions.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/gevent.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/installation.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/license.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/lifecycle.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/logging.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/appdispatch.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/caching.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/celery.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/deferredcallbacks.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/favicon.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/fileuploads.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/flashing.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/javascript.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/lazyloading.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/methodoverrides.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/mongoengine.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/packages.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/requestchecksum.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/singlepageapplications.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/sqlalchemy.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/sqlite3.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/streaming.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/subclassing.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/templateinheritance.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/urlprocessors.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/viewdecorators.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/patterns/wtforms.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/quickstart.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/server.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/shell.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/signals.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/templating.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/testing.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/blog.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/database.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/deploy.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/factory.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/install.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/layout.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/next.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/static.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/templates.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/tests.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/tutorial/views.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/views.md"
+    ],
+    [
+      "pages/en/stable.md",
+      "pages/en/stable/web-security.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/appcontext.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/logging.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/patterns/flashing.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/signals.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/testing.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/views.md"
+    ],
+    [
+      "pages/en/stable/api.md",
+      "pages/en/stable/web-security.md"
+    ],
+    [
+      "pages/en/stable/appcontext.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/appcontext.md",
+      "pages/en/stable/blueprints.md"
+    ],
+    [
+      "pages/en/stable/appcontext.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/appcontext.md",
+      "pages/en/stable/extensions.md"
+    ],
+    [
+      "pages/en/stable/appcontext.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable/appcontext.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable/async-await.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/async-await.md",
+      "pages/en/stable/deploying/asgi.md"
+    ],
+    [
+      "pages/en/stable/async-await.md",
+      "pages/en/stable/gevent.md"
+    ],
+    [
+      "pages/en/stable/blueprints.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/blueprints.md",
+      "pages/en/stable/errorhandling.md"
+    ],
+    [
+      "pages/en/stable/blueprints.md",
+      "pages/en/stable/patterns/appdispatch.md"
+    ],
+    [
+      "pages/en/stable/cli.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/cli.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/cli.md",
+      "pages/en/stable/server.md"
+    ],
+    [
+      "pages/en/stable/cli.md",
+      "pages/en/stable/testing.md"
+    ],
+    [
+      "pages/en/stable/config.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/config.md",
+      "pages/en/stable/logging.md"
+    ],
+    [
+      "pages/en/stable/config.md",
+      "pages/en/stable/patterns/appdispatch.md"
+    ],
+    [
+      "pages/en/stable/config.md",
+      "pages/en/stable/web-security.md"
+    ],
+    [
+      "pages/en/stable/debugging.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/debugging.md",
+      "pages/en/stable/errorhandling.md"
+    ],
+    [
+      "pages/en/stable/debugging.md",
+      "pages/en/stable/logging.md"
+    ],
+    [
+      "pages/en/stable/debugging.md",
+      "pages/en/stable/server.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/apache-httpd.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/asgi.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/gevent.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/gunicorn.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/mod_wsgi.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/nginx.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/proxy_fix.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/uwsgi.md"
+    ],
+    [
+      "pages/en/stable/deploying.md",
+      "pages/en/stable/deploying/waitress.md"
+    ],
+    [
+      "pages/en/stable/deploying/apache-httpd.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/deploying/apache-httpd.md",
+      "pages/en/stable/deploying/proxy_fix.md"
+    ],
+    [
+      "pages/en/stable/deploying/asgi.md",
+      "pages/en/stable/async-await.md"
+    ],
+    [
+      "pages/en/stable/deploying/gevent.md",
+      "pages/en/stable/deploying/apache-httpd.md"
+    ],
+    [
+      "pages/en/stable/deploying/gevent.md",
+      "pages/en/stable/deploying/gunicorn.md"
+    ],
+    [
+      "pages/en/stable/deploying/gevent.md",
+      "pages/en/stable/deploying/nginx.md"
+    ],
+    [
+      "pages/en/stable/deploying/gevent.md",
+      "pages/en/stable/deploying/uwsgi.md"
+    ],
+    [
+      "pages/en/stable/deploying/gevent.md",
+      "pages/en/stable/gevent.md"
+    ],
+    [
+      "pages/en/stable/deploying/gunicorn.md",
+      "pages/en/stable/deploying/apache-httpd.md"
+    ],
+    [
+      "pages/en/stable/deploying/gunicorn.md",
+      "pages/en/stable/deploying/nginx.md"
+    ],
+    [
+      "pages/en/stable/deploying/gunicorn.md",
+      "pages/en/stable/gevent.md"
+    ],
+    [
+      "pages/en/stable/deploying/nginx.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/deploying/nginx.md",
+      "pages/en/stable/deploying/proxy_fix.md"
+    ],
+    [
+      "pages/en/stable/deploying/uwsgi.md",
+      "pages/en/stable/deploying/apache-httpd.md"
+    ],
+    [
+      "pages/en/stable/deploying/uwsgi.md",
+      "pages/en/stable/deploying/nginx.md"
+    ],
+    [
+      "pages/en/stable/deploying/uwsgi.md",
+      "pages/en/stable/gevent.md"
+    ],
+    [
+      "pages/en/stable/deploying/waitress.md",
+      "pages/en/stable/deploying/apache-httpd.md"
+    ],
+    [
+      "pages/en/stable/deploying/waitress.md",
+      "pages/en/stable/deploying/nginx.md"
+    ],
+    [
+      "pages/en/stable/design.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/design.md",
+      "pages/en/stable/async-await.md"
+    ],
+    [
+      "pages/en/stable/design.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable/errorhandling.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/errorhandling.md",
+      "pages/en/stable/blueprints.md"
+    ],
+    [
+      "pages/en/stable/errorhandling.md",
+      "pages/en/stable/debugging.md"
+    ],
+    [
+      "pages/en/stable/errorhandling.md",
+      "pages/en/stable/logging.md"
+    ],
+    [
+      "pages/en/stable/errorhandling.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable/extensiondev.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/extensiondev.md",
+      "pages/en/stable/tutorial/database.md"
+    ],
+    [
+      "pages/en/stable/extensiondev.md",
+      "pages/en/stable/views.md"
+    ],
+    [
+      "pages/en/stable/extensions.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/extensions.md",
+      "pages/en/stable/extensiondev.md"
+    ],
+    [
+      "pages/en/stable/genindex.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/genindex.md",
+      "pages/en/stable/changes.md"
+    ],
+    [
+      "pages/en/stable/genindex.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/genindex.md",
+      "pages/en/stable/lifecycle.md"
+    ],
+    [
+      "pages/en/stable/gevent.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/gevent.md",
+      "pages/en/stable/deploying/gunicorn.md"
+    ],
+    [
+      "pages/en/stable/gevent.md",
+      "pages/en/stable/deploying/uwsgi.md"
+    ],
+    [
+      "pages/en/stable/installation.md",
+      "pages/en/stable.md"
+    ],
+    [
+      "pages/en/stable/installation.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/installation.md",
+      "pages/en/stable/gevent.md"
+    ],
+    [
+      "pages/en/stable/installation.md",
+      "pages/en/stable/quickstart.md"
+    ],
+    [
+      "pages/en/stable/installation.md",
+      "pages/en/stable/signals.md"
+    ],
+    [
+      "pages/en/stable/lifecycle.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/lifecycle.md",
+      "pages/en/stable/appcontext.md"
+    ],
+    [
+      "pages/en/stable/lifecycle.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/lifecycle.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable/logging.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/appdispatch.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/caching.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/celery.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/deferredcallbacks.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/favicon.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/fileuploads.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/flashing.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/javascript.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/lazyloading.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/methodoverrides.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/mongoengine.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/packages.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/requestchecksum.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/singlepageapplications.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/sqlalchemy.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/sqlite3.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/streaming.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/subclassing.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/templateinheritance.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/urlprocessors.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/viewdecorators.md"
+    ],
+    [
+      "pages/en/stable/patterns.md",
+      "pages/en/stable/patterns/wtforms.md"
+    ],
+    [
+      "pages/en/stable/patterns/appdispatch.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/patterns/appdispatch.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable/patterns/appdispatch.md",
+      "pages/en/stable/patterns/packages.md"
+    ],
+    [
+      "pages/en/stable/patterns/appfactories.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/appfactories.md",
+      "pages/en/stable/blueprints.md"
+    ],
+    [
+      "pages/en/stable/patterns/appfactories.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/patterns/appfactories.md",
+      "pages/en/stable/extensiondev.md"
+    ],
+    [
+      "pages/en/stable/patterns/deferredcallbacks.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/favicon.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/fileuploads.md",
+      "pages/en/stable/web-security.md"
+    ],
+    [
+      "pages/en/stable/patterns/flashing.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/javascript.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/lazyloading.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/packages.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/packages.md",
+      "pages/en/stable/blueprints.md"
+    ],
+    [
+      "pages/en/stable/patterns/packages.md",
+      "pages/en/stable/tutorial.md"
+    ],
+    [
+      "pages/en/stable/patterns/sqlalchemy.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/sqlalchemy.md",
+      "pages/en/stable/patterns/packages.md"
+    ],
+    [
+      "pages/en/stable/patterns/streaming.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/subclassing.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/urlprocessors.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/viewdecorators.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/patterns/viewdecorators.md",
+      "pages/en/stable/patterns/caching.md"
+    ],
+    [
+      "pages/en/stable/patterns/wtforms.md",
+      "pages/en/stable/patterns/packages.md"
+    ],
+    [
+      "pages/en/stable/patterns/wtforms.md",
+      "pages/en/stable/patterns/sqlalchemy.md"
+    ],
+    [
+      "pages/en/stable/py-modindex.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/debugging.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/errorhandling.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/extensions.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/installation.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/logging.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/patterns/deferredcallbacks.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/patterns/fileuploads.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/patterns/flashing.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/patterns/templateinheritance.md"
+    ],
+    [
+      "pages/en/stable/quickstart.md",
+      "pages/en/stable/server.md"
+    ],
+    [
+      "pages/en/stable/reqcontext.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/reqcontext.md",
+      "pages/en/stable/appcontext.md"
+    ],
+    [
+      "pages/en/stable/reqcontext.md",
+      "pages/en/stable/shell.md"
+    ],
+    [
+      "pages/en/stable/reqcontext.md",
+      "pages/en/stable/signals.md"
+    ],
+    [
+      "pages/en/stable/server.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/server.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/server.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/shell.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/shell.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/shell.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable/signals.md",
+      "pages/en/stable.md"
+    ],
+    [
+      "pages/en/stable/signals.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/signals.md",
+      "pages/en/stable/lifecycle.md"
+    ],
+    [
+      "pages/en/stable/signals.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable/templating.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/templating.md",
+      "pages/en/stable/web-security.md"
+    ],
+    [
+      "pages/en/stable/testing.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/testing.md",
+      "pages/en/stable/appcontext.md"
+    ],
+    [
+      "pages/en/stable/testing.md",
+      "pages/en/stable/patterns/appfactories.md"
+    ],
+    [
+      "pages/en/stable/testing.md",
+      "pages/en/stable/reqcontext.md"
+    ],
+    [
+      "pages/en/stable/testing.md",
+      "pages/en/stable/tutorial.md"
+    ],
+    [
+      "pages/en/stable/testing.md",
+      "pages/en/stable/tutorial/tests.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/extensions.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/quickstart.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/blog.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/database.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/deploy.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/factory.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/install.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/layout.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/next.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/static.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/templates.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/tests.md"
+    ],
+    [
+      "pages/en/stable/tutorial.md",
+      "pages/en/stable/tutorial/views.md"
+    ],
+    [
+      "pages/en/stable/tutorial/blog.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/tutorial/blog.md",
+      "pages/en/stable/tutorial/install.md"
+    ],
+    [
+      "pages/en/stable/tutorial/database.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/tutorial/database.md",
+      "pages/en/stable/cli.md"
+    ],
+    [
+      "pages/en/stable/tutorial/database.md",
+      "pages/en/stable/installation.md"
+    ],
+    [
+      "pages/en/stable/tutorial/database.md",
+      "pages/en/stable/tutorial/views.md"
+    ],
+    [
+      "pages/en/stable/tutorial/deploy.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/tutorial/deploy.md",
+      "pages/en/stable/deploying.md"
+    ],
+    [
+      "pages/en/stable/tutorial/deploy.md",
+      "pages/en/stable/installation.md"
+    ],
+    [
+      "pages/en/stable/tutorial/deploy.md",
+      "pages/en/stable/tutorial/next.md"
+    ],
+    [
+      "pages/en/stable/tutorial/factory.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/tutorial/factory.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/tutorial/factory.md",
+      "pages/en/stable/server.md"
+    ],
+    [
+      "pages/en/stable/tutorial/factory.md",
+      "pages/en/stable/tutorial/database.md"
+    ],
+    [
+      "pages/en/stable/tutorial/install.md",
+      "pages/en/stable/tutorial/tests.md"
+    ],
+    [
+      "pages/en/stable/tutorial/layout.md",
+      "pages/en/stable/installation.md"
+    ],
+    [
+      "pages/en/stable/tutorial/layout.md",
+      "pages/en/stable/tutorial/factory.md"
+    ],
+    [
+      "pages/en/stable/tutorial/next.md",
+      "pages/en/stable/extensions.md"
+    ],
+    [
+      "pages/en/stable/tutorial/next.md",
+      "pages/en/stable/quickstart.md"
+    ],
+    [
+      "pages/en/stable/tutorial/static.md",
+      "pages/en/stable/tutorial/blog.md"
+    ],
+    [
+      "pages/en/stable/tutorial/templates.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/tutorial/templates.md",
+      "pages/en/stable/tutorial/static.md"
+    ],
+    [
+      "pages/en/stable/tutorial/tests.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/tutorial/tests.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/tutorial/tests.md",
+      "pages/en/stable/tutorial/deploy.md"
+    ],
+    [
+      "pages/en/stable/tutorial/views.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/tutorial/views.md",
+      "pages/en/stable/tutorial/templates.md"
+    ],
+    [
+      "pages/en/stable/views.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/web-security.md",
+      "pages/en/stable/api.md"
+    ],
+    [
+      "pages/en/stable/web-security.md",
+      "pages/en/stable/config.md"
+    ],
+    [
+      "pages/en/stable/web-security.md",
+      "pages/en/stable/deploying/proxy_fix.md"
+    ]
+  ]
+}
