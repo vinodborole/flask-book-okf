@@ -2,12 +2,13 @@
 type: Web Page
 title: Gunicorn — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/gunicorn
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Gunicorn
 
-Gunicorn is a pure Python WSGI server with simple configuration and multiple worker implementations for performance tuning.
+[Gunicorn](https://gunicorn.org/) is a pure Python WSGI server with simple configuration and
+multiple worker implementations for performance tuning.
 
 - It tends to integrate easily with hosting platforms. 
 - It does not support Windows (but does run on WSL). 
@@ -15,7 +16,7 @@ Gunicorn is a pure Python WSGI server with simple configuration and multiple wor
 - It has built-in async worker support using gevent. 
 
 This page outlines the basics of running Gunicorn. Be sure to read its
-documentation and use `gunicorn --help` to understand what features
+[documentation](https://docs.gunicorn.org/) and use `gunicorn --help` to understand what features
 are available.
 
 ## Installing
@@ -64,7 +65,11 @@ errors are shown. To show access logs on stdout, use the
 
 ## Binding Externally
 
-Gunicorn should not be run as root because it would cause your application code to run as root, which is not secure. However, this means it will not be possible to bind to port 80 or 443. Instead, a reverse proxy such as nginx or Apache httpd should be used in front of Gunicorn.
+Gunicorn should not be run as root because it would cause your
+application code to run as root, which is not secure. However, this
+means it will not be possible to bind to port 80 or 443. Instead, a
+reverse proxy such as [nginx](../nginx/) or [Apache httpd](../apache-httpd/) should be used
+in front of Gunicorn.
 
 You can bind to all external IPs on a non-privileged port using the
 `-b 0.0.0.0` option. Don’t do this when using a reverse proxy setup,
@@ -81,8 +86,8 @@ IP address in your browser.
 
 The default sync worker is appropriate for most use cases. If you need numerous,
 long running, concurrent connections, Gunicorn provides an asynchronous worker
-using gevent. This is not the same as Python’s `async/await`, or the ASGI
-server spec. See Async with Gevent for more information about enabling it in your
+using [gevent](https://www.gevent.org/). This is not the same as Python’s `async/await`, or the ASGI
+server spec. See [Async with Gevent](../../gevent/) for more information about enabling it in your
 application.
 
 When using gevent, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is required.

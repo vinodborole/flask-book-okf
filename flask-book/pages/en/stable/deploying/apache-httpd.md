@@ -2,12 +2,16 @@
 type: Web Page
 title: Apache httpd — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/apache-httpd
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Apache httpd
 
-Apache httpd is a fast, production level HTTP server. When serving your application with one of the WSGI servers listed in Deploying to Production, it is often good or necessary to put a dedicated HTTP server in front of it. This “reverse proxy” can handle incoming requests, TLS, and other security and performance concerns better than the WSGI server.
+[Apache httpd](https://httpd.apache.org/) is a fast, production level HTTP server. When serving
+your application with one of the WSGI servers listed in [Deploying to Production](../), it
+is often good or necessary to put a dedicated HTTP server in front of
+it. This “reverse proxy” can handle incoming requests, TLS, and other
+security and performance concerns better than the WSGI server.
 
 httpd can be installed using your system package manager, or a pre-built executable for Windows. Installing and running httpd itself is outside the scope of this doc. This page outlines the basics of configuring httpd to proxy your application. Be sure to read its documentation to understand what features are available.
 
@@ -46,7 +50,7 @@ RequestHeader set X-Forwarded-Prefix /
 The `LoadModule` lines might already exist. If so, make sure they are
 uncommented instead of adding them manually.
 
-Then Tell Flask it is Behind a Proxy so that your application uses the `X-Forwarded`
+Then [Tell Flask it is Behind a Proxy](../proxy_fix/) so that your application uses the `X-Forwarded`
 headers. `X-Forwarded-For` and `X-Forwarded-Host` are automatically
 set by `ProxyPass`.
 

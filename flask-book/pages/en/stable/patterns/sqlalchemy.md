@@ -2,12 +2,15 @@
 type: Web Page
 title: SQLAlchemy in Flask — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/sqlalchemy
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # SQLAlchemy in Flask
 
-Many people prefer SQLAlchemy for database access. In this case it’s encouraged to use a package instead of a module for your flask application and drop the models into a separate module (Large Applications as Packages). While that is not necessary, it makes a lot of sense.
+Many people prefer [SQLAlchemy](https://www.sqlalchemy.org/) for database access.  In this case it’s
+encouraged to use a package instead of a module for your flask application
+and drop the models into a separate module ([Large Applications as Packages](../packages/)). While that
+is not necessary, it makes a lot of sense.
 
 There are four very common ways to use SQLAlchemy. I will outline each of them here:
 
@@ -15,11 +18,14 @@ There are four very common ways to use SQLAlchemy. I will outline each of them h
 
 Because SQLAlchemy is a common database abstraction layer and object relational mapper that requires a little bit of configuration effort, there is a Flask extension that handles that for you. This is recommended if you want to get started quickly.
 
-You can download Flask-SQLAlchemy from PyPI.
+You can download [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/) from [PyPI](https://pypi.org/project/Flask-SQLAlchemy/).
 
 ## Declarative
 
-The declarative extension in SQLAlchemy is the most recent method of using SQLAlchemy. It allows you to define tables and models in one go, similar to how Django works. In addition to the following text I recommend the official documentation on the declarative extension.
+The declarative extension in SQLAlchemy is the most recent method of using
+SQLAlchemy.  It allows you to define tables and models in one go, similar
+to how Django works.  In addition to the following text I recommend the
+official documentation on the [declarative](https://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/) extension.
 
 Here’s the example `database.py` module for your application:
 
@@ -42,10 +48,12 @@ def init_db():
 To define your models, just subclass the `Base` class that was created by
 the code above.  If you are wondering why we don’t have to care about
 threads here (like we did in the SQLite3 example above with the
-`g` object): that’s because SQLAlchemy does that for us
-already with the `scoped_session`.
+[ g](../../api/#flask.g) object): that’s because SQLAlchemy does that for us
+already with the 
 
-To use SQLAlchemy in a declarative way with your application, you just have to put the following code into your application module. Flask will automatically remove database sessions at the end of the request or when the application shuts down:
+[.](https://docs.sqlalchemy.org/en/20/orm/contextual.html#sqlalchemy.orm.scoped_session)
+
+`scoped_session`To use SQLAlchemy in a declarative way with your application, you just have to put the following code into your application module. Flask will automatically remove database sessions at the end of the request or when the application shuts down:
 
 ```
 from yourapplication.database import db_session
@@ -183,7 +191,8 @@ You can also pass strings of SQL statements to the
 >>> engine.execute('select * from users where id = :1', [1]).first()
 (1, 'admin', 'admin@localhost')
 ```
-For more information about SQLAlchemy, head over to the website.
+For more information about SQLAlchemy, head over to the
+[website](https://www.sqlalchemy.org/).
 
 # Citations
 

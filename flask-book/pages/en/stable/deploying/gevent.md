@@ -2,19 +2,23 @@
 type: Web Page
 title: gevent — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/gevent
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # gevent
 
-Prefer using Gunicorn or uWSGI with gevent workers rather than using gevent directly. Gunicorn and uWSGI provide much more configurable and production-tested servers.
+Prefer using [Gunicorn](../gunicorn/) or [uWSGI](../uwsgi/) with gevent workers rather
+than using [gevent](https://www.gevent.org/) directly. Gunicorn and uWSGI provide much more
+configurable and production-tested servers.
 
-gevent allows writing asynchronous, coroutine-based code that looks
-like standard synchronous Python. It uses greenlet to enable task
+[gevent](https://www.gevent.org/) allows writing asynchronous, coroutine-based code that looks
+like standard synchronous Python. It uses [greenlet](https://greenlet.readthedocs.io/en/latest/) to enable task
 switching without writing `async/await` or using `asyncio`. This is
 not the same as Python’s `async/await`, or the ASGI server spec.
 
-gevent provides a WSGI server that can handle many connections at once instead of one per worker process. See Async with Gevent for more information about enabling it in your application.
+gevent provides a WSGI server that can handle many connections at once
+instead of one per worker process. See [Async with Gevent](../../gevent/) for more
+information about enabling it in your application.
 
 ## Installing
 
@@ -48,7 +52,11 @@ No output is shown when the server starts.
 
 ## Binding Externally
 
-gevent should not be run as root because it would cause your application code to run as root, which is not secure. However, this means it will not be possible to bind to port 80 or 443. Instead, a reverse proxy such as nginx or Apache httpd should be used in front of gevent.
+gevent should not be run as root because it would cause your
+application code to run as root, which is not secure. However, this
+means it will not be possible to bind to port 80 or 443. Instead, a
+reverse proxy such as [nginx](../nginx/) or [Apache httpd](../apache-httpd/) should be used
+in front of gevent.
 
 You can bind to all external IPs on a non-privileged port by using
 `0.0.0.0` in the server arguments shown in the previous section. Don’t

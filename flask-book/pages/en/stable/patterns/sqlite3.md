@@ -2,7 +2,7 @@
 type: Web Page
 title: Using SQLite 3 with Flask — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/sqlite3
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Using SQLite 3 with Flask
@@ -116,7 +116,10 @@ if user is None:
 else:
     print(the_username, 'has the id', user['user_id'])
 ```
-To pass variable parts to the SQL statement, use a question mark in the statement and pass in the arguments as a list. Never directly add them to the SQL statement with string formatting because this makes it possible to attack the application using SQL Injections.
+To pass variable parts to the SQL statement, use a question mark in the
+statement and pass in the arguments as a list.  Never directly add them to
+the SQL statement with string formatting because this makes it possible
+to attack the application using [SQL Injections](https://en.wikipedia.org/wiki/SQL_injection).
 
 ## Initial Schemas
 

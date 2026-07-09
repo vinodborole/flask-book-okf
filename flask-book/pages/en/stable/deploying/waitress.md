@@ -2,12 +2,12 @@
 type: Web Page
 title: Waitress — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/waitress
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Waitress
 
-Waitress is a pure Python WSGI server.
+[Waitress](https://docs.pylonsproject.org/projects/waitress/) is a pure Python WSGI server.
 
 - It is easy to configure. 
 - It supports Windows directly. 
@@ -52,7 +52,11 @@ Logs for each request aren’t shown, only errors are shown. Logging can be conf
 
 ## Binding Externally
 
-Waitress should not be run as root because it would cause your application code to run as root, which is not secure. However, this means it will not be possible to bind to port 80 or 443. Instead, a reverse proxy such as nginx or Apache httpd should be used in front of Waitress.
+Waitress should not be run as root because it would cause your
+application code to run as root, which is not secure. However, this
+means it will not be possible to bind to port 80 or 443. Instead, a
+reverse proxy such as [nginx](../nginx/) or [Apache httpd](../apache-httpd/) should be used
+in front of Waitress.
 
 You can bind to all external IPs on a non-privileged port by not
 specifying the `--host` option. Don’t do this when using a reverse

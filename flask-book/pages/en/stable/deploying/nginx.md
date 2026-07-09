@@ -2,12 +2,16 @@
 type: Web Page
 title: nginx — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/nginx
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # nginx
 
-nginx is a fast, production level HTTP server. When serving your application with one of the WSGI servers listed in Deploying to Production, it is often good or necessary to put a dedicated HTTP server in front of it. This “reverse proxy” can handle incoming requests, TLS, and other security and performance concerns better than the WSGI server.
+[nginx](https://nginx.org/) is a fast, production level HTTP server. When serving your
+application with one of the WSGI servers listed in [Deploying to Production](../), it is
+often good or necessary to put a dedicated HTTP server in front of it.
+This “reverse proxy” can handle incoming requests, TLS, and other
+security and performance concerns better than the WSGI server.
 
 Nginx can be installed using your system package manager, or a pre-built executable for Windows. Installing and running Nginx itself is outside the scope of this doc. This page outlines the basics of configuring Nginx to proxy your application. Be sure to read its documentation to understand what features are available.
 
@@ -50,7 +54,7 @@ server {
     }
 }
 ```
-Then Tell Flask it is Behind a Proxy so that your application uses these headers.
+Then [Tell Flask it is Behind a Proxy](../proxy_fix/) so that your application uses these headers.
 
 # Citations
 

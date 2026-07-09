@@ -2,18 +2,19 @@
 type: Web Page
 title: Define and Access the Database — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/database
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Define and Access the Database
 
-The application will use a SQLite database to store users and posts.
-Python comes with built-in support for SQLite in the `sqlite3`
+The application will use a [SQLite](https://sqlite.org/about.html) database to store users and posts.
+Python comes with built-in support for SQLite in the [ sqlite3](https://docs.python.org/3/library/sqlite3.html#module-sqlite3)
 module.
 
 SQLite is convenient because it doesn’t require setting up a separate database server and is built-in to Python. However, if concurrent requests try to write to the database at the same time, they will slow down as each write happens sequentially. Small applications won’t notice this. Once you become big, you may want to switch to a different database.
 
-The tutorial doesn’t go into detail about SQL. If you are not familiar with it, the SQLite docs describe the language.
+The tutorial doesn’t go into detail about SQL. If you are not familiar
+with it, the SQLite docs describe the [language](https://sqlite.org/lang.html).
 
 ## Connect to the Database
 
@@ -39,23 +40,24 @@ def close_db(e=None):
     if db is not None:
         db.close()
 ```
-`g` is a special object that is unique for each request. It is
+[ g](../../api/#flask.g) is a special object that is unique for each request. It is
 used to store data that might be accessed by multiple functions during
 the request. The connection is stored and reused instead of creating a
-new connection if `get_db` is called a second time in the same
-request.
+new connection if 
 
-`current_app` is another special object that points to the Flask
+`get_db` is called a second time in the same
+request.[ current_app](../../api/#flask.current_app) is another special object that points to the Flask
 application handling the request. Since you used an application factory,
 there is no application object when writing the rest of your code.
+
 `get_db` will be called when the application has been created and is
-handling a request, so `current_app` can be used.
+handling a request, so [can be used.](../../api/#flask.current_app)
 
-`sqlite3.connect()` establishes a connection to the file pointed at
-by the `DATABASE` configuration key. This file doesn’t have to exist
-yet, and won’t until you initialize the database later.
+`current_app`[ sqlite3.connect()](https://docs.python.org/3/library/sqlite3.html#sqlite3.connect) establishes a connection to the file pointed at
+by the 
 
-`sqlite3.Row` tells the connection to return rows that behave
+`DATABASE` configuration key. This file doesn’t have to exist
+yet, and won’t until you initialize the database later.[ sqlite3.Row](https://docs.python.org/3/library/sqlite3.html#sqlite3.Row) tells the connection to return rows that behave
 like dicts. This allows accessing the columns by name.
 
 `close_db` checks if a connection was created by checking if `g.db`
@@ -104,21 +106,24 @@ sqlite3.register_converter(
     "timestamp", lambda v: datetime.fromisoformat(v.decode())
 )
 ```
-`open_resource()` opens a file relative to
-the `flaskr` package, which is useful since you won’t necessarily know
+[ open_resource()](../../api/#flask.Flask.open_resource) opens a file relative to
+the 
+
+`flaskr` package, which is useful since you won’t necessarily know
 where that location is when deploying the application later. `get_db`
 returns a database connection, which is used to execute the commands
-read from the file.
+read from the file.[ click.command()](https://click.palletsprojects.com/en/stable/api/#click.command) defines a command line command called 
 
-`click.command()` defines a command line command called `init-db`
+`init-db`
 that calls the `init_db` function and shows a success message to the
-user. You can read Command Line Interface to learn more about writing commands.
+user. You can read [Command Line Interface](../../cli/)to learn more about writing commands.
 
-The call to `sqlite3.register_converter()` tells Python how to
+The call to [ sqlite3.register_converter()](https://docs.python.org/3/library/sqlite3.html#sqlite3.register_converter) tells Python how to
 interpret timestamp values in the database. We convert the value to a
-`datetime.datetime`.
 
-## Register with the Application
+[.](https://docs.python.org/3/library/datetime.html#datetime.datetime)
+
+`datetime.datetime`## Register with the Application
 
 The `close_db` and `init_db_command` functions need to be registered
 with the application instance; otherwise, they won’t be used by the
@@ -131,14 +136,14 @@ def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
 ```
-`app.teardown_appcontext()` tells
+[ app.teardown_appcontext()](../../api/#flask.Flask.teardown_appcontext) tells
 Flask to call that function when cleaning up after returning the
 response.
 
-`app.cli.add_command()` adds a new
-command that can be called with the `flask` command.
+[ app.cli.add_command()](https://click.palletsprojects.com/en/stable/api/#click.Group.add_command) adds a new
+command that can be called with the 
 
-Import and call this function from the factory. Place the new code at the end of the factory function before returning the app.
+`flask` command.Import and call this function from the factory. Place the new code at the end of the factory function before returning the app.
 
 ```
 def create_app():
@@ -156,7 +161,10 @@ previous page.
 
 Note
 
-If you’re still running the server from the previous page, you can either stop the server, or run this command in a new terminal. If you use a new terminal, remember to change to your project directory and activate the env as described in Installation.
+If you’re still running the server from the previous page, you can
+either stop the server, or run this command in a new terminal. If
+you use a new terminal, remember to change to your project directory
+and activate the env as described in [Installation](../../installation/).
 
 Run the `init-db` command:
 
@@ -167,7 +175,7 @@ Initialized the database.
 There will now be a `flaskr.sqlite` file in the `instance` folder in
 your project.
 
-Continue to Blueprints and Views.
+Continue to [Blueprints and Views](../views/).
 
 # Citations
 

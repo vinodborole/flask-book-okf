@@ -2,19 +2,24 @@
 type: Web Page
 title: mod_wsgi — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/mod_wsgi
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # mod_wsgi
 
-mod_wsgi is a WSGI server integrated with the Apache httpd server. The modern mod_wsgi-express command makes it easy to configure and start the server without needing to write Apache httpd configuration.
+[mod_wsgi](https://modwsgi.readthedocs.io/) is a WSGI server integrated with the [Apache httpd](https://httpd.apache.org/) server.
+The modern [mod_wsgi-express](https://pypi.org/project/mod-wsgi/) command makes it easy to configure and
+start the server without needing to write Apache httpd configuration.
 
 - Tightly integrated with Apache httpd. 
 - Supports Windows directly. 
 - Requires a compiler and the Apache development headers to install. 
 - Does not require a reverse proxy setup. 
 
-This page outlines the basics of running mod_wsgi-express, not the more complex installation and configuration with httpd. Be sure to read the mod_wsgi-express, mod_wsgi, and Apache httpd documentation to understand what features are available.
+This page outlines the basics of running mod_wsgi-express, not the more
+complex installation and configuration with httpd. Be sure to read the
+[mod_wsgi-express](https://pypi.org/project/mod-wsgi/), [mod_wsgi](https://modwsgi.readthedocs.io/), and [Apache httpd](https://httpd.apache.org/) documentation to
+understand what features are available.
 
 ## Installing
 

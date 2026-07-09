@@ -2,7 +2,7 @@
 type: Web Page
 title: Application Structure and Lifecycle — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/lifecycle
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Application Structure and Lifecycle
@@ -12,7 +12,7 @@ Flask makes it pretty easy to write a web application. But there are quite a few
 ## Application Setup
 
 The first step in creating a Flask application is creating the application object. Each
-Flask application is an instance of the `Flask` class, which collects all
+Flask application is an instance of the [ Flask](../api/#flask.Flask) class, which collects all
 configuration, extensions, and views.
 
 ```
@@ -51,9 +51,9 @@ from within view functions that run during requests. This includes:
 Flask is a WSGI application framework. The other half of WSGI is the WSGI server. During
 development, Flask, through Werkzeug, provides a development WSGI server with the
 `flask run` CLI command. When you are done with development, use a production server
-to serve your application, see Deploying to Production.
+to serve your application, see [Deploying to Production](../deploying/).
 
-Regardless of what server you’re using, it will follow the **PEP 3333** WSGI spec. The
+Regardless of what server you’re using, it will follow the [ PEP 3333](https://peps.python.org/pep-3333/) WSGI spec. The
 WSGI server will be told how to access your Flask application object, which is the WSGI
 application. Then it will start listening for HTTP requests, translate the request data
 into a WSGI environ, and call the WSGI application with that data. The WSGI application
@@ -75,7 +75,7 @@ The WSGI application above is a callable that behaves in a certain way. Middlewa
 From the WSGI server’s perspective, there is one WSGI application, the one it calls directly. Typically, Flask is the “real” application at the end of the chain of middleware. But even Flask can call further WSGI applications, although that’s an advanced, uncommon use case.
 
 A common middleware you’ll see used with Flask is Werkzeug’s
-`ProxyFix`, which modifies the request to look
+[ ProxyFix](https://werkzeug.palletsprojects.com/en/stable/middleware/proxy_fix/#werkzeug.middleware.proxy_fix.ProxyFix), which modifies the request to look
 like it came directly from a client even if it passed through HTTP proxies on the way.
 There are other middleware that can handle serving static files, authentication, etc.
 
@@ -83,35 +83,38 @@ There are other middleware that can handle serving static files, authentication,
 
 For us, the interesting part of the steps above is when Flask gets called by the WSGI server (or middleware). At that point, it will do quite a lot to handle the request and generate the response. At the most basic, it will match the URL to a view function, call the view function, and pass the return value back to the server. But there are many more parts that you can use to customize its behavior.
 
-- WSGI server calls the Flask object, which calls - `Flask.wsgi_app()`.
-- A - `RequestContext`object is created. This converts the WSGI- `environ`dict into a- `Request`object. It also creates an- `AppContext`object.
-- The app context is pushed, which makes - `current_app`and- `g`available.
-- The - `appcontext_pushed`signal is sent.
-- The request context is pushed, which makes - `request`and- `session`available.
-- The session is opened, loading any existing session data using the app’s - `session_interface`, an instance of- `SessionInterface`.
-- The URL is matched against the URL rules registered with the - `route()`decorator during application setup. If there is no match, the error - usually a 404, 405, or redirect - is stored to be handled later.
-- The - `request_started`signal is sent.
-- Any - `url_value_preprocessor()`decorated functions are called.
-- Any - `before_request()`decorated functions are called. If any of these function returns a value it is treated as the response immediately.
+- WSGI server calls the Flask object, which calls - `Flask.wsgi_app()`
+- A - `RequestContext`- `environ`dict into a- `Request`- `AppContext`object.
+- The - [app context](../appcontext/)is pushed, which makes- `current_app`- `g`
+- The - `appcontext_pushed`
+- The - [request context](../reqcontext/)is pushed, which makes- `request`- `session`
+- The session is opened, loading any existing session data using the app’s - `session_interface`- `SessionInterface`
+- The URL is matched against the URL rules registered with the - `route()`
+- The - `request_started`
+- Any - `url_value_preprocessor()`
+- Any - `before_request()`
 - If the URL didn’t match a route a few steps ago, that error is raised now. 
-- The - `route()`decorated view function associated with the matched URL is called and returns a value to be used as the response.
-- If any step so far raised an exception, and there is an - `errorhandler()`decorated function that matches the exception class or HTTP error code, it is called to handle the error and return a response.
-- Whatever returned a response value - a before request function, the view, or an error handler, that value is converted to a - `Response`object.
-- Any - `after_this_request()`decorated functions are called, then cleared.
-- Any - `after_request()`decorated functions are called, which can modify the response object.
-- The session is saved, persisting any modified session data using the app’s - `session_interface`.
-- The - `request_finished`signal is sent.
-- If any step so far raised an exception, and it was not handled by an error handler function, it is handled now. HTTP exceptions are treated as responses with their corresponding status code, other exceptions are converted to a generic 500 response. The - `got_request_exception`signal is sent.
+- The - `route()`
+- If any step so far raised an exception, and there is an - `errorhandler()`
+- Whatever returned a response value - a before request function, the view, or an error handler, that value is converted to a - `Response`
+- Any - `after_this_request()`
+- Any - `after_request()`
+- The session is saved, persisting any modified session data using the app’s - `session_interface`
+- The - `request_finished`
+- If any step so far raised an exception, and it was not handled by an error handler function, it is handled now. HTTP exceptions are treated as responses with their corresponding status code, other exceptions are converted to a generic 500 response. The - `got_request_exception`
 - The response object’s status, headers, and body are returned to the WSGI server. 
-- Any - `teardown_request()`decorated functions are called.
-- The - `request_tearing_down`signal is sent.
-- The request context is popped, - `request`and- `session`are no longer available.
-- Any - `teardown_appcontext()`decorated functions are called.
-- The - `appcontext_tearing_down`signal is sent.
-- The app context is popped, - `current_app`and- `g`are no longer available.
-- The - `appcontext_popped`signal is sent.
+- Any - `teardown_request()`
+- The - `request_tearing_down`
+- The request context is popped, - `request`- `session`
+- Any - `teardown_appcontext()`
+- The - `appcontext_tearing_down`
+- The app context is popped, - `current_app`- `g`
+- The - `appcontext_popped`
 
-There are even more decorators and customization points than this, but that aren’t part of every request lifecycle. They’re more specific to certain things you might use during a request, such as templates, building URLs, or handling JSON data. See the rest of this documentation, as well as the API to explore further.
+There are even more decorators and customization points than this, but that aren’t part
+of every request lifecycle. They’re more specific to certain things you might use during
+a request, such as templates, building URLs, or handling JSON data. See the rest of this
+documentation, as well as the [API](../api/) to explore further.
 
 # Citations
 

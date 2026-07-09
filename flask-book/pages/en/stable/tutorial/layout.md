@@ -2,7 +2,7 @@
 type: Web Page
 title: Project Layout — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/layout
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Project Layout
@@ -13,7 +13,8 @@ Create a project directory and enter it:
 $ mkdir flask-tutorial
 $ cd flask-tutorial
 ```
-Then follow the installation instructions to set up a Python virtual environment and install Flask for your project.
+Then follow the [installation instructions](../../installation/) to set
+up a Python virtual environment and install Flask for your project.
 
 The tutorial will assume you’re working from the `flask-tutorial`
 directory from now on. The file names at the top of each code block are
@@ -39,7 +40,7 @@ The project directory will contain:
 - `tests/`, a directory containing test modules.
 - `.venv/`, a Python virtual environment where Flask and other dependencies are installed.
 - Installation files telling Python how to install your project. 
-- Version control config, such as git. You should make a habit of using some type of version control for all your projects, no matter the size. 
+- Version control config, such as - [git](https://git-scm.com/). You should make a habit of using some type of version control for all your projects, no matter the size.
 - Any other project files you might add in the future. 
 
 By the end, your project layout will look like this:
@@ -88,7 +89,7 @@ dist/
 build/
 *.egg-info/
 ```
-Continue to Application Setup.
+Continue to [Application Setup](../factory/).
 
 # Citations
 

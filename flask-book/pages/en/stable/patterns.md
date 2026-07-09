@@ -2,7 +2,7 @@
 type: Web Page
 title: Patterns for Flask — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Patterns for Flask
@@ -11,29 +11,29 @@ Certain features and interactions are common enough that you will find them in m
 
 These types of patterns may be a bit outside the scope of Flask itself, but Flask makes it easy to implement them. Some common patterns are collected in the following pages.
 
-- Large Applications as Packages
-- Application Factories
-- Application Dispatching
-- Using URL Processors
-- Using SQLite 3 with Flask
-- SQLAlchemy in Flask
-- Uploading Files
-- Caching
-- View Decorators
-- Form Validation with WTForms
-- Template Inheritance
-- Message Flashing
-- JavaScript, `fetch`, and JSON
-- Lazily Loading Views
-- MongoDB with MongoEngine
-- Adding a favicon
-- Streaming Contents
-- Deferred Request Callbacks
-- Adding HTTP Method Overrides
-- Request Content Checksums
-- Background Tasks with Celery
-- Subclassing Flask
-- Single-Page Applications
+- [Large Applications as Packages](packages/)
+- [Application Factories](appfactories/)
+- [Application Dispatching](appdispatch/)
+- [Using URL Processors](urlprocessors/)
+- [Using SQLite 3 with Flask](sqlite3/)
+- [SQLAlchemy in Flask](sqlalchemy/)
+- [Uploading Files](fileuploads/)
+- [Caching](caching/)
+- [View Decorators](viewdecorators/)
+- [Form Validation with WTForms](wtforms/)
+- [Template Inheritance](templateinheritance/)
+- [Message Flashing](flashing/)
+- [JavaScript,](javascript/)- `fetch`, and JSON
+- [Lazily Loading Views](lazyloading/)
+- [MongoDB with MongoEngine](mongoengine/)
+- [Adding a favicon](favicon/)
+- [Streaming Contents](streaming/)
+- [Deferred Request Callbacks](deferredcallbacks/)
+- [Adding HTTP Method Overrides](methodoverrides/)
+- [Request Content Checksums](requestchecksum/)
+- [Background Tasks with Celery](celery/)
+- [Subclassing Flask](subclassing/)
+- [Single-Page Applications](singlepageapplications/)
 
 # Citations
 

@@ -2,12 +2,16 @@
 type: Web Page
 title: Application Factories — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/appfactories
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Application Factories
 
-If you are already using packages and blueprints for your application (Modular Applications with Blueprints) there are a couple of really nice ways to further improve the experience. A common pattern is creating the application object when the blueprint is imported. But if you move the creation of this object into a function, you can then create multiple instances of this app later.
+If you are already using packages and blueprints for your application
+([Modular Applications with Blueprints](../../blueprints/)) there are a couple of really nice ways to further improve
+the experience.  A common pattern is creating the application object when
+the blueprint is imported.  But if you move the creation of this object
+into a function, you can then create multiple instances of this app later.
 
 So why would you want to do this?
 
@@ -35,7 +39,7 @@ def create_app(config_filename):
 The downside is that you cannot use the application object in the blueprints
 at import time.  You can however use it from within a request.  How do you
 get access to the application with the config?  Use
-`current_app`:
+[ current_app](../../api/#flask.current_app):
 
 ```
 from flask import current_app, Blueprint, render_template
@@ -50,7 +54,8 @@ Here we look up the name of a template in the config.
 
 It’s preferable to create your extensions and app factories so that the extension object does not initially get bound to the application.
 
-Using Flask-SQLAlchemy, as an example, you should not do something along those lines:
+Using [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/),
+as an example, you should not do something along those lines:
 
 ```
 def create_app(config_filename):
@@ -72,7 +77,9 @@ def create_app(config_filename):
     from yourapplication.model import db
     db.init_app(app)
 ```
-Using this design pattern, no application-specific state is stored on the extension object, so one extension object can be used for multiple apps. For more information about the design of extensions refer to Flask Extension Development.
+Using this design pattern, no application-specific state is stored on the
+extension object, so one extension object can be used for multiple apps.
+For more information about the design of extensions refer to [Flask Extension Development](../../extensiondev/).
 
 ## Using Applications
 
@@ -89,7 +96,7 @@ to the factory like this:
 $ flask --app 'hello:create_app(local_auth=True)' run
 ```
 Then the `create_app` factory in `hello` is called with the keyword
-argument `local_auth=True`. See Command Line Interface for more detail.
+argument `local_auth=True`. See [Command Line Interface](../../cli/) for more detail.
 
 ## Factory Improvements
 

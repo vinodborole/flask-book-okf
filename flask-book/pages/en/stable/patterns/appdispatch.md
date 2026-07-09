@@ -2,21 +2,24 @@
 type: Web Page
 title: Application Dispatching — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/appdispatch
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Application Dispatching
 
 Application dispatching is the process of combining multiple Flask applications on the WSGI level. You can combine not only Flask applications but any WSGI application. This would allow you to run a Django and a Flask application in the same interpreter side by side if you want. The usefulness of this depends on how the applications work internally.
 
-The fundamental difference from Large Applications as Packages is that in this case you are running the same or different Flask applications that are entirely isolated from each other. They run different configurations and are dispatched on the WSGI level.
+The fundamental difference from [Large Applications as Packages](../packages/) is that in this case you
+are running the same or different Flask applications that are entirely
+isolated from each other. They run different configurations and are
+dispatched on the WSGI level.
 
 ## Working with this Document
 
 Each of the techniques and examples below results in an `application`
 object that can be run with any WSGI server. For development, use the
 `flask run` command to start a development server. For production, see
-Deploying to Production.
+[Deploying to Production](../../deploying/).
 
 ```
 from flask import Flask
@@ -47,7 +50,12 @@ application = DispatcherMiddleware(frontend, {
 ```
 ## Dispatch by Subdomain
 
-Sometimes you might want to use multiple instances of the same application with different configurations. Assuming the application is created inside a function and you can call that function to instantiate it, that is really easy to implement. In order to develop your application to support creating new instances in functions have a look at the Application Factories pattern.
+Sometimes you might want to use multiple instances of the same application
+with different configurations.  Assuming the application is created inside
+a function and you can call that function to instantiate it, that is
+really easy to implement.  In order to develop your application to support
+creating new instances in functions have a look at the
+[Application Factories](../appfactories/) pattern.
 
 A very common example would be creating applications per subdomain. For instance you configure your webserver to dispatch all requests for all subdomains to your application and you then use the subdomain information to create user-specific instances. Once you have your server set up to listen on all subdomains you can use a very simple WSGI application to do the dynamic application creation.
 

@@ -2,12 +2,19 @@
 type: Web Page
 title: Deploy to Production — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/deploy
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Deploy to Production
 
-This part of the tutorial assumes you have a server that you want to deploy your application to. It gives an overview of how to create the distribution file and install it, but won’t go into specifics about what server or software to use. You can set up a new environment on your development computer to try out the instructions below, but probably shouldn’t use it for hosting a real public application. See Deploying to Production for a list of many different ways to host your application.
+This part of the tutorial assumes you have a server that you want to
+deploy your application to. It gives an overview of how to create the
+distribution file and install it, but won’t go into specifics about
+what server or software to use. You can set up a new environment on your
+development computer to try out the instructions below, but probably
+shouldn’t use it for hosting a real public application. See
+[Deploying to Production](../../deploying/) for a list of many different ways to host your
+application.
 
 ## Build and Install
 
@@ -23,7 +30,7 @@ file name is in the format of {project name}-{version}-{python tag}
 -{abi tag}-{platform tag}.
 
 Copy this file to another machine,
-set up a new virtualenv, then install the
+[set up a new virtualenv](../../installation/#install-create-env), then install the
 file with `pip`.
 
 ```
@@ -43,11 +50,11 @@ a different directory for the instance folder. You can find it at
 ## Configure the Secret Key
 
 In the beginning of the tutorial that you gave a default value for
-`SECRET_KEY`. This should be changed to some random bytes in
-production. Otherwise, attackers could use the public `'dev'` key to
-modify the session cookie, or anything else that uses the secret key.
+[ SECRET_KEY](../../config/#SECRET_KEY). This should be changed to some random bytes in
+production. Otherwise, attackers could use the public 
 
-You can use the following command to output a random secret key:
+`'dev'` key to
+modify the session cookie, or anything else that uses the secret key.You can use the following command to output a random secret key:
 
 ```
 $ python -c 'import secrets; print(secrets.token_hex())'
@@ -69,7 +76,8 @@ built-in development server (`flask run`). The development server is
 provided by Werkzeug for convenience, but is not designed to be
 particularly efficient, stable, or secure.
 
-Instead, use a production WSGI server. For example, to use Waitress, first install it in the virtual environment:
+Instead, use a production WSGI server. For example, to use [Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/),
+first install it in the virtual environment:
 
 ```
 $ pip install waitress
@@ -82,9 +90,12 @@ call the application factory to get an application object.
 $ waitress-serve --call 'flaskr:create_app'
 Serving on http://0.0.0.0:8080
 ```
-See Deploying to Production for a list of many different ways to host your application. Waitress is just an example, chosen for the tutorial because it supports both Windows and Linux. There are many more WSGI servers and deployment options that you may choose for your project.
+See [Deploying to Production](../../deploying/) for a list of many different ways to host
+your application. Waitress is just an example, chosen for the tutorial
+because it supports both Windows and Linux. There are many more WSGI
+servers and deployment options that you may choose for your project.
 
-Continue to Keep Developing!.
+Continue to [Keep Developing!](../next/).
 
 # Citations
 

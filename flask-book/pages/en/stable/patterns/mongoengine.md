@@ -2,14 +2,16 @@
 type: Web Page
 title: MongoDB with MongoEngine — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/mongoengine
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # MongoDB with MongoEngine
 
-Using a document database like MongoDB is a common alternative to relational SQL databases. This pattern shows how to use MongoEngine, a document mapper library, to integrate with MongoDB.
+Using a document database like MongoDB is a common alternative to
+relational SQL databases. This pattern shows how to use
+[MongoEngine](http://mongoengine.org), a document mapper library, to integrate with MongoDB.
 
-A running MongoDB server and Flask-MongoEngine are required.
+A running MongoDB server and [Flask-MongoEngine](https://docs.mongoengine.org/projects/flask-mongoengine/en/latest/) are required.
 
 ```
 pip install flask-mongoengine
@@ -89,9 +91,11 @@ for recents in Movie.objects(year__gte=2017):
 ```
 ## Documentation
 
-There are many more ways to define and query documents with MongoEngine. For more information, check out the official documentation.
+There are many more ways to define and query documents with MongoEngine.
+For more information, check out the [official documentation](http://mongoengine.org).
 
-Flask-MongoEngine adds helpful utilities on top of MongoEngine. Check out their documentation as well.
+Flask-MongoEngine adds helpful utilities on top of MongoEngine. Check
+out their [documentation](https://docs.mongoengine.org/projects/flask-mongoengine/en/latest/) as well.
 
 # Citations
 

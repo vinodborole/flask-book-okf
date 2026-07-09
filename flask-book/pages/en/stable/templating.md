@@ -2,14 +2,18 @@
 type: Web Page
 title: Templates — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/templating
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Templates
 
 Flask leverages Jinja as its template engine. You are obviously free to use a different template engine, but you still have to install Jinja to run Flask itself. This requirement is necessary to enable rich extensions. An extension can depend on Jinja being present.
 
-This section only gives a very quick introduction into how Jinja is integrated into Flask. If you want information on the template engine’s syntax itself, head over to the official Jinja Template Documentation for more information.
+This section only gives a very quick introduction into how Jinja
+is integrated into Flask.  If you want information on the template
+engine’s syntax itself, head over to the official [Jinja Template
+Documentation](https://jinja.palletsprojects.com/templates/) for
+more information.
 
 ## Jinja Setup
 
@@ -25,22 +29,22 @@ Unless customized, Jinja is configured by Flask as follows:
 The following global variables are available within Jinja templates by default:
 
 - config
-- The current configuration object ( - `flask.Flask.config`)- ## Changelog- Changed in version 0.10: This is now always available, even in imported templates. - Added in version 0.6. 
+- The current configuration object ( - `flask.Flask.config`- ## Changelog- Changed in version 0.10: This is now always available, even in imported templates. - Added in version 0.6. 
 
 - request
-- The current request object ( - `flask.request`). This variable is unavailable if the template was rendered without an active request context.
+- The current request object ( - `flask.request`
 
 - session
-- The current session object ( - `flask.session`). This variable is unavailable if the template was rendered without an active request context.
+- The current session object ( - `flask.session`
 
 - g
-- The request-bound object for global variables ( - `flask.g`). This variable is unavailable if the template was rendered without an active request context.
+- The request-bound object for global variables ( - `flask.g`
 
 - url_for()
-- The - `flask.url_for()`function.
+- The - `flask.url_for()`
 
 - get_flashed_messages()
-- The - `flask.get_flashed_messages()`function.
+- The - `flask.get_flashed_messages()`
 
 The Jinja Context Behavior
 
@@ -65,7 +69,7 @@ carry specific meanings in documents on their own you have to replace them
 by so called “entities” if you want to use them for text.  Not doing so
 would not only cause user frustration by the inability to use these
 characters in text, but can also lead to security problems.  (see
-Cross-Site Scripting (XSS))
+[Cross-Site Scripting (XSS)](../web-security/#security-xss))
 
 Sometimes however you will need to disable autoescaping in templates. This can be the case if you want to explicitly inject HTML into pages, for example if they come from a system that generates secure HTML like a markdown to HTML converter.
 
@@ -93,10 +97,11 @@ Whenever you do this, please be very cautious about the variables you are using 
 
 If you want to register your own filters in Jinja you have two ways to do
 that.  You can either put them by hand into the
-`jinja_env` of the application or use the
-`template_filter()` decorator.
+[ jinja_env](../api/#flask.Flask.jinja_env) of the application or use the
 
-The two following examples work the same and both reverse an object:
+[decorator.](../api/#flask.Flask.template_filter)
+
+`template_filter()`The two following examples work the same and both reverse an object:
 
 ```
 @app.template_filter('reverse')
@@ -145,7 +150,7 @@ templates:
 {{ format_price(0.33) }}
 ```
 You could also build `format_price` as a template filter (see
-Registering Filters), but this demonstrates how to pass functions in a
+[Registering Filters](#registering-filters)), but this demonstrates how to pass functions in a
 context processor.
 
 ## Streaming
@@ -154,21 +159,22 @@ It can be useful to not render the whole template as one complete string, instea
 
 The Jinja template engine supports rendering a template piece
 by piece, returning an iterator of strings. Flask provides the
-`stream_template()` and `stream_template_string()`
-functions to make this easier to use.
+[ stream_template()](../api/#flask.stream_template) and 
 
-```
+[functions to make this easier to use.](../api/#flask.stream_template_string)
+
+`stream_template_string()````
 from flask import stream_template
 @app.get("/timeline")
 def timeline():
     return stream_template("timeline.html")
 ```
 These functions automatically apply the
-`stream_with_context()` wrapper if a request is active, so that
-`request`, `session`, and `g` remain available in the
-template.
+[ stream_with_context()](../api/#flask.stream_with_context) wrapper if a request is active, so that
 
-More headers cannot be sent after the body has begun. Therefore, you must
+`request`, `session`, and [remain available in the template.](../api/#flask.g)
+
+`g`More headers cannot be sent after the body has begun. Therefore, you must
 make sure all headers are set before starting the response. In particular,
 if the template will access `session`, be sure to do so in the view as
 well so that the `Vary: cookie` header will be set.

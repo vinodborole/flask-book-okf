@@ -2,16 +2,21 @@
 type: Web Page
 title: Background Tasks with Celery — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/celery
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Background Tasks with Celery
 
 If your application has a long running task, such as processing some uploaded data or sending email, you don’t want to wait for it to finish during a request. Instead, use a task queue to send the necessary data to another process that will run the task in the background while the request returns immediately.
 
-Celery is a powerful task queue that can be used for simple background tasks as well as complex multi-stage programs and schedules. This guide will show you how to configure Celery using Flask. Read Celery’s First Steps with Celery guide to learn how to use Celery itself.
+[Celery](https://celery.readthedocs.io) is a powerful task queue that can be used for simple background tasks as well
+as complex multi-stage programs and schedules. This guide will show you how to configure
+Celery using Flask. Read Celery’s [First Steps with Celery](https://celery.readthedocs.io/en/latest/getting-started/first-steps-with-celery.html) guide to learn how to use
+Celery itself.
 
-The Flask repository contains an example based on the information on this page, which also shows how to use JavaScript to submit tasks and poll for progress and results.
+The Flask repository contains [an example](https://github.com/pallets/flask/tree/main/examples/celery)
+based on the information on this page, which also shows how to use JavaScript to submit
+tasks and poll for progress and results.
 
 ## Install
 
@@ -41,7 +46,7 @@ def celery_init_app(app: Flask) -> Celery:
     app.extensions["celery"] = celery_app
     return celery_app
 ```
-This creates and returns a `Celery` app object. Celery configuration is taken from
+This creates and returns a `Celery` app object. Celery [configuration](https://celery.readthedocs.io/en/stable/userguide/configuration.html) is taken from
 the `CELERY` key in the Flask configuration. The Celery app is set as the default, so
 that it is seen during each request. The `Task` subclass automatically runs task
 functions with a Flask app context active, so that services like your database
@@ -168,7 +173,8 @@ def task_result(id: str) -> dict[str, object]:
 ```
 Now you can start the task using the first route, then poll for the result using the second route. This keeps the Flask request workers from being blocked waiting for tasks to finish.
 
-The Flask repository contains an example using JavaScript to submit tasks and poll for progress and results.
+The Flask repository contains [an example](https://github.com/pallets/flask/tree/main/examples/celery)
+using JavaScript to submit tasks and poll for progress and results.
 
 ## Passing Data to Tasks
 

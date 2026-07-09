@@ -2,12 +2,12 @@
 type: Web Page
 title: Command Line Interface — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/cli
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Command Line Interface
 
-Installing Flask installs the `flask` script, a Click command line
+Installing Flask installs the `flask` script, a [Click](https://click.palletsprojects.com/) command line
 interface, in your virtualenv. Executed from the terminal, this script gives
 access to built-in, extension, and application-defined commands. The `--help`
 option will give more information about any commands and options.
@@ -54,21 +54,26 @@ If parentheses follow the factory name, their contents are parsed as Python lite
 
 ## Run the Development Server
 
-The `run` command will start the development server. It
-replaces the `Flask.run()` method in most cases.
+The [ run](../api/#flask.cli.run_command) command will start the development server. It
+replaces the 
 
-```
+[method in most cases.](../api/#flask.Flask.run)
+
+`Flask.run()````
 $ flask --app hello run
  * Serving Flask app "hello"
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 Warning
 
-Do not use this command to run your application in production. Only use the development server during development. The development server is provided for convenience, but is not designed to be particularly secure, stable, or efficient. See Deploying to Production for how to run in production.
+Do not use this command to run your application in production.
+Only use the development server during development. The development server
+is provided for convenience, but is not designed to be particularly secure,
+stable, or efficient. See [Deploying to Production](../deploying/) for how to run in production.
 
 If another program is already using port 5000, you’ll see
 `OSError: [Errno 98]` or `OSError: [WinError 10013]` when the
-server tries to start. See Address already in use for how to
+server tries to start. See [Address already in use](../server/#address-already-in-use) for how to
 handle that.
 
 ### Debug Mode
@@ -104,14 +109,13 @@ $ flask run --extra-files file1:dirA/file2:dirB/
  * Running on http://127.0.0.1:8000/
  * Detected change in '/path/to/file1', reloading
 ```
-The reloader can also ignore files using `fnmatch` patterns with the
-`--exclude-patterns` option. Multiple patterns are separated with `:`, or `;` on
-Windows.
+The reloader can also ignore files using [ fnmatch](https://docs.python.org/3/library/fnmatch.html#module-fnmatch) patterns with the
 
-## Open a Shell
+`--exclude-patterns` option. Multiple patterns are separated with `:`, or `;` on
+Windows.## Open a Shell
 
 To explore the data in your application, you can start an interactive Python
-shell with the `shell` command. An application
+shell with the [ shell](../api/#flask.cli.shell_command) command. An application
 context will be active, and the app instance will be imported.
 
 ```
@@ -121,7 +125,7 @@ App: example [production]
 Instance: /home/david/Projects/pallets/flask/instance
 >>>
 ```
-Use `shell_context_processor()` to add other automatic imports.
+Use [ shell_context_processor()](../api/#flask.Flask.shell_context_processor) to add other automatic imports.
 
 ## Environment Variables From dotenv
 
@@ -132,7 +136,7 @@ environment variables. The variables are named like `FLASK_OPTION` or
 
 Rather than passing options every time you run a command, or environment variables every time you open a new terminal, you can use Flask’s dotenv support to set environment variables automatically.
 
-If python-dotenv is installed, running the `flask` command will set
+If [python-dotenv](https://github.com/theskumar/python-dotenv#readme) is installed, running the `flask` command will set
 environment variables defined in the files `.env` and `.flaskenv`.
 You can also specify an extra file to load with the `--env-file`
 option. Dotenv files can be used to avoid having to set `--app` or
@@ -148,10 +152,12 @@ Directories are scanned upwards from the directory you call `flask`
 from to locate the files.
 
 The files are only loaded by the `flask` command or calling
-`run()`. If you would like to load these files when running in
-production, you should call `load_dotenv()` manually.
+[ run()](../api/#flask.Flask.run). If you would like to load these files when running in
+production, you should call 
 
-### Setting Command Options
+[manually.](../api/#flask.cli.load_dotenv)
+
+`load_dotenv()`### Setting Command Options
 
 Click is configured to load default values for command options from
 environment variables. The variables use the pattern
@@ -245,7 +251,7 @@ is checked out.
 
 ## Custom Commands
 
-The `flask` command is implemented using Click. See that project’s
+The `flask` command is implemented using [Click](https://click.palletsprojects.com/). See that project’s
 documentation for full information about writing commands.
 
 This example adds the command `create-user` that takes the argument
@@ -281,7 +287,8 @@ app.cli.add_command(user_cli)
 ```
 $ flask user create demo
 ```
-See Running Commands with the CLI Runner for an overview of how to test your custom commands.
+See [Running Commands with the CLI Runner](../testing/#testing-cli) for an overview of how to test your custom
+commands.
 
 ### Registering Commands with Blueprints
 
@@ -304,11 +311,11 @@ app.register_blueprint(bp)
 $ flask students create alice
 ```
 You can alter the group name by specifying the `cli_group` parameter
-when creating the `Blueprint` object, or later with
-`app.register_blueprint(bp, cli_group='...')`.
-The following are equivalent:
+when creating the [ Blueprint](../api/#flask.Blueprint) object, or later with
 
-```
+[. The following are equivalent:](../api/#flask.Flask.register_blueprint)
+
+`app.register_blueprint(bp, cli_group='...')````
 bp = Blueprint('students', __name__, cli_group='other')
 # or
 app.register_blueprint(bp, cli_group='other')
@@ -329,14 +336,13 @@ $ flask create alice
 ```
 ### Application Context
 
-Commands added using the Flask app’s `cli` or
-`FlaskGroup` `command()` decorator
-will be executed with an application context pushed, so your custom
-commands and parameters have access to the app and its configuration. The
-`with_appcontext()` decorator can be used to get the same
-behavior, but is not needed in most cases.
+Commands added using the Flask app’s [ cli](../api/#flask.Flask.cli) or
 
-```
+`FlaskGroup`[decorator will be executed with an application context pushed, so your custom commands and parameters have access to the app and its configuration. The](../api/#flask.cli.AppGroup.command)
+
+`command()`[decorator can be used to get the same behavior, but is not needed in most cases.](../api/#flask.cli.with_appcontext)
+
+`with_appcontext()````
 import click
 from flask.cli import with_appcontext
 @click.command()
@@ -348,7 +354,7 @@ app.cli.add_command(do_work)
 ## Plugins
 
 Flask will automatically load commands specified in the `flask.commands`
-entry point. This is useful for extensions that want to add commands when
+[entry point](https://packaging.python.org/tutorials/packaging-projects/#entry-points). This is useful for extensions that want to add commands when
 they are installed. Entry points are specified in `pyproject.toml`:
 
 ```
@@ -372,9 +378,9 @@ you can run `flask my-command` to invoke the command.
 When you are using the app factory pattern, it may be more convenient to define
 your own Click script. Instead of using `--app` and letting Flask load
 your application, you can create your own Click object and export it as a
-console script entry point.
+[console script](https://packaging.python.org/tutorials/packaging-projects/#console-scripts) entry point.
 
-Create an instance of `FlaskGroup` and pass it the factory:
+Create an instance of [ FlaskGroup](../api/#flask.cli.FlaskGroup) and pass it the factory:
 
 ```
 import click

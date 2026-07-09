@@ -2,7 +2,7 @@
 type: Web Page
 title: Templates — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/templates
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Templates
@@ -10,13 +10,16 @@ timestamp: '2026-07-07T08:53:11.212445+00:00'
 You’ve written the authentication views for your application, but if
 you’re running the server and try to go to any of the URLs, you’ll see a
 `TemplateNotFound` error. That’s because the views are calling
-`render_template()`, but you haven’t written the templates yet.
-The template files will be stored in the `templates` directory inside
-the `flaskr` package.
+[ render_template()](../../api/#flask.render_template), but you haven’t written the templates yet.
+The template files will be stored in the 
 
-Templates are files that contain static data as well as placeholders for dynamic data. A template is rendered with specific data to produce a final document. Flask uses the Jinja template library to render templates.
+`templates` directory inside
+the `flaskr` package.Templates are files that contain static data as well as placeholders
+for dynamic data. A template is rendered with specific data to produce a
+final document. Flask uses the [Jinja](https://jinja.palletsprojects.com/templates/) template library to render
+templates.
 
-In your application, you will use templates to render HTML which
+In your application, you will use templates to render [HTML](https://developer.mozilla.org/docs/Web/HTML) which
 will display in the user’s browser. In Flask, Jinja is configured to
 *autoescape* any data that is rendered in HTML templates. This means
 that it’s safe to render user input; any characters they’ve entered that
@@ -65,18 +68,18 @@ specific sections.
   {% block content %}{% endblock %}
 </section>
 ```
-`g` is automatically available in templates. Based on if
+[ g](../../api/#flask.g) is automatically available in templates. Based on if
+
 `g.user` is set (from `load_logged_in_user`), either the username
 and a log out link are displayed, or links to register and log in
-are displayed. `url_for()` is also automatically available, and is
-used to generate URLs to views instead of writing them out manually.
+are displayed. [is also automatically available, and is used to generate URLs to views instead of writing them out manually.](../../api/#flask.url_for)
 
-After the page title, and before the content, the template loops over
-each message returned by `get_flashed_messages()`. You used
-`flash()` in the views to show error messages, and this is the code
-that will display them.
+`url_for()`After the page title, and before the content, the template loops over
+each message returned by [ get_flashed_messages()](../../api/#flask.get_flashed_messages). You used
 
-There are three blocks defined here that will be overridden in the other templates:
+[in the views to show error messages, and this is the code that will display them.](../../api/#flask.flash)
+
+`flash()`There are three blocks defined here that will be overridden in the other templates:
 
 - `{% block title %}`will change the title displayed in the browser’s tab and window title.
 - `{% block header %}`is similar to- `title`but will change the title displayed on the page.
@@ -144,20 +147,20 @@ This is identical to the register template except for the title and submit butto
 
 Now that the authentication templates are written, you can register a
 user. Make sure the server is still running (`flask run` if it’s not),
-then go to http://127.0.0.1:5000/auth/register.
+then go to [http://127.0.0.1:5000/auth/register](http://127.0.0.1:5000/auth/register).
 
 Try clicking the “Register” button without filling out the form and see
 that the browser shows an error message. Try removing the `required`
 attributes from the `register.html` template and click “Register”
 again. Instead of the browser showing an error, the page will reload and
-the error from `flash()` in the view will be shown.
+the error from [ flash()](../../api/#flask.flash) in the view will be shown.
 
 Fill out a username and password and you’ll be redirected to the login
 page. Try entering an incorrect username, or the correct username and
 incorrect password. If you log in you’ll get an error because there’s
 no `index` view to redirect to yet.
 
-Continue to Static Files.
+Continue to [Static Files](../static/).
 
 # Citations
 

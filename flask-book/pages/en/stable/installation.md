@@ -2,7 +2,7 @@
 type: Web Page
 title: Installation — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/installation
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Installation
@@ -15,22 +15,23 @@ We recommend using the latest version of Python. Flask supports Python 3.9 and n
 
 These distributions will be installed automatically when installing Flask.
 
-- Werkzeug implements WSGI, the standard Python interface between applications and servers. 
-- Jinja is a template language that renders the pages your application serves. 
-- MarkupSafe comes with Jinja. It escapes untrusted input when rendering templates to avoid injection attacks. 
-- ItsDangerous securely signs data to ensure its integrity. This is used to protect Flask’s session cookie. 
-- Click is a framework for writing command line applications. It provides the - `flask`command and allows adding custom management commands.
+- [Werkzeug](https://palletsprojects.com/p/werkzeug/)implements WSGI, the standard Python interface between applications and servers.
+- [Jinja](https://palletsprojects.com/p/jinja/)is a template language that renders the pages your application serves.
+- [MarkupSafe](https://palletsprojects.com/p/markupsafe/)comes with Jinja. It escapes untrusted input when rendering templates to avoid injection attacks.
+- [ItsDangerous](https://palletsprojects.com/p/itsdangerous/)securely signs data to ensure its integrity. This is used to protect Flask’s session cookie.
+- [Click](https://palletsprojects.com/p/click/)is a framework for writing command line applications. It provides the- `flask`command and allows adding custom management commands.
 
 ### Optional dependencies
 
 These distributions will not be installed automatically. Flask will detect and use them if you install them.
 
-- python-dotenv enables support for Environment Variables From dotenv when running - `flask`commands.
-- Watchdog provides a faster, more efficient reloader for the development server. 
+- [python-dotenv](https://github.com/theskumar/python-dotenv#readme)enables support for- [Environment Variables From dotenv](../cli/#dotenv)when running- `flask`commands.
+- [Watchdog](https://pythonhosted.org/watchdog/)provides a faster, more efficient reloader for the development server.
 
 ### greenlet
 
-You may choose to use Async with Gevent with your application. In this case, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is required.
+You may choose to use [Async with Gevent](../gevent/) with your application. In this case,
+greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is required.
 
 These are not minimum supported versions, they only indicate the first versions that added necessary features. You should use the latest versions of each.
 
@@ -42,7 +43,7 @@ What problem does a virtual environment solve? The more Python projects you have
 
 Virtual environments are independent groups of Python libraries, one for each project. Packages installed for one project will not affect other projects or the operating system’s packages.
 
-Python comes bundled with the `venv` module to create virtual
+Python comes bundled with the [ venv](https://docs.python.org/3/library/venv.html#module-venv) module to create virtual
 environments.
 
 ### Create an environment
@@ -78,7 +79,8 @@ Within the activated environment, use the following command to install Flask:
 ```
 $ pip install Flask
 ```
-Flask is now installed. Check out the Quickstart or go to the Documentation Overview.
+Flask is now installed. Check out the [Quickstart](../quickstart/) or go to the
+[Documentation Overview](../).
 
 # Citations
 

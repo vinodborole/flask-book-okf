@@ -2,12 +2,13 @@
 type: Web Page
 title: uWSGI — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/uwsgi
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # uWSGI
 
-uWSGI is a fast, compiled server suite with extensive configuration and capabilities beyond a basic server.
+[uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) is a fast, compiled server suite with extensive configuration
+and capabilities beyond a basic server.
 
 - It can be very performant due to being a compiled program. 
 - It is complex to configure beyond the basic application, and has so many options that it can be difficult for beginners to understand. 
@@ -73,9 +74,17 @@ The `-w` option tells uWSGI how to import your application
 
 ## Binding Externally
 
-uWSGI should not be run as root with the configuration shown in this doc because it would cause your application code to run as root, which is not secure. However, this means it will not be possible to bind to port 80 or 443. Instead, a reverse proxy such as nginx or Apache httpd should be used in front of uWSGI. It is possible to run uWSGI as root securely, but that is beyond the scope of this doc.
+uWSGI should not be run as root with the configuration shown in this doc
+because it would cause your application code to run as root, which is
+not secure. However, this means it will not be possible to bind to port
+80 or 443. Instead, a reverse proxy such as [nginx](../nginx/) or
+[Apache httpd](../apache-httpd/) should be used in front of uWSGI. It is possible to
+run uWSGI as root securely, but that is beyond the scope of this doc.
 
-uWSGI has optimized integration with Nginx uWSGI and Apache mod_proxy_uwsgi, and possibly other servers, instead of using a standard HTTP proxy. That configuration is beyond the scope of this doc, see the links for more information.
+uWSGI has optimized integration with [Nginx uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/Nginx.html) and
+[Apache mod_proxy_uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/Apache.html#mod-proxy-uwsgi), and possibly other servers, instead of using
+a standard HTTP proxy. That configuration is beyond the scope of this
+doc, see the links for more information.
 
 You can bind to all external IPs on a non-privileged port using the
 `--http 0.0.0.0:8000` option. Don’t do this when using a reverse proxy
@@ -91,8 +100,8 @@ IP address in your browser.
 
 The default sync worker is appropriate for most use cases. If you need numerous,
 long running, concurrent connections, uWSGI provides an asynchronous worker
-using gevent. This is not the same as Python’s `async/await`, or the ASGI
-server spec. See Async with Gevent for more information about enabling it in your
+using [gevent](https://www.gevent.org/). This is not the same as Python’s `async/await`, or the ASGI
+server spec. See [Async with Gevent](../../gevent/) for more information about enabling it in your
 application.
 
 When using gevent, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is required.

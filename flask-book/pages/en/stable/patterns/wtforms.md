@@ -2,18 +2,27 @@
 type: Web Page
 title: Form Validation with WTForms — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/wtforms
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Form Validation with WTForms
 
-When you have to work with form data submitted by a browser view, code quickly becomes very hard to read. There are libraries out there designed to make this process easier to manage. One of them is WTForms which we will handle here. If you find yourself in the situation of having many forms, you might want to give it a try.
+When you have to work with form data submitted by a browser view, code
+quickly becomes very hard to read.  There are libraries out there designed
+to make this process easier to manage.  One of them is [WTForms](https://wtforms.readthedocs.io/) which we
+will handle here.  If you find yourself in the situation of having many
+forms, you might want to give it a try.
 
-When you are working with WTForms you have to define your forms as classes first. I recommend breaking up the application into multiple modules (Large Applications as Packages) for that and adding a separate module for the forms.
+When you are working with WTForms you have to define your forms as classes
+first.  I recommend breaking up the application into multiple modules
+([Large Applications as Packages](../packages/)) for that and adding a separate module for the
+forms.
 
 Getting the most out of WTForms with an Extension
 
-The Flask-WTF extension expands on this pattern and adds a few little helpers that make working with forms and Flask more fun. You can get it from PyPI.
+The [Flask-WTF](https://flask-wtf.readthedocs.io/) extension expands on this pattern and adds a
+few little helpers that make working with forms and Flask more
+fun.  You can get it from [PyPI](https://pypi.org/project/Flask-WTF/).
 
 ## The Forms
 
@@ -47,7 +56,9 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 ```
-Notice we’re implying that the view is using SQLAlchemy here (SQLAlchemy in Flask), but that’s not a requirement, of course. Adapt the code as necessary.
+Notice we’re implying that the view is using SQLAlchemy here
+([SQLAlchemy in Flask](../sqlalchemy/)), but that’s not a requirement, of course.  Adapt
+the code as necessary.
 
 Things to remember:
 
@@ -99,7 +110,8 @@ takes advantage of the `_formhelpers.html` template:
   <p><input type=submit value=Register>
 </form>
 ```
-For more information about WTForms, head over to the WTForms website.
+For more information about WTForms, head over to the [WTForms
+website](https://wtforms.readthedocs.io/).
 
 # Citations
 

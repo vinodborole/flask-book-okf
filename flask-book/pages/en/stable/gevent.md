@@ -2,19 +2,22 @@
 type: Web Page
 title: Async with Gevent — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/gevent
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Async with Gevent
 
-Gevent patches Python’s standard library to run within special async workers called greenlets. Gevent has existed since long before Python’s native asyncio was available, and Flask has always worked with it.
+[Gevent](https://www.gevent.org) patches Python’s standard library to run within special async workers
+called [greenlets](https://greenlet.readthedocs.io). Gevent has existed since long before Python’s native
+asyncio was available, and Flask has always worked with it.
 
 Gevent is a reliable way to handle numerous, long lived, concurrent connections,
 and to achieve similar capabilities to ASGI and asyncio. This works without
 needing to write `async def` or `await` anywhere, but relies on gevent and
 greenlet’s low level manipulation of the Python interpreter.
 
-Deciding whether you should use gevent with Flask, or Quart, or something else, is ultimately up to understanding the specific needs of your project.
+Deciding whether you should use gevent with Flask, or [Quart](https://quart.palletsprojects.com), or something
+else, is ultimately up to understanding the specific needs of your project.
 
 ## Enabling gevent
 
@@ -27,10 +30,11 @@ inside it. Add the following at the top of your project’s module or top
 import gevent.monkey
 gevent.monkey.patch_all()
 ```
-When deploying in production, use Gunicorn or uWSGI with a gevent worker, as described on those pages.
+When deploying in production, use [Gunicorn](../deploying/gunicorn/) or
+[uWSGI](../deploying/uwsgi/) with a gevent worker, as described on those pages.
 
 To run concurrent tasks within your own code, such as views, use
-`gevent.spawn()`:
+[ gevent.spawn()](https://www.gevent.org/api/gevent.html#gevent.spawn):
 
 ```
 @app.post("/send")
@@ -39,11 +43,11 @@ def send_email():
     return "Email is being sent."
 ```
 If you need to access `request` or other Flask context globals within the
-spawned function, decorate the function with `stream_with_context()` or
-`copy_current_request_context()`. Prefer passing the exact data you need
-when spawning the function, rather than using the decorators.
+spawned function, decorate the function with [ stream_with_context()](../api/#flask.stream_with_context) or
 
-Note
+[. Prefer passing the exact data you need when spawning the function, rather than using the decorators.](../api/#flask.copy_current_request_context)
+
+`copy_current_request_context()`Note
 
 When using gevent, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is required.
 
@@ -51,7 +55,7 @@ When using gevent, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is re
 
 Gevent’s patching does not interact well with Flask’s built-in asyncio support.
 If you want to use Gevent and asyncio in the same app, you’ll need to override
-`flask.Flask.async_to_sync()` to run async functions inside gevent.
+[ flask.Flask.async_to_sync()](../api/#flask.Flask.async_to_sync) to run async functions inside gevent.
 
 ```
 import gevent.monkey
@@ -77,8 +81,8 @@ This starts an asyncio event loop in a gevent worker. Async functions are schedu
 
 ### libuv
 
-libuv is another event loop implementation that gevent supports. There’s
-also a project called uvloop that enables libuv in asyncio. If you want to
+[libuv](https://libuv.org/) is another event loop implementation that [gevent supports](https://www.gevent.org/loop_impls.html). There’s
+also a project called [uvloop](https://uvloop.readthedocs.io/) that enables libuv in asyncio. If you want to
 use libuv, use gevent’s support, not uvloop. It may be possible to further
 modify the `async_to_sync` code from the previous section to work with uvloop,
 but that’s not currently known.

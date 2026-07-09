@@ -2,7 +2,7 @@
 type: Web Page
 title: Security Considerations — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/web-security
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Security Considerations
@@ -15,15 +15,19 @@ A common category of attacks is “Denial of Service” (DoS or DDoS). This is a
 
 Flask provides a few configuration options to handle resource use. They can also be set on individual requests to customize only that request. The documentation for each goes into more detail.
 
-- `MAX_CONTENT_LENGTH`or- `Request.max_content_length`controls how much data will be read from a request. It is not set by default, although it will still block truly unlimited streams unless the WSGI server indicates support.
-- `MAX_FORM_MEMORY_SIZE`or- `Request.max_form_memory_size`controls how large any non-file- `multipart/form-data`field can be. It is set to 500kB by default.
-- `MAX_FORM_PARTS`or- `Request.max_form_parts`controls how many- `multipart/form-data`fields can be parsed. It is set to 1000 by default. Combined with the default- `max_form_memory_size`, this means that a form will occupy at most 500MB of memory.
+- `MAX_CONTENT_LENGTH`- `Request.max_content_length`
+- `MAX_FORM_MEMORY_SIZE`- `Request.max_form_memory_size`- `multipart/form-data`field can be. It is set to 500kB by default.
+- `MAX_FORM_PARTS`- `Request.max_form_parts`- `multipart/form-data`fields can be parsed. It is set to 1000 by default. Combined with the default- `max_form_memory_size`, this means that a form will occupy at most 500MB of memory.
 
 Regardless of these settings, you should also review what settings are available from your operating system, container deployment (Docker etc), WSGI server, HTTP server, and hosting platform. They typically have ways to set process resource limits, timeouts, and other checks regardless of how Flask is configured.
 
 ## Cross-Site Scripting (XSS)
 
-Cross site scripting is the concept of injecting arbitrary HTML (and with it JavaScript) into the context of a website. To remedy this, developers have to properly escape text so that it cannot include arbitrary HTML tags. For more information on that have a look at the Wikipedia article on Cross-Site Scripting.
+Cross site scripting is the concept of injecting arbitrary HTML (and with
+it JavaScript) into the context of a website.  To remedy this, developers
+have to properly escape text so that it cannot include arbitrary HTML
+tags.  For more information on that have a look at the Wikipedia article
+on [Cross-Site Scripting](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
 Flask configures Jinja to automatically escape all values unless explicitly told otherwise. This should rule out all XSS problems caused in templates, but there are still other places where you have to be careful:
 
@@ -52,7 +56,7 @@ which the browser will execute when clicked if not secured properly.
 <a href="{{ value }}">click here</a>
 <a href="javascript:alert('unsafe');">click here</a>
 ```
-To prevent this, you’ll need to set the Content Security Policy (CSP) response header.
+To prevent this, you’ll need to set the [Content Security Policy (CSP)](#security-csp) response header.
 
 ## Cross-Site Request Forgery (CSRF)
 
@@ -82,14 +86,17 @@ In Flask 0.10 and lower, `jsonify()` did not serialize top-level
 arrays to JSON. This was because of a security vulnerability in ECMAScript 4.
 
 ECMAScript 5 closed this vulnerability, so only extremely old browsers are
-still vulnerable. All of these browsers have other more serious
-vulnerabilities, so
+still vulnerable. All of these browsers have [other more serious
+vulnerabilities](https://github.com/pallets/flask/issues/248#issuecomment-59934857), so
 this behavior was changed and `jsonify()` now supports serializing
 arrays.
 
 ## Security Headers
 
-Browsers recognize various response headers in order to control security. We recommend reviewing each of the headers below for use in your application. The Flask-Talisman extension can be used to manage HTTPS and the security headers for you.
+Browsers recognize various response headers in order to control security. We
+recommend reviewing each of the headers below for use in your application.
+The [Flask-Talisman](https://github.com/wntrblm/flask-talisman) extension can be used to manage HTTPS and the security
+headers for you.
 
 ### HTTP Strict Transport Security (HSTS)
 
@@ -134,18 +141,18 @@ through, and assumes any host is valid. Although browsers do not allow setting
 the `Host` header, requests made by attackers in other scenarios could set
 the `Host` header to a value they want.
 
-When deploying your application, set `TRUSTED_HOSTS` to restrict what
-values the `Host` header may be.
+When deploying your application, set [ TRUSTED_HOSTS](../config/#TRUSTED_HOSTS) to restrict what
+values the 
 
-The `Host` header may be modified by proxies in between the client and your
-application. See Tell Flask it is Behind a Proxy to tell your app which proxy values
+`Host` header may be.The `Host` header may be modified by proxies in between the client and your
+application. See [Tell Flask it is Behind a Proxy](../deploying/proxy_fix/) to tell your app which proxy values
 to trust.
 
 ## Copy/Paste to Terminal
 
 Hidden characters such as the backspace character (`\b`, `^H`) can
 cause text to render differently in HTML than how it is interpreted if
-pasted into a terminal.
+[pasted into a terminal](https://security.stackexchange.com/q/39118).
 
 For example, `import y\bose\bm\bi\bt\be\b` renders as
 `import yosemite` in HTML, but the backspaces are applied when pasted

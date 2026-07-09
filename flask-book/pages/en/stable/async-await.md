@@ -2,7 +2,7 @@
 type: Web Page
 title: Using async and await — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/async-await
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Using `async` and `await`
@@ -23,12 +23,14 @@ async def get_data():
     return jsonify(data)
 ```
 Pluggable class-based views also support handlers that are implemented as
-coroutines. This applies to the `dispatch_request()`
-method in views that inherit from the `flask.views.View` class, as
-well as all the HTTP method handlers in views that inherit from the
-`flask.views.MethodView` class.
+coroutines. This applies to the [ dispatch_request()](../api/#flask.views.View.dispatch_request)
+method in views that inherit from the 
 
-## Performance
+[class, as well as all the HTTP method handlers in views that inherit from the](../api/#flask.views.View)
+
+`flask.views.View`[class.](../api/#flask.views.MethodView)
+
+`flask.views.MethodView`## Performance
 
 Async functions require an event loop to run. Flask, as a WSGI application, uses one worker to handle one request/response cycle. When a request comes in to an async view, Flask will start an event loop in a thread, run the view function there, then return the result.
 
@@ -48,13 +50,23 @@ spawned tasks that haven’t completed when the async function completes
 will be cancelled. Therefore you cannot spawn background tasks, for
 example via `asyncio.create_task`.
 
-If you wish to use background tasks it is best to use a task queue to trigger background work, rather than spawn tasks in a view function. With that in mind you can spawn asyncio tasks by serving Flask with an ASGI server and utilising the asgiref WsgiToAsgi adapter as described in ASGI. This works as the adapter creates an event loop that runs continually.
+If you wish to use background tasks it is best to use a task queue to
+trigger background work, rather than spawn tasks in a view
+function. With that in mind you can spawn asyncio tasks by serving
+Flask with an ASGI server and utilising the asgiref WsgiToAsgi adapter
+as described in [ASGI](../deploying/asgi/). This works as the adapter creates
+an event loop that runs continually.
 
 ## When to use Quart instead
 
-Flask’s async support is less performant than async-first frameworks due to the way it is implemented. If you have a mainly async codebase it would make sense to consider Quart. Quart is a reimplementation of Flask based on the ASGI standard instead of WSGI. This allows it to handle many concurrent requests, long running requests, and websockets without requiring multiple worker processes or threads.
+Flask’s async support is less performant than async-first frameworks due
+to the way it is implemented. If you have a mainly async codebase it
+would make sense to consider [Quart](https://quart.palletsprojects.com). Quart is a reimplementation of
+Flask based on the [ASGI](https://asgi.readthedocs.io) standard instead of WSGI. This allows it to
+handle many concurrent requests, long running requests, and websockets
+without requiring multiple worker processes or threads.
 
-It has also already been possible to run Flask with Gevent to
+It has also already been possible to [run Flask with Gevent](../gevent/) to
 get many of the benefits of async request handling. Gevent patches low-level
 Python functions to accomplish this, whereas `async`/`await` and ASGI use
 standard, modern Python capabilities. Deciding whether you should use gevent
@@ -66,11 +78,11 @@ specific needs of your project.
 Flask extensions predating Flask’s async support do not expect async views. If they provide decorators to add functionality to views, those will probably not work with async views because they will not await the function or be awaitable. Other functions they provide will not be awaitable either and will probably be blocking if called within an async view.
 
 Extension authors can support async functions by utilising the
-`flask.Flask.ensure_sync()` method. For example, if the extension
-provides a view function decorator add `ensure_sync` before calling
-the decorated function,
+[ flask.Flask.ensure_sync()](../api/#flask.Flask.ensure_sync) method. For example, if the extension
+provides a view function decorator add 
 
-```
+`ensure_sync` before calling
+the decorated function,```
 def extension(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -82,9 +94,11 @@ Check the changelog of the extension you want to use to see if they’ve impleme
 
 ## Other event loops
 
-At the moment Flask only supports `asyncio`. It’s possible to override
-`flask.Flask.ensure_sync()` to change how async functions are wrapped to use
-a different library. See Combining with async/await for an example.
+At the moment Flask only supports [ asyncio](https://docs.python.org/3/library/asyncio.html#module-asyncio). It’s possible to override
+
+[to change how async functions are wrapped to use a different library. See](../api/#flask.Flask.ensure_sync)
+
+`flask.Flask.ensure_sync()`[Combining with async/await](../gevent/#gevent-asyncio)for an example.
 
 # Citations
 

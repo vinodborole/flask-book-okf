@@ -2,13 +2,13 @@
 type: Web Page
 title: Static Files — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/static
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Static Files
 
 The authentication views and templates work, but they look very plain
-right now. Some CSS can be added to add style to the HTML layout you
+right now. Some [CSS](https://developer.mozilla.org/docs/Web/CSS) can be added to add style to the HTML layout you
 constructed. The style won’t change, so it’s a *static* file rather than
 a template.
 
@@ -56,13 +56,16 @@ input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }
 ```
 You can find a less compact version of `style.css` in the
-example code.
+[example code](https://github.com/pallets/flask/tree/3.1.3/examples/tutorial/flaskr/static/style.css).
 
-Go to http://127.0.0.1:5000/auth/login and the page should look like the screenshot below.
+Go to [http://127.0.0.1:5000/auth/login](http://127.0.0.1:5000/auth/login) and the page should look like the
+screenshot below.
 
-You can read more about CSS from Mozilla’s documentation. If you change a static file, refresh the browser page. If the change doesn’t show up, try clearing your browser’s cache.
+You can read more about CSS from [Mozilla’s documentation](https://developer.mozilla.org/docs/Web/CSS). If
+you change a static file, refresh the browser page. If the change
+doesn’t show up, try clearing your browser’s cache.
 
-Continue to Blog Blueprint.
+Continue to [Blog Blueprint](../blog/).
 
 # Citations
 

@@ -2,7 +2,7 @@
 type: Web Page
 title: View Decorators — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/viewdecorators
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # View Decorators
@@ -10,7 +10,7 @@ timestamp: '2026-07-07T08:53:11.212445+00:00'
 Python has a really interesting feature called function decorators.  This
 allows some really neat things for web applications.  Because each view in
 Flask is a function, decorators can be used to inject additional
-functionality to one or more functions.  The `route()`
+functionality to one or more functions.  The [ route()](../../api/#flask.Flask.route)
 decorator is the one you probably used already.  But there are use cases
 for implementing your own decorator.  For instance, imagine you have a
 view that should only be used by people that are logged in.  If a user
@@ -23,7 +23,7 @@ excellent solution.
 So let’s implement such a decorator.  A decorator is a function that
 wraps and replaces another function.  Since the original function is
 replaced, you need to remember to copy the original function’s information
-to the new function.  Use `functools.wraps()` to handle this for you.
+to the new function.  Use [ functools.wraps()](https://docs.python.org/3/library/functools.html#functools.wraps) to handle this for you.
 
 This example assumes that the login page is called `'login'` and that
 the current user is stored in `g.user` and is `None` if there is no-one
@@ -42,7 +42,7 @@ def login_required(f):
 ```
 To use the decorator, apply it as innermost decorator to a view function.
 When applying further decorators, always remember
-that the `route()` decorator is the outermost.
+that the [ route()](../../api/#flask.Flask.route) decorator is the outermost.
 
 ```
 @app.route('/secret_page')
@@ -62,7 +62,10 @@ from `request.form` when logging the user in.
 ```
 ## Caching Decorator
 
-Imagine you have a view function that does an expensive calculation and because of that you would like to cache the generated results for a certain amount of time. A decorator would be nice for that. We’re assuming you have set up a cache like mentioned in Caching.
+Imagine you have a view function that does an expensive calculation and
+because of that you would like to cache the generated results for a
+certain amount of time.  A decorator would be nice for that.  We’re
+assuming you have set up a cache like mentioned in [Caching](../caching/).
 
 Here is an example cache function. It generates the cache key from a specific prefix (actually a format string) and the current path of the request. Notice that we are using a function that first creates the decorator that then decorates the function. Sounds awful? Unfortunately it is a little bit more complex, but the code should still be straightforward to read.
 
@@ -92,7 +95,7 @@ def cached(timeout=5 * 60, key='view/{}'):
     return decorator
 ```
 Notice that this assumes an instantiated `cache` object is available, see
-Caching.
+[Caching](../caching/).
 
 ## Templating Decorator
 
@@ -143,7 +146,7 @@ def templated(template=None):
 ## Endpoint Decorator
 
 When you want to use the werkzeug routing system for more flexibility you
-need to map the endpoint as defined in the `Rule`
+need to map the endpoint as defined in the [ Rule](https://werkzeug.palletsprojects.com/en/stable/routing/#werkzeug.routing.Rule)
 to a view function. This is possible with this decorator. For example:
 
 ```

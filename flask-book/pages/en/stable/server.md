@@ -2,7 +2,7 @@
 type: Web Page
 title: Development Server — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/server
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Development Server
@@ -15,7 +15,7 @@ Warning
 
 Do not use the development server when deploying to production. It is intended for use only during local development. It is not designed to be particularly efficient, stable, or secure.
 
-See Deploying to Production for deployment options.
+See [Deploying to Production](../deploying/) for deployment options.
 
 ## Command Line
 
@@ -27,8 +27,8 @@ debug mode.
 $ flask --app hello run --debug
 ```
 This enables debug mode, including the interactive debugger and reloader, and then
-starts the server on http://localhost:5000/. Use `flask run --help` to see the
-available options, and Command Line Interface for detailed instructions about configuring and using
+starts the server on [http://localhost:5000/](http://localhost:5000/). Use `flask run --help` to see the
+available options, and [Command Line Interface](../cli/) for detailed instructions about configuring and using
 the CLI.
 
 ### Address already in use
@@ -75,12 +75,12 @@ while still allowing the server to handle errors on reload.
 
 ## In Code
 
-The development server can also be started from Python with the `Flask.run()`
+The development server can also be started from Python with the [ Flask.run()](../api/#flask.Flask.run)
 method. This method takes arguments similar to the CLI options to control the server.
 The main difference from the CLI command is that the server will crash if there are
-errors when reloading. `debug=True` can be passed to enable debug mode.
+errors when reloading. 
 
-Place the call in a main block, otherwise it will interfere when trying to import and run the application with a production server later.
+`debug=True` can be passed to enable debug mode.Place the call in a main block, otherwise it will interfere when trying to import and run the application with a production server later.
 
 ```
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 type: Web Page
 title: Tell Flask it is Behind a Proxy — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/proxy_fix
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Tell Flask it is Behind a Proxy
@@ -14,7 +14,7 @@ From the WSGI server and Flask application’s perspectives, requests are now co
 HTTP servers should set `X-Forwarded-` headers to pass on the real
 values to the application. The application can then be told to trust and
 use those values by wrapping it with the
-X-Forwarded-For Proxy Fix middleware provided by Werkzeug.
+[X-Forwarded-For Proxy Fix](https://werkzeug.palletsprojects.com/en/stable/middleware/proxy_fix/) middleware provided by Werkzeug.
 
 This middleware should only be used if the application is actually behind a proxy, and should be configured with the number of proxies that are chained in front of it. Not all proxies set all the headers. Since incoming headers can be faked, you must set how many proxies are setting each header so the middleware knows what to trust.
 

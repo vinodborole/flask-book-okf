@@ -2,7 +2,7 @@
 type: Web Page
 title: Using URL Processors — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/urlprocessors
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Using URL Processors
@@ -32,18 +32,17 @@ def about(lang_code):
     ...
 ```
 This is an awful lot of repetition as you have to handle the language code
-setting on the `g` object yourself in every single function.
+setting on the [ g](../../api/#flask.g) object yourself in every single function.
 Sure, a decorator could be used to simplify this, but if you want to
 generate URLs from one function to another you would have to still provide
 the language code explicitly which can be annoying.
 
-For the latter, this is where `url_defaults()` functions
+For the latter, this is where [ url_defaults()](../../api/#flask.Flask.url_defaults) functions
 come in.  They can automatically inject values into a call to
-`url_for()`.  The code below checks if the
-language code is not yet in the dictionary of URL values and if the
-endpoint wants a value named `'lang_code'`:
 
-```
+[. The code below checks if the language code is not yet in the dictionary of URL values and if the endpoint wants a value named](../../api/#flask.url_for)
+
+`url_for()``'lang_code'`:```
 @app.url_defaults
 def add_language_code(endpoint, values):
     if 'lang_code' in values or not g.lang_code:
@@ -51,12 +50,12 @@ def add_language_code(endpoint, values):
     if app.url_map.is_endpoint_expecting(endpoint, 'lang_code'):
         values['lang_code'] = g.lang_code
 ```
-The method `is_endpoint_expecting()` of the URL
+The method [ is_endpoint_expecting()](https://werkzeug.palletsprojects.com/en/stable/routing/#werkzeug.routing.Map.is_endpoint_expecting) of the URL
 map can be used to figure out if it would make sense to provide a language
 code for the given endpoint.
 
 The reverse of that function are
-`url_value_preprocessor()`s.  They are executed right
+[ url_value_preprocessor()](../../api/#flask.Flask.url_value_preprocessor)s.  They are executed right
 after the request was matched and can execute code based on the URL
 values.  The idea is that they pull information out of the values
 dictionary and put it somewhere else:
@@ -67,13 +66,12 @@ def pull_lang_code(endpoint, values):
     g.lang_code = values.pop('lang_code', None)
 ```
 That way you no longer have to do the `lang_code` assignment to
-`g` in every function.  You can further improve that by
+[ g](../../api/#flask.g) in every function.  You can further improve that by
 writing your own decorator that prefixes URLs with the language code, but
 the more beautiful solution is using a blueprint.  Once the
-`'lang_code'` is popped from the values dictionary and it will no longer
-be forwarded to the view function reducing the code to this:
 
-```
+`'lang_code'` is popped from the values dictionary and it will no longer
+be forwarded to the view function reducing the code to this:```
 from flask import Flask, g
 app = Flask(__name__)
 @app.url_defaults
@@ -97,11 +95,11 @@ def about():
 Because blueprints can automatically prefix all URLs with a common string
 it’s easy to automatically do that for every function.  Furthermore
 blueprints can have per-blueprint URL processors which removes a whole lot
-of logic from the `url_defaults()` function because it no
-longer has to check if the URL is really interested in a `'lang_code'`
-parameter:
+of logic from the [ url_defaults()](../../api/#flask.Flask.url_defaults) function because it no
+longer has to check if the URL is really interested in a 
 
-```
+`'lang_code'`
+parameter:```
 from flask import Blueprint, g
 bp = Blueprint('frontend', __name__, url_prefix='/<lang_code>')
 @bp.url_defaults

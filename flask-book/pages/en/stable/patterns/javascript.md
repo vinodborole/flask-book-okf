@@ -2,7 +2,7 @@
 type: Web Page
 title: JavaScript, fetch, and JSON — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/javascript
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # JavaScript, `fetch`, and JSON
@@ -10,27 +10,28 @@ timestamp: '2026-07-07T08:53:11.212445+00:00'
 You may want to make your HTML page dynamic, by changing data without
 reloading the entire page. Instead of submitting an HTML `<form>` and
 performing a redirect to re-render the template, you can add
-JavaScript that calls `fetch()` and replaces content on the page.
+[JavaScript](https://developer.mozilla.org/Web/JavaScript) that calls [ fetch()](https://developer.mozilla.org/Web/API/Fetch_API) and replaces content on the page.
 
-`fetch()` is the modern, built-in JavaScript solution to making
+[ fetch()](https://developer.mozilla.org/Web/API/Fetch_API) is the modern, built-in JavaScript solution to making
 requests from a page. You may have heard of other “AJAX” methods and
-libraries, such as `XMLHttpRequest()` or jQuery. These are no longer needed in
-modern browsers, although you may choose to use them or another library
-depending on your application’s requirements. These docs will only focus
-on built-in JavaScript features.
+libraries, such as 
+
+[or](https://developer.mozilla.org/Web/API/XMLHttpRequest)
+
+`XMLHttpRequest()`[jQuery](https://jquery.com/). These are no longer needed in modern browsers, although you may choose to use them or another library depending on your application’s requirements. These docs will only focus on built-in JavaScript features.
 
 ## Rendering Templates
 
 It is important to understand the difference between templates and JavaScript. Templates are rendered on the server, before the response is sent to the user’s browser. JavaScript runs in the user’s browser, after the template is rendered and sent. Therefore, it is impossible to use JavaScript to affect how the Jinja template is rendered, but it is possible to render data into the JavaScript that will run.
 
 To provide data to JavaScript when rendering the template, use the
-`tojson()` filter in a `<script>` block. This will
+[ tojson()](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.tojson) filter in a 
+
+`<script>` block. This will
 convert the data to a valid JavaScript object, and ensure that any
 unsafe HTML characters are rendered safely. If you do not use the
 `tojson` filter, you will get a `SyntaxError` in the browser
-console.
-
-```
+console.```
 data = generate_report()
 return render_template("report.html", chart_data=data)
 ```
@@ -52,7 +53,7 @@ double quotes, otherwise you will produce invalid or unsafe HTML.
 The other way to get data from the server to JavaScript is to make a request for it. First, you need to know the URL to request.
 
 The simplest way to generate URLs is to continue to use
-`url_for()` when rendering the template. For example:
+[ url_for()](../../api/#flask.url_for) when rendering the template. For example:
 
 ```
 const user_url = {{ url_for("user", id=current_user.id)|tojson }}
@@ -77,13 +78,14 @@ fetch(user_url).then(...)
 ```
 ## Making a Request with `fetch`
 
-`fetch()` takes two arguments, a URL and an object with other options,
-and returns a `Promise`. We won’t cover all the available options, and
-will only use `then()` on the promise, not other callbacks or
-`await` syntax. Read the linked MDN docs for more information about
-those features.
+[ fetch()](https://developer.mozilla.org/Web/API/Fetch_API) takes two arguments, a URL and an object with other options,
+and returns a 
 
-By default, the GET method is used. If the response contains JSON, it
+[. We won’t cover all the available options, and will only use](https://developer.mozilla.org/Web/JavaScript/Reference/Global_Objects/Promise)
+
+`Promise``then()` on the promise, not other callbacks or
+`await` syntax. Read the linked MDN docs for more information about
+those features.By default, the GET method is used. If the response contains JSON, it
 can be used with a `then()` callback chain.
 
 ```
@@ -97,11 +99,11 @@ fetch(room_url)
 To send data, use a data method such as POST, and pass the `body`
 option. The most common types for data are form data or JSON data.
 
-To send form data, pass a populated `FormData` object. This uses the
-same format as an HTML form, and would be accessed with `request.form`
-in a Flask view.
+To send form data, pass a populated [ FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object. This uses the
+same format as an HTML form, and would be accessed with 
 
-```
+`request.form`
+in a Flask view.```
 let data = new FormData()
 data.append("name", "Flask Room")
 data.append("description", "Talk about Flask here.")
@@ -178,7 +180,7 @@ def user_detail(id):
     }
 ```
 If you want to return another JSON type, use the
-`jsonify()` function, which creates a response object
+[ jsonify()](../../api/#flask.json.jsonify) function, which creates a response object
 with the given data serialized to JSON.
 
 ```
@@ -192,13 +194,12 @@ It is usually not a good idea to return file data in a JSON response. JSON canno
 
 ## Receiving JSON in Views
 
-Use the `json` property of the
-`request` object to decode the request’s body as JSON. If
-the body is not valid JSON, a 400 Bad Request error will be raised. If
-the `Content-Type` header is not set to `application/json`, a 415
-Unsupported Media Type error will be raised.
+Use the [ json](../../api/#flask.Request.json) property of the
 
-```
+[object to decode the request’s body as JSON. If the body is not valid JSON, a 400 Bad Request error will be raised. If the](../../api/#flask.request)
+
+`request``Content-Type` header is not set to `application/json`, a 415
+Unsupported Media Type error will be raised.```
 from flask import request
 @app.post("/user/<int:id>")
 def user_update(id):

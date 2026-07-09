@@ -2,7 +2,7 @@
 type: Web Page
 title: Make the Project Installable — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/install
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Make the Project Installable
@@ -38,7 +38,8 @@ dependencies = [
 requires = ["flit_core<4"]
 build-backend = "flit_core.buildapi"
 ```
-See the official Packaging tutorial for more explanation of the files and options used.
+See the official [Packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/) for more
+explanation of the files and options used.
 
 ## Install the Project
 
@@ -72,7 +73,7 @@ Nothing changes from how you’ve been running your project so far.
 the application, but you can call it from anywhere, not just the
 `flask-tutorial` directory.
 
-Continue to Test Coverage.
+Continue to [Test Coverage](../tests/).
 
 # Citations
 

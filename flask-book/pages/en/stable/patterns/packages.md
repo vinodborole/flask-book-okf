@@ -2,7 +2,7 @@
 type: Web Page
 title: Large Applications as Packages — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/packages
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Large Applications as Packages
@@ -20,7 +20,10 @@ Imagine a simple flask application structure that looks like this:
         login.html
         ...
 ```
-While this is fine for small applications, for larger applications it’s a good idea to use a package instead of a module. The Tutorial is structured to use the package pattern, see the example code.
+While this is fine for small applications, for larger applications
+it’s a good idea to use a package instead of a module.
+The [Tutorial](../../tutorial/) is structured to use the package pattern,
+see the [example code](https://github.com/pallets/flask/tree/3.1.3/examples/tutorial).
 
 ## Simple Packages
 
@@ -77,7 +80,7 @@ $ flask --app yourapplication run
 What did we gain from this? Now we can restructure the application a bit into multiple modules. The only thing you have to remember is the following quick checklist:
 
 - the - `Flask`application object creation has to be in the- `__init__.py`file. That way each module can import it safely and the- `__name__`variable will resolve to the correct package.
-- all the view functions (the ones with a - `route()`decorator on top) have to be imported in the- `__init__.py`file. Not the object itself, but the module it is in. Import the view module- **after the application object is created**.
+- all the view functions (the ones with a - `route()`- `__init__.py`file. Not the object itself, but the module it is in. Import the view module- **after the application object is created**.
 
 Here’s an example `__init__.py`:
 
@@ -122,7 +125,10 @@ the file.
 
 ## Working with Blueprints
 
-If you have larger applications it’s recommended to divide them into smaller groups where each group is implemented with the help of a blueprint. For a gentle introduction into this topic refer to the Modular Applications with Blueprints chapter of the documentation.
+If you have larger applications it’s recommended to divide them into
+smaller groups where each group is implemented with the help of a
+blueprint.  For a gentle introduction into this topic refer to the
+[Modular Applications with Blueprints](../../blueprints/) chapter of the documentation.
 
 # Citations
 

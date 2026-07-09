@@ -2,7 +2,7 @@
 type: Web Page
 title: Debugging Application Errors — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/debugging
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Debugging Application Errors
@@ -14,7 +14,9 @@ a production environment.** The debugger allows executing arbitrary
 Python code from the browser. It’s protected by a pin, but that should
 not be relied on for security.
 
-Use an error logging tool, such as Sentry, as described in Error Logging Tools, or enable logging and notifications as described in Logging.
+Use an error logging tool, such as Sentry, as described in
+[Error Logging Tools](../errorhandling/#error-logging-tools), or enable logging and notifications as
+described in [Logging](../logging/).
 
 If you have access to the server, you could add some code to start an
 external debugger if `request.remote_addr` matches your IP. Some IDE
@@ -40,7 +42,9 @@ mostly equivalent.
 ```
 app.run(debug=True)
 ```
-Development Server and Command Line Interface have more information about running the debugger and debug mode. More information about the debugger can be found in the Werkzeug documentation.
+[Development Server](../server/) and [Command Line Interface](../cli/) have more information about running the debugger and
+debug mode. More information about the debugger can be found in the [Werkzeug
+documentation](https://werkzeug.palletsprojects.com/debug/).
 
 ## External Debuggers
 

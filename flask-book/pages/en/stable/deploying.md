@@ -2,7 +2,7 @@
 type: Web Page
 title: Deploying to Production — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Deploying to Production
@@ -34,7 +34,8 @@ There are many services available for hosting web applications without needing t
 
 This list is not exhaustive, and you should evaluate these and other services based on your application’s needs. Different services will have different capabilities, configuration, pricing, and support.
 
-You’ll probably need to Tell Flask it is Behind a Proxy when using most hosting platforms.
+You’ll probably need to [Tell Flask it is Behind a Proxy](proxy_fix/) when using most hosting
+platforms.
 
 # Citations
 

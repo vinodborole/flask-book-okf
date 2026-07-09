@@ -2,12 +2,13 @@
 type: Web Page
 title: Quickstart — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/quickstart
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Quickstart
 
-Eager to get started? This page gives a good introduction to Flask. Follow Installation to set up a project and install Flask first.
+Eager to get started? This page gives a good introduction to Flask.
+Follow [Installation](../installation/) to set up a project and install Flask first.
 
 ## A Minimal Application
 
@@ -22,9 +23,9 @@ def hello_world():
 ```
 So what did that code do?
 
-- First we imported the - `Flask`class. An instance of this class will be our WSGI application.
+- First we imported the - `Flask`
 - Next we create an instance of this class. The first argument is the name of the application’s module or package. - `__name__`is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.
-- We then use the - `route()`decorator to tell Flask what URL should trigger our function.
+- We then use the - `route()`
 - The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser. 
 
 Save it as `hello.py` or something similar. Make sure to not call
@@ -43,15 +44,18 @@ $ flask --app hello run
 Application Discovery Behavior
 
 As a shortcut, if the file is named `app.py` or `wsgi.py`, you
-don’t have to use `--app`. See Command Line Interface for more details.
+don’t have to use `--app`. See [Command Line Interface](../cli/) for more details.
 
-This launches a very simple builtin server, which is good enough for testing but probably not what you want to use in production. For deployment options see Deploying to Production.
+This launches a very simple builtin server, which is good enough for
+testing but probably not what you want to use in production. For
+deployment options see [Deploying to Production](../deploying/).
 
-Now head over to http://127.0.0.1:5000/, and you should see your hello world greeting.
+Now head over to [http://127.0.0.1:5000/](http://127.0.0.1:5000/), and you should see your hello
+world greeting.
 
 If another program is already using port 5000, you’ll see
 `OSError: [Errno 98]` or `OSError: [WinError 10013]` when the
-server tries to start. See Address already in use for how to
+server tries to start. See [Address already in use](../server/#address-already-in-use) for how to
 handle that.
 
 Externally Visible Server
@@ -91,9 +95,9 @@ $ flask --app hello run --debug
 ```
 See also:
 
-- Development Server and Command Line Interface for information about running in debug mode. 
-- Debugging Application Errors for information about using the built-in debugger and other debuggers. 
-- Logging and Handling Application Errors to log errors and display nice error pages. 
+- [Development Server](../server/)and- [Command Line Interface](../cli/)for information about running in debug mode.
+- [Debugging Application Errors](../debugging/)for information about using the built-in debugger and other debuggers.
+- [Logging](../logging/)and- [Handling Application Errors](../errorhandling/)to log errors and display nice error pages.
 
 ## HTML Escaping
 
@@ -118,7 +122,7 @@ it to be rendered as text, rather than running the script in the user’s browse
 
 Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come back if the page uses a meaningful URL they can remember and use to directly visit a page.
 
-Use the `route()` decorator to bind a function to a URL.
+Use the [ route()](../api/#flask.Flask.route) decorator to bind a function to a URL.
 
 ```
 @app.route('/')
@@ -190,24 +194,28 @@ indexing the same page twice.
 
 ### URL Building
 
-To build a URL to a specific function, use the `url_for()` function.
+To build a URL to a specific function, use the [ url_for()](../api/#flask.url_for) function.
 It accepts the name of the function as its first argument and any number of
 keyword arguments, each corresponding to a variable part of the URL rule.
 Unknown variable parts are appended to the URL as query parameters.
 
 Why would you want to build URLs using the URL reversing function
-`url_for()` instead of hard-coding them into your templates?
+[ url_for()](../api/#flask.url_for) instead of hard-coding them into your templates?
 
 - Reversing is often more descriptive than hard-coding the URLs. 
 - You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs. 
 - URL building handles escaping of special characters transparently. 
 - The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers. 
-- If your application is placed outside the URL root, for example, in - `/myapplication`instead of- `/`,- `url_for()`properly handles that for you.
+- If your application is placed outside the URL root, for example, in - `/myapplication`instead of- `/`,- `url_for()`
 
-For example, here we use the `test_request_context()` method
-to try out `url_for()`. `test_request_context()`
-tells Flask to behave as though it’s handling a request even while we use a
-Python shell. See Context Locals.
+For example, here we use the [ test_request_context()](../api/#flask.Flask.test_request_context) method
+to try out 
+
+[.](../api/#flask.url_for)
+
+`url_for()`[tells Flask to behave as though it’s handling a request even while we use a Python shell. See](../api/#flask.Flask.test_request_context)
+
+`test_request_context()`[Context Locals](#context-locals).
 
 ```
 from flask import url_for
@@ -237,7 +245,7 @@ with app.test_request_context():
 Web applications use different HTTP methods when accessing URLs. You should
 familiarize yourself with the HTTP methods as you work with Flask. By default,
 a route only answers to `GET` requests. You can use the `methods` argument
-of the `route()` decorator to handle different HTTP methods.
+of the [ route()](../api/#flask.Flask.route) decorator to handle different HTTP methods.
 
 ```
 from flask import request
@@ -252,10 +260,11 @@ The example above keeps all methods for the route within one function, which can
 
 You can also separate views for different methods into different
 functions. Flask provides a shortcut for decorating such routes with
-`get()`, `post()`, etc. for each
-common HTTP method.
+[ get()](../api/#flask.Flask.get), 
 
-```
+[, etc. for each common HTTP method.](../api/#flask.Flask.post)
+
+`post()````
 @app.get('/login')
 def login_get():
     return show_the_login_form()
@@ -264,7 +273,7 @@ def login_post():
     return do_the_login()
 ```
 If `GET` is present, Flask automatically adds support for the `HEAD` method
-and handles `HEAD` requests according to the HTTP RFC. Likewise,
+and handles `HEAD` requests according to the [HTTP RFC](https://www.ietf.org/rfc/rfc2068.txt). Likewise,
 `OPTIONS` is automatically implemented for you.
 
 ## Static Files
@@ -284,13 +293,15 @@ The file has to be stored on the filesystem as `static/style.css`.
 
 ## Rendering Templates
 
-Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the Jinja template engine for you automatically.
+Generating HTML from within Python is not fun, and actually pretty
+cumbersome because you have to do the HTML escaping on your own to keep
+the application secure.  Because of that Flask configures the [Jinja](https://palletsprojects.com/p/jinja/) template engine for you automatically.
 
 Templates can be used to generate any type of text file. For web applications, you’ll primarily be generating HTML pages, but you can also generate markdown, plain text for emails, and anything else.
 
-For a reference to HTML, CSS, and other web APIs, use the MDN Web Docs.
+For a reference to HTML, CSS, and other web APIs, use the [MDN Web Docs](https://developer.mozilla.org/).
 
-To render a template you can use the `render_template()`
+To render a template you can use the [ render_template()](../api/#flask.render_template)
 method.  All you have to do is provide the name of the template and the
 variables you want to pass to the template engine as keyword arguments.
 Here’s a simple example of how to render a template:
@@ -321,7 +332,8 @@ package it’s actually inside your package:
     /templates
         /hello.html
 ```
-For templates you can use the full power of Jinja templates. Head over to the official Jinja Template Documentation for more information.
+For templates you can use the full power of Jinja templates.  Head over
+to the official [Jinja Template Documentation](https://jinja.palletsprojects.com/templates/) for more information.
 
 Here is an example template:
 
@@ -334,11 +346,24 @@ Here is an example template:
   <h1>Hello, World!</h1>
 {% endif %}
 ```
-Inside templates you also have access to the `config`,
-`request`, `session` and `g` [1] objects
-as well as the `url_for()` and `get_flashed_messages()` functions.
+Inside templates you also have access to the [ config](../api/#flask.Flask.config),
 
-Templates are especially useful if inheritance is used. If you want to know how that works, see Template Inheritance. Basically template inheritance makes it possible to keep certain elements on each page (like header, navigation and footer).
+[,](../api/#flask.request)
+
+`request`[and](../api/#flask.session)
+
+`session`
+
+`g`[[1]](#id3)objects as well as the
+
+[and](../api/#flask.url_for)
+
+`url_for()`[functions.](../api/#flask.get_flashed_messages)
+
+`get_flashed_messages()`Templates are especially useful if inheritance is used.  If you want to
+know how that works, see [Template Inheritance](../patterns/templateinheritance/). Basically
+template inheritance makes it possible to keep certain elements on each
+page (like header, navigation and footer).
 
 Automatic escaping is enabled, so if `person` contains HTML it will be escaped
 automatically.  If you can trust a variable and you know that it will be
@@ -369,7 +394,7 @@ autoescaping disabled.
 
 For web applications it’s crucial to react to the data a client sends to
 the server.  In Flask this information is provided by the global
-`request` object.  If you have some experience with Python
+[ request](../api/#flask.request) object.  If you have some experience with Python
 you might be wondering how that object can be global and how Flask
 manages to still be threadsafe.  The answer is context locals:
 
@@ -388,11 +413,11 @@ this is the case unless you are doing something like unit testing.  You
 will notice that code which depends on a request object will suddenly break
 because there is no request object.  The solution is creating a request
 object yourself and binding it to the context.  The easiest solution for
-unit testing is to use the `test_request_context()`
-context manager.  In combination with the `with` statement it will bind a
-test request so that you can interact with it.  Here is an example:
+unit testing is to use the [ test_request_context()](../api/#flask.Flask.test_request_context)
+context manager.  In combination with the 
 
-```
+`with` statement it will bind a
+test request so that you can interact with it.  Here is an example:```
 from flask import request
 with app.test_request_context('/hello', method='POST'):
     # now you can do something with the request until the
@@ -401,7 +426,7 @@ with app.test_request_context('/hello', method='POST'):
     assert request.method == 'POST'
 ```
 The other possibility is passing a whole WSGI environment to the
-`request_context()` method:
+[ request_context()](../api/#flask.Flask.request_context) method:
 
 ```
 with app.request_context(environ):
@@ -410,20 +435,21 @@ with app.request_context(environ):
 ### The Request Object
 
 The request object is documented in the API section and we will not cover
-it here in detail (see `Request`). Here is a broad overview of
+it here in detail (see [ Request](../api/#flask.Request)). Here is a broad overview of
 some of the most common operations.  First of all you have to import it from
-the `flask` module:
+the 
 
-```
+`flask` module:```
 from flask import request
 ```
 The current request method is available by using the
-`method` attribute.  To access form data (data
-transmitted in a `POST` or `PUT` request) you can use the
-`form` attribute.  Here is a full example of the two
-attributes mentioned above:
+[ method](../api/#flask.Request.method) attribute.  To access form data (data
+transmitted in a 
 
-```
+`POST` or `PUT` request) you can use the
+[attribute. Here is a full example of the two attributes mentioned above:](../api/#flask.Request.form)
+
+`form````
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     error = None
@@ -438,23 +464,23 @@ def login():
     return render_template('login.html', error=error)
 ```
 What happens if the key does not exist in the `form` attribute?  In that
-case a special `KeyError` is raised.  You can catch it like a
-standard `KeyError` but if you don’t do that, a HTTP 400 Bad Request
-error page is shown instead.  So for many situations you don’t have to
-deal with that problem.
+case a special [ KeyError](https://docs.python.org/3/library/exceptions.html#KeyError) is raised.  You can catch it like a
+standard 
 
-To access parameters submitted in the URL (`?key=value`) you can use the
-`args` attribute:
+[but if you don’t do that, a HTTP 400 Bad Request error page is shown instead. So for many situations you don’t have to deal with that problem.](https://docs.python.org/3/library/exceptions.html#KeyError)
+
+`KeyError`To access parameters submitted in the URL (`?key=value`) you can use the
+[ args](../api/#flask.Request.args) attribute:
 
 ```
 searchword = request.args.get('key', '')
 ```
 We recommend accessing URL parameters with `get` or by catching the
-`KeyError` because users might change the URL and presenting them a 400
+[ KeyError](https://docs.python.org/3/library/exceptions.html#KeyError) because users might change the URL and presenting them a 400
 bad request page in that case is not user friendly.
 
 For a full list of methods and attributes of the request object, head over
-to the `Request` documentation.
+to the [ Request](../api/#flask.Request) documentation.
 
 ### File Uploads
 
@@ -467,7 +493,7 @@ filesystem.  You can access those files by looking at the
 `files` attribute on the request object.  Each
 uploaded file is stored in that dictionary.  It behaves just like a
 standard Python `file` object, but it also has a
-`save()` method that
+[ save()](https://werkzeug.palletsprojects.com/en/stable/datastructures/#werkzeug.datastructures.FileStorage.save) method that
 allows you to store that file on the filesystem of the server.
 Here is a simple example showing how that works:
 
@@ -482,14 +508,14 @@ def upload_file():
 ```
 If you want to know how the file was named on the client before it was
 uploaded to your application, you can access the
-`filename` attribute.
+[ filename](https://werkzeug.palletsprojects.com/en/stable/datastructures/#werkzeug.datastructures.FileStorage.filename) attribute.
 However please keep in mind that this value can be forged
 so never ever trust that value.  If you want to use the filename
 of the client to store the file on the server, pass it through the
-`secure_filename()` function that
-Werkzeug provides for you:
 
-```
+[function that Werkzeug provides for you:](https://werkzeug.palletsprojects.com/en/stable/utils/#werkzeug.utils.secure_filename)
+
+`secure_filename()````
 from werkzeug.utils import secure_filename
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -498,15 +524,16 @@ def upload_file():
         file.save(f"/var/www/uploads/{secure_filename(file.filename)}")
     ...
 ```
-For some better examples, see Uploading Files.
+For some better examples, see [Uploading Files](../patterns/fileuploads/).
 
 ## Redirects and Errors
 
-To redirect a user to another endpoint, use the `redirect()`
+To redirect a user to another endpoint, use the [ redirect()](../api/#flask.redirect)
 function; to abort a request early with an error code, use the
-`abort()` function:
 
-```
+[function:](../api/#flask.abort)
+
+`abort()````
 from flask import abort, redirect, url_for
 @app.route('/')
 def index():
@@ -520,7 +547,7 @@ This is a rather pointless example because a user will be redirected from the in
 
 By default a black and white error page is shown for each error code.  If
 you want to customize the error page, you can use the
-`errorhandler()` decorator:
+[ errorhandler()](../api/#flask.Flask.errorhandler) decorator:
 
 ```
 from flask import render_template
@@ -528,11 +555,11 @@ from flask import render_template
 def page_not_found(error):
     return render_template('page_not_found.html'), 404
 ```
-Note the `404` after the `render_template()` call.  This
+Note the `404` after the [ render_template()](../api/#flask.render_template) call.  This
 tells Flask that the status code of that page should be 404 which means
 not found.  By default 200 is assumed which translates to: all went well.
 
-See Handling Application Errors for more details.
+See [Handling Application Errors](../errorhandling/) for more details.
 
 ## About Responses
 
@@ -547,12 +574,12 @@ response objects is as follows:
 - If a response object of the correct type is returned it’s directly returned from the view. 
 - If it’s a string, a response object is created with that data and the default parameters. 
 - If it’s an iterator or generator returning strings or bytes, it is treated as a streaming response. 
-- If it’s a dict or list, a response object is created using - `jsonify()`.
+- If it’s a dict or list, a response object is created using - `jsonify()`
 - If a tuple is returned the items in the tuple can provide extra information. Such tuples have to be in the form - `(response, status)`,- `(response, headers)`, or- `(response, status, headers)`. The- `status`value will override the status code and- `headers`can be a list or dictionary of additional header values.
 - If none of that works, Flask will assume the return value is a valid WSGI application and convert that into a response object. 
 
 If you want to get hold of the resulting response object inside the view
-you can use the `make_response()` function.
+you can use the [ make_response()](../api/#flask.make_response) function.
 
 Imagine you have a view like this:
 
@@ -563,7 +590,7 @@ def not_found(error):
     return render_template('error.html'), 404
 ```
 You just need to wrap the return expression with
-`make_response()` and get the response object to modify it, then
+[ make_response()](../api/#flask.make_response) and get the response object to modify it, then
 return it:
 
 ```
@@ -595,7 +622,7 @@ def users_api():
     return [user.to_json() for user in users]
 ```
 This is a shortcut to passing the data to the
-`jsonify()` function, which will serialize any supported
+[ jsonify()](../api/#flask.json.jsonify) function, which will serialize any supported
 JSON data type. That means that all the data in the dict or list must be
 JSON serializable.
 
@@ -604,7 +631,7 @@ For complex types such as database models, you’ll want to use a serialization 
 ## Sessions
 
 In addition to the request object there is also a second object called
-`session` which allows you to store information specific to a
+[ session](../api/#flask.session) which allows you to store information specific to a
 user from one request to the next.  This is implemented on top of cookies
 for you and signs the cookies cryptographically.  What this means is that
 the user could look at the contents of your cookie but not modify it,
@@ -643,7 +670,7 @@ How to generate good secret keys
 A secret key should be as random as possible. Your operating system has
 ways to generate pretty random data based on a cryptographic random
 generator. Use the following command to quickly generate a value for
-`Flask.secret_key` (or `SECRET_KEY`):
+`Flask.secret_key` (or [ SECRET_KEY](../config/#SECRET_KEY)):
 
 ```
 $ python -c 'import secrets; print(secrets.token_hex())'
@@ -657,10 +684,12 @@ Besides the default client-side based sessions, if you want to handle sessions o
 
 Good applications and user interfaces are all about feedback. If the user does not get enough feedback they will probably end up hating the application. Flask provides a really simple way to give feedback to a user with the flashing system. The flashing system basically makes it possible to record a message at the end of a request and access it on the next (and only the next) request. This is usually combined with a layout template to expose the message.
 
-To flash a message use the `flash()` method, to get hold of the
-messages you can use `get_flashed_messages()` which is also
-available in the templates. See Message Flashing for a full
-example.
+To flash a message use the [ flash()](../api/#flask.flash) method, to get hold of the
+messages you can use 
+
+[which is also available in the templates. See](../api/#flask.get_flashed_messages)
+
+`get_flashed_messages()`[Message Flashing](../patterns/flashing/)for a full example.
 
 ## Logging
 
@@ -685,15 +714,17 @@ app.logger.debug('A value for debugging')
 app.logger.warning('A warning occurred (%d apples)', 42)
 app.logger.error('An error occurred')
 ```
-The attached `logger` is a standard logging
-`Logger`, so head over to the official `logging`
-docs for more information.
+The attached [ logger](../api/#flask.Flask.logger) is a standard logging
 
-## Hooking in WSGI Middleware
+[, so head over to the official](https://docs.python.org/3/library/logging.html#logging.Logger)
+
+`Logger`[docs for more information.](https://docs.python.org/3/library/logging.html#module-logging)
+
+`logging`## Hooking in WSGI Middleware
 
 To add WSGI middleware to your Flask application, wrap the application’s
 `wsgi_app` attribute. For example, to apply Werkzeug’s
-`ProxyFix` middleware for running
+[ ProxyFix](https://werkzeug.palletsprojects.com/en/stable/middleware/proxy_fix/#werkzeug.middleware.proxy_fix.ProxyFix) middleware for running
 behind Nginx:
 
 ```
@@ -708,11 +739,11 @@ continue to use and configure `app` directly.
 
 Extensions are packages that help you accomplish common tasks. For example, Flask-SQLAlchemy provides SQLAlchemy support that makes it simple and easy to use with Flask.
 
-For more on Flask extensions, see Extensions.
+For more on Flask extensions, see [Extensions](../extensions/).
 
 ## Deploying to a Web Server
 
-Ready to deploy your new Flask app? See Deploying to Production.
+Ready to deploy your new Flask app? See [Deploying to Production](../deploying/).
 
 # Citations
 

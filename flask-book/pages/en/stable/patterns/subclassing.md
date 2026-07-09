@@ -2,12 +2,12 @@
 type: Web Page
 title: Subclassing Flask — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/subclassing
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Subclassing Flask
 
-The `Flask` class is designed for subclassing.
+The [ Flask](../../api/#flask.Flask) class is designed for subclassing.
 
 For example, you may want to override how request parameters are handled to preserve their order:
 

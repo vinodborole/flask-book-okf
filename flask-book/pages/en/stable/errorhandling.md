@@ -2,7 +2,7 @@
 type: Web Page
 title: Handling Application Errors — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/errorhandling
-timestamp: '2026-07-07T08:53:11.212445+00:00'
+timestamp: '2026-07-09T12:16:47.677177+00:00'
 ---
 
 # Handling Application Errors
@@ -20,13 +20,19 @@ Applications fail, servers fail. Sooner or later you will see an exception in pr
 And that’s just a small sample of issues you could be facing. So how do we
 deal with that sort of problem? By default if your application runs in
 production mode, and an exception is raised Flask will display a very simple
-page for you and log the exception to the `logger`.
+page for you and log the exception to the [ logger](../api/#flask.Flask.logger).
 
 But there is more you can do, and we will cover some better setups to deal with errors including custom exceptions and 3rd party tools.
 
 ## Error Logging Tools
 
-Sending error mails, even if just for critical ones, can become overwhelming if enough users are hitting the error and log files are typically never looked at. This is why we recommend using Sentry for dealing with application errors. It’s available as a source-available project on GitHub and is also available as a hosted version which you can try for free. Sentry aggregates duplicate errors, captures the full stack trace and local variables for debugging, and sends you mails based on new errors or frequency thresholds.
+Sending error mails, even if just for critical ones, can become
+overwhelming if enough users are hitting the error and log files are
+typically never looked at. This is why we recommend using [Sentry](https://sentry.io/) for dealing with application errors. It’s
+available as a source-available project [on GitHub](https://github.com/getsentry/sentry) and is also available as a [hosted version](https://sentry.io/signup/) which you can try for free. Sentry
+aggregates duplicate errors, captures the full stack trace and local
+variables for debugging, and sends you mails based on new errors or
+frequency thresholds.
 
 To use Sentry you need to install the `sentry-sdk` client with extra
 `flask` dependencies.
@@ -48,42 +54,45 @@ After installation, failures leading to an Internal Server Error are automatical
 
 See also:
 
-- Sentry also supports catching errors from a worker queue (RQ, Celery, etc.) in a similar fashion. See the Python SDK docs for more information. 
+- Sentry also supports catching errors from a worker queue (RQ, Celery, etc.) in a similar fashion. See the - [Python SDK docs](https://docs.sentry.io/platforms/python/)for more information.
 
 ## Error Handlers
 
-When an error occurs in Flask, an appropriate HTTP status code will be returned. 400-499 indicate errors with the client’s request data, or about the data requested. 500-599 indicate errors with the server or application itself.
+When an error occurs in Flask, an appropriate [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) will be
+returned. 400-499 indicate errors with the client’s request data, or
+about the data requested. 500-599 indicate errors with the server or
+application itself.
 
 You might want to show custom error pages to the user when an error occurs. This can be done by registering error handlers.
 
 An error handler is a function that returns a response when a type of error is
 raised, similar to how a view is a function that returns a response when a
 request URL is matched. It is passed the instance of the error being handled,
-which is most likely a `HTTPException`.
+which is most likely a [ HTTPException](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException).
 
 The status code of the response will not be set to the handler’s code. Make sure to provide the appropriate HTTP status code when returning a response from a handler.
 
 ### Registering
 
 Register handlers by decorating a function with
-`errorhandler()`. Or use
-`register_error_handler()` to register the function later.
-Remember to set the error code when returning the response.
+[ errorhandler()](../api/#flask.Flask.errorhandler). Or use
 
-```
+[to register the function later. Remember to set the error code when returning the response.](../api/#flask.Flask.register_error_handler)
+
+`register_error_handler()````
 @app.errorhandler(werkzeug.exceptions.BadRequest)
 def handle_bad_request(e):
     return 'bad request!', 400
 # or, without the decorator
 app.register_error_handler(400, handle_bad_request)
 ```
-`werkzeug.exceptions.HTTPException` subclasses like
-`BadRequest` and their HTTP codes are interchangeable
-when registering handlers. (`BadRequest.code == 400`)
+[ werkzeug.exceptions.HTTPException](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException) subclasses like
 
-Non-standard HTTP codes cannot be registered by code because they are not known
+[and their HTTP codes are interchangeable when registering handlers. (](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.BadRequest)
+
+`BadRequest``BadRequest.code == 400`)Non-standard HTTP codes cannot be registered by code because they are not known
 by Werkzeug. Instead, define a subclass of
-`HTTPException` with the appropriate code and
+[ HTTPException](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException) with the appropriate code and
 register and raise that exception class.
 
 ```
@@ -94,7 +103,7 @@ app.register_error_handler(InsufficientStorage, handle_507)
 raise InsufficientStorage()
 ```
 Handlers can be registered for any exception class, not just
-`HTTPException` subclasses or HTTP status
+[ HTTPException](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException) subclasses or HTTP status
 codes. Handlers can be registered for a specific class, or for all subclasses
 of a parent class.
 
@@ -103,28 +112,34 @@ of a parent class.
 When building a Flask application you *will* run into exceptions. If some part
 of your code breaks while handling a request (and you have no error handlers
 registered), a “500 Internal Server Error”
-(`InternalServerError`) will be returned by default.
+([ InternalServerError](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.InternalServerError)) will be returned by default.
 Similarly, “404 Not Found”
-(`NotFound`) error will occur if a request is sent to an unregistered route.
-If a route receives an unallowed request method, a “405 Method Not Allowed”
-(`MethodNotAllowed`) will be raised. These are all
-subclasses of `HTTPException` and are provided by
-default in Flask.
+(
 
-Flask gives you the ability to raise any HTTP exception registered by Werkzeug. However, the default HTTP exceptions return simple exception pages. You might want to show custom error pages to the user when an error occurs. This can be done by registering error handlers.
+[) error will occur if a request is sent to an unregistered route. If a route receives an unallowed request method, a “405 Method Not Allowed” (](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.NotFound)
+
+`NotFound`[) will be raised. These are all subclasses of](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.MethodNotAllowed)
+
+`MethodNotAllowed`[and are provided by default in Flask.](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException)
+
+`HTTPException`Flask gives you the ability to raise any HTTP exception registered by Werkzeug. However, the default HTTP exceptions return simple exception pages. You might want to show custom error pages to the user when an error occurs. This can be done by registering error handlers.
 
 When Flask catches an exception while handling a request, it is first looked up by code.
 If no handler is registered for the code, Flask looks up the error by its class hierarchy; the most specific handler is chosen.
-If no handler is registered, `HTTPException` subclasses show a
+If no handler is registered, [ HTTPException](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException) subclasses show a
 generic message about their code, while other exceptions are converted to a
 generic “500 Internal Server Error”.
 
-For example, if an instance of `ConnectionRefusedError` is raised,
-and a handler is registered for `ConnectionError` and
-`ConnectionRefusedError`, the more specific `ConnectionRefusedError`
-handler is called with the exception instance to generate the response.
+For example, if an instance of [ ConnectionRefusedError](https://docs.python.org/3/library/exceptions.html#ConnectionRefusedError) is raised,
+and a handler is registered for 
 
-Handlers registered on the blueprint take precedence over those registered globally on the application, assuming a blueprint is handling the request that raises the exception. However, the blueprint cannot handle 404 routing errors because the 404 occurs at the routing level before the blueprint can be determined.
+[and](https://docs.python.org/3/library/exceptions.html#ConnectionError)
+
+`ConnectionError`[, the more specific](https://docs.python.org/3/library/exceptions.html#ConnectionRefusedError)
+
+`ConnectionRefusedError`[handler is called with the exception instance to generate the response.](https://docs.python.org/3/library/exceptions.html#ConnectionRefusedError)
+
+`ConnectionRefusedError`Handlers registered on the blueprint take precedence over those registered globally on the application, assuming a blueprint is handling the request that raises the exception. However, the blueprint cannot handle 404 routing errors because the 404 occurs at the routing level before the blueprint can be determined.
 
 ### Generic Exception Handlers
 
@@ -184,7 +199,7 @@ because the `HTTPException` handler is more specific.
 
 When there is no error handler registered for an exception, a 500
 Internal Server Error will be returned instead. See
-`flask.Flask.handle_exception()` for information about this
+[ flask.Flask.handle_exception()](../api/#flask.Flask.handle_exception) for information about this
 behavior.
 
 If there is an error handler registered for `InternalServerError`,
@@ -199,13 +214,12 @@ An error handler for “500 Internal Server Error” will be passed uncaught exc
 ## Custom Error Pages
 
 Sometimes when building a Flask application, you might want to raise a
-`HTTPException` to signal to the user that
+[ HTTPException](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.HTTPException) to signal to the user that
 something is wrong with the request. Fortunately, Flask comes with a handy
-`abort()` function that aborts a request with a HTTP error from
-werkzeug as desired. It will also provide a plain black and white error page
-for you with a basic description, but nothing fancy.
 
-Depending on the error code it is less or more likely for the user to actually see such an error.
+[function that aborts a request with a HTTP error from werkzeug as desired. It will also provide a plain black and white error page for you with a basic description, but nothing fancy.](../api/#flask.abort)
+
+`abort()`Depending on the error code it is less or more likely for the user to actually see such an error.
 
 Consider the code below, we might have a user profile route, and if the user fails to pass a username we can raise a “400 Bad Request”. If the user passes a username and we can’t find it, we raise a “404 Not Found”.
 
@@ -234,7 +248,7 @@ def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
 ```
-When using Application Factories:
+When using [Application Factories](../patterns/appfactories/):
 
 ```
 from flask import Flask, render_template
@@ -278,7 +292,7 @@ def internal_server_error(e):
     # note that we set the 500 status explicitly
     return render_template('500.html'), 500
 ```
-When using Application Factories:
+When using [Application Factories](../patterns/appfactories/):
 
 ```
 from flask import Flask, render_template
@@ -289,7 +303,7 @@ def create_app():
     app.register_error_handler(500, internal_server_error)
     return app
 ```
-When using Modular Applications with Blueprints:
+When using [Modular Applications with Blueprints](../blueprints/):
 
 ```
 from flask import Blueprint
@@ -303,7 +317,7 @@ blog.register_error_handler(500, internal_server_error)
 ```
 ## Blueprint Error Handlers
 
-In Modular Applications with Blueprints, most error handlers will work as expected.
+In [Modular Applications with Blueprints](../blueprints/), most error handlers will work as expected.
 However, there is a caveat concerning handlers for 404 and 405
 exceptions. These error handlers are only invoked from an appropriate
 `raise` statement or a call to `abort` in another of the blueprint’s
@@ -345,12 +359,13 @@ When building APIs in Flask, some developers realise that the built-in
 exceptions are not expressive enough for APIs and that the content type of
 *text/html* they are emitting is not very useful for API consumers.
 
-Using the same techniques as above and `jsonify()` we can return JSON
-responses to API errors.  `abort()` is called
-with a `description` parameter. The error handler will
-use that as the JSON error message, and set the status code to 404.
+Using the same techniques as above and [ jsonify()](../api/#flask.json.jsonify) we can return JSON
+responses to API errors.  
 
-```
+[is called with a](../api/#flask.abort)
+
+`abort()``description` parameter. The error handler will
+use that as the JSON error message, and set the status code to 404.```
 from flask import abort, jsonify
 @app.errorhandler(404)
 def resource_not_found(e):
@@ -401,11 +416,13 @@ parameter.
 
 ## Logging
 
-See Logging for information about how to log exceptions, such as by emailing them to admins.
+See [Logging](../logging/) for information about how to log exceptions, such as
+by emailing them to admins.
 
 ## Debugging
 
-See Debugging Application Errors for information about how to debug errors in development and production.
+See [Debugging Application Errors](../debugging/) for information about how to debug errors in
+development and production.
 
 # Citations
 
