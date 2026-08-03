@@ -2,7 +2,7 @@
 type: Web Page
 title: Flask Extension Development — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/extensiondev
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Flask Extension Development
@@ -37,10 +37,10 @@ library, prefer using the same case as that library’s name.
 
 Here are some example install and import names:
 
-- `Flask-Name`imported as- `flask_name`
-- `flask-name-lower`imported as- `flask_name_lower`
-- `Flask-ComboName`imported as- `flask_comboname`
-- `Name-Flask`imported as- `name_flask`
+- `Flask-Name` imported as`flask_name`
+- `flask-name-lower` imported as`flask_name_lower`
+- `Flask-ComboName` imported as`flask_comboname`
+- `Name-Flask` imported as`name_flask`
 
 ## The Extension Class and Initialization
 
@@ -61,7 +61,7 @@ class HelloExtension:
 It is important that the app is not stored on the extension, don’t do
 `self.app = app`. The only time the extension should have direct
 access to an app is during `init_app`, otherwise it should use
-[ current_app](../api/#flask.current_app).
+[`current_app`](../api/#flask.current_app).
 
 This allows the extension to support the application factory pattern, avoids circular import issues when importing the extension instance elsewhere in a user’s code, and makes testing with different configurations easier.
 
@@ -77,7 +77,7 @@ application. This means that other modules in a user’s project can do
 `from project import hello` and use the extension in blueprints before
 the app exists.
 
-The [ Flask.extensions](../api/#flask.Flask.extensions) dict can be used to store a reference to
+The [`Flask.extensions`](../api/#flask.Flask.extensions) dict can be used to store a reference to
 the extension on the application, or some other state specific to the
 application. Be aware that this is a single namespace, so use a name
 unique to your extension, such as the extension’s name without the
@@ -86,38 +86,44 @@ unique to your extension, such as the extension’s name without the
 ## Adding Behavior
 
 There are many ways that an extension can add behavior. Any setup
-methods that are available on the [ Flask](../api/#flask.Flask) object can be used
-during an extension’s 
+methods that are available on the [`Flask`](../api/#flask.Flask) object can be used
+during an extension’s `init_app` method.
 
-`init_app` method.A common pattern is to use [ before_request()](../api/#flask.Flask.before_request) to initialize
+A common pattern is to use [`before_request()`](../api/#flask.Flask.before_request) to initialize
 some data or a connection at the beginning of each request, then
+[`teardown_request()`](../api/#flask.Flask.teardown_request) to clean it up at the end. This can be
+stored on [`g`](../api/#flask.g), discussed more below.
 
-[to clean it up at the end. This can be stored on](../api/#flask.Flask.teardown_request)
-
-`teardown_request()`[, discussed more below.](../api/#flask.g)
-
-`g`A more lazy approach is to provide a method that initializes and caches
+A more lazy approach is to provide a method that initializes and caches
 the data or connection. For example, a `ext.get_db` method could
 create a database connection the first time it’s called, so that a view
 that doesn’t use the database doesn’t create a connection.
 
 Besides doing something before and after every view, your extension
 might want to add some specific views as well. In this case, you could
-define a [ Blueprint](../api/#flask.Blueprint), then call 
+define a [`Blueprint`](../api/#flask.Blueprint), then call [`register_blueprint()`](../api/#flask.Flask.register_blueprint)
+during `init_app` to add the blueprint to the app.
 
-[during](../api/#flask.Flask.register_blueprint)
-
-`register_blueprint()``init_app` to add the blueprint to the app.## Configuration Techniques
+## Configuration Techniques
 
 There can be multiple levels and sources of configuration for an extension. You should consider what parts of your extension fall into each one.
 
-- Configuration per application instance, through - `app.config`values. This is configuration that could reasonably change for each deployment of an application. A common example is a URL to an external resource, such as a database. Configuration keys should start with the extension’s name so that they don’t interfere with other extensions.
-- Configuration per extension instance, through - `__init__`arguments. This configuration usually affects how the extension is used, such that it wouldn’t make sense to change it per deployment.
-- Configuration per extension instance, through instance attributes and decorator methods. It might be more ergonomic to assign to - `ext.value`, or use a- `@ext.register`decorator to register a function, after the extension instance has been created.
-- Global configuration through class attributes. Changing a class attribute like - `Ext.connection_class`can customize default behavior without making a subclass. This could be combined per-extension configuration to override defaults.
-- Subclassing and overriding methods and attributes. Making the API of the extension itself something that can be overridden provides a very powerful tool for advanced customization. 
+- Configuration per application instance, through `app.config` values. This is configuration that could reasonably change for each
+deployment of an application. A common example is a URL to an
+external resource, such as a database. Configuration keys should
+start with the extension’s name so that they don’t interfere with
+other extensions.
+- Configuration per extension instance, through `__init__` arguments. This configuration usually affects how the extension
+is used, such that it wouldn’t make sense to change it per
+deployment.
+- Configuration per extension instance, through instance attributes and decorator methods. It might be more ergonomic to assign to `ext.value` , or use a`@ext.register` decorator to register a
+function, after the extension instance has been created.
+- Global configuration through class attributes. Changing a class attribute like `Ext.connection_class` can customize default
+behavior without making a subclass. This could be combined
+per-extension configuration to override defaults.
+- Subclassing and overriding methods and attributes. Making the API of the extension itself something that can be overridden provides a very powerful tool for advanced customization.
 
-The [ Flask](../api/#flask.Flask) object itself uses all of these techniques.
+The [`Flask`](../api/#flask.Flask) object itself uses all of these techniques.
 
 It’s up to you to decide what configuration is appropriate for your extension, based on what you need and what you want to support.
 
@@ -125,15 +131,15 @@ Configuration should not be changed after the application setup phase is complet
 
 ## Data During a Request
 
-When writing a Flask application, the [ g](../api/#flask.g) object is used to
+When writing a Flask application, the [`g`](../api/#flask.g) object is used to
 store information during a request. For example the
-
-[tutorial](../tutorial/database/)stores a connection to a SQLite database as
-
-`g.db`. Extensions can also use this, with some care.
+[tutorial](../tutorial/database/) stores a connection to a SQLite
+database as `g.db`. Extensions can also use this, with some care.
 Since `g` is a single global namespace, extensions must use unique
 names that won’t collide with user data. For example, use the extension
-name as a prefix, or as a namespace.```
+name as a prefix, or as a namespace.
+
+```
 # an internal prefix with the extension name
 g._hello_user_id = 2
 # or an internal prefix as a namespace
@@ -144,13 +150,12 @@ g._hello.user_id = 2
 The data in `g` lasts for an application context. An application
 context is active when a request context is, or when a CLI command is
 run. If you’re storing something that should be closed, use
-[ teardown_appcontext()](../api/#flask.Flask.teardown_appcontext) to ensure that it gets closed
+[`teardown_appcontext()`](../api/#flask.Flask.teardown_appcontext) to ensure that it gets closed
 when the application context ends. If it should only be valid during a
 request, or would not be used in the CLI outside a request, use
+[`teardown_request()`](../api/#flask.Flask.teardown_request).
 
-[.](../api/#flask.Flask.teardown_request)
-
-`teardown_request()`## Views and Models
+## Views and Models
 
 Your extension views might want to interact with specific models in your
 database, or some other extension or data connected to your application.
@@ -165,7 +170,7 @@ can the view code, defined before the model exists, access the model?
 
 One method could be to use [Class-based Views](../views/). During `__init__`, create
 the model, then create the views by passing the model to the view
-class’s [ as_view()](../api/#flask.views.View.as_view) method.
+class’s [`as_view()`](../api/#flask.views.View.as_view) method.
 
 ```
 class PostAPI(MethodView):
@@ -208,17 +213,25 @@ extensions. Remember, if you need help with design, ask on our
 
 Flask previously had the concept of “approved extensions”, where the Flask maintainers evaluated the quality, support, and compatibility of the extensions before listing them. While the list became too difficult to maintain over time, the guidelines are still relevant to all extensions maintained and developed today, as they help the Flask ecosystem remain consistent and compatible.
 
-- An extension requires a maintainer. In the event an extension author would like to move beyond the project, the project should find a new maintainer and transfer access to the repository, documentation, PyPI, and any other services. The - [Pallets-Eco](https://github.com/pallets-eco)organization on GitHub allows for community maintenance with oversight from the Pallets maintainers.
-- The naming scheme is - *Flask-ExtensionName*or- *ExtensionName-Flask*. It must provide exactly one package or module named- `flask_extension_name`.
-- The extension must use an open source license. The Python web ecosystem tends to prefer BSD or MIT. It must be open source and publicly available. 
-- The extension’s API must have the following characteristics: - It must support multiple applications running in the same Python process. Use - `current_app`instead of- `self.app`, store configuration and state per application instance.
-- It must be possible to use the factory pattern for creating applications. Use the - `ext.init_app()`pattern.
- 
-- From a clone of the repository, an extension with its dependencies must be installable in editable mode with - `pip install -e .`.
-- It must ship tests that can be invoked with a common tool like - `tox -e py`,- `nox -s test`or- `pytest`. If not using- `tox`, the test dependencies should be specified in a requirements file. The tests must be part of the sdist distribution.
-- A link to the documentation or project website must be in the PyPI metadata or the readme. The documentation should use the Flask theme from the - [Official Pallets Themes](https://pypi.org/project/Pallets-Sphinx-Themes/).
-- The extension’s dependencies should not use upper bounds or assume any particular version scheme, but should use lower bounds to indicate minimum compatibility support. For example, - `sqlalchemy>=1.4`.
-- Indicate the versions of Python supported using - `python_requires=">=version"`. Flask itself supports Python >=3.9 as of October 2024, and this will update over time.
+1. An extension requires a maintainer. In the event an extension author would like to move beyond the project, the project should find a new maintainer and transfer access to the repository, documentation, PyPI, and any other services. The [Pallets-Eco](https://github.com/pallets-eco) organization on
+GitHub allows for community maintenance with oversight from the
+Pallets maintainers.
+2. The naming scheme is *Flask-ExtensionName* or*ExtensionName-Flask* .
+It must provide exactly one package or module named`flask_extension_name` .
+3. The extension must use an open source license. The Python web ecosystem tends to prefer BSD or MIT. It must be open source and publicly available.
+4. The extension’s API must have the following characteristics: 
+  - It must support multiple applications running in the same Python process. Use `current_app` instead of`self.app` , store
+configuration and state per application instance.
+  - It must be possible to use the factory pattern for creating applications. Use the `ext.init_app()` pattern.
+5. From a clone of the repository, an extension with its dependencies must be installable in editable mode with `pip install -e .` .
+6. It must ship tests that can be invoked with a common tool like `tox -e py` ,`nox -s test` or`pytest` . If not using`tox` ,
+the test dependencies should be specified in a requirements file.
+The tests must be part of the sdist distribution.
+7. A link to the documentation or project website must be in the PyPI metadata or the readme. The documentation should use the Flask theme from the [Official Pallets Themes](https://pypi.org/project/Pallets-Sphinx-Themes/) .
+8. The extension’s dependencies should not use upper bounds or assume any particular version scheme, but should use lower bounds to indicate minimum compatibility support. For example, `sqlalchemy>=1.4` .
+9. Indicate the versions of Python supported using `python_requires=">=version"` .
+Flask itself supports Python >=3.9 as of October 2024, and this will update
+over time.
 
 # Citations
 

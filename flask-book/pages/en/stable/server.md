@@ -2,7 +2,7 @@
 type: Web Page
 title: Development Server — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/server
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Development Server
@@ -38,7 +38,10 @@ when the server tries to start. It may have one of the following
 messages:
 
 - `OSError: [Errno 98] Address already in use`
-- `OSError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions`
+- ```
+OSError: [WinError 10013] An attempt was made to access a socket
+in a way forbidden by its access permissions
+```
 
 Either identify and stop the other program, or use
 `flask run --port 5001` to pick a different port.
@@ -75,12 +78,12 @@ while still allowing the server to handle errors on reload.
 
 ## In Code
 
-The development server can also be started from Python with the [ Flask.run()](../api/#flask.Flask.run)
+The development server can also be started from Python with the [`Flask.run()`](../api/#flask.Flask.run)
 method. This method takes arguments similar to the CLI options to control the server.
 The main difference from the CLI command is that the server will crash if there are
-errors when reloading. 
+errors when reloading. `debug=True` can be passed to enable debug mode.
 
-`debug=True` can be passed to enable debug mode.Place the call in a main block, otherwise it will interfere when trying to import and run the application with a production server later.
+Place the call in a main block, otherwise it will interfere when trying to import and run the application with a production server later.
 
 ```
 if __name__ == "__main__":

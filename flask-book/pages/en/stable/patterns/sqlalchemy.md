@@ -2,7 +2,7 @@
 type: Web Page
 title: SQLAlchemy in Flask — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/sqlalchemy
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # SQLAlchemy in Flask
@@ -48,12 +48,10 @@ def init_db():
 To define your models, just subclass the `Base` class that was created by
 the code above.  If you are wondering why we don’t have to care about
 threads here (like we did in the SQLite3 example above with the
-[ g](../../api/#flask.g) object): that’s because SQLAlchemy does that for us
-already with the 
+[`g`](../../api/#flask.g) object): that’s because SQLAlchemy does that for us
+already with the [`scoped_session`](https://docs.sqlalchemy.org/en/20/orm/contextual.html#sqlalchemy.orm.scoped_session).
 
-[.](https://docs.sqlalchemy.org/en/20/orm/contextual.html#sqlalchemy.orm.scoped_session)
-
-`scoped_session`To use SQLAlchemy in a declarative way with your application, you just have to put the following code into your application module. Flask will automatically remove database sessions at the end of the request or when the application shuts down:
+To use SQLAlchemy in a declarative way with your application, you just have to put the following code into your application module. Flask will automatically remove database sessions at the end of the request or when the application shuts down:
 
 ```
 from yourapplication.database import db_session

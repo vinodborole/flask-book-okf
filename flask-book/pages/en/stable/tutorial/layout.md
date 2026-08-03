@@ -2,7 +2,7 @@
 type: Web Page
 title: Project Layout — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/layout
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Project Layout
@@ -36,12 +36,16 @@ tutorial will do this as well.
 
 The project directory will contain:
 
-- `flaskr/`, a Python package containing your application code and files.
-- `tests/`, a directory containing test modules.
-- `.venv/`, a Python virtual environment where Flask and other dependencies are installed.
-- Installation files telling Python how to install your project. 
-- Version control config, such as - [git](https://git-scm.com/). You should make a habit of using some type of version control for all your projects, no matter the size.
-- Any other project files you might add in the future. 
+- `flaskr/` , a Python package containing your application code and
+files.
+- `tests/` , a directory containing test modules.
+- `.venv/` , a Python virtual environment where Flask and other
+dependencies are installed.
+- Installation files telling Python how to install your project.
+- Version control config, such as [git](https://git-scm.com/) . You should make a habit of
+using some type of version control for all your projects, no matter
+the size.
+- Any other project files you might add in the future.
 
 By the end, your project layout will look like this:
 

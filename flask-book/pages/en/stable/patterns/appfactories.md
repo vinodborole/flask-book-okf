@@ -2,7 +2,7 @@
 type: Web Page
 title: Application Factories — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/appfactories
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Application Factories
@@ -15,8 +15,8 @@ into a function, you can then create multiple instances of this app later.
 
 So why would you want to do this?
 
-- Testing. You can have instances of the application with different settings to test every case. 
-- Multiple instances. Imagine you want to run different versions of the same application. Of course you could have multiple instances with different configs set up in your webserver, but if you use factories, you can have multiple instances of the same application running in the same application process which can be handy. 
+1. Testing. You can have instances of the application with different settings to test every case.
+2. Multiple instances. Imagine you want to run different versions of the same application. Of course you could have multiple instances with different configs set up in your webserver, but if you use factories, you can have multiple instances of the same application running in the same application process which can be handy.
 
 So how would you then actually implement that?
 
@@ -39,7 +39,7 @@ def create_app(config_filename):
 The downside is that you cannot use the application object in the blueprints
 at import time.  You can however use it from within a request.  How do you
 get access to the application with the config?  Use
-[ current_app](../../api/#flask.current_app):
+[`current_app`](../../api/#flask.current_app):
 
 ```
 from flask import current_app, Blueprint, render_template
@@ -102,9 +102,9 @@ argument `local_auth=True`. See [Command Line Interface](../../cli/) for more de
 
 The factory function above is not very clever, but you can improve it. The following changes are straightforward to implement:
 
-- Make it possible to pass in configuration values for unit tests so that you don’t have to create config files on the filesystem. 
-- Call a function from a blueprint when the application is setting up so that you have a place to modify attributes of the application (like hooking in before/after request handlers etc.) 
-- Add in WSGI middlewares when the application is being created if necessary.
+1. Make it possible to pass in configuration values for unit tests so that you don’t have to create config files on the filesystem.
+2. Call a function from a blueprint when the application is setting up so that you have a place to modify attributes of the application (like hooking in before/after request handlers etc.)
+3. Add in WSGI middlewares when the application is being created if necessary.
 
 # Citations
 

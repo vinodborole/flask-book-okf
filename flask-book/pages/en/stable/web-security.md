@@ -2,7 +2,7 @@
 type: Web Page
 title: Security Considerations — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/web-security
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Security Considerations
@@ -15,9 +15,15 @@ A common category of attacks is “Denial of Service” (DoS or DDoS). This is a
 
 Flask provides a few configuration options to handle resource use. They can also be set on individual requests to customize only that request. The documentation for each goes into more detail.
 
-- `MAX_CONTENT_LENGTH`- `Request.max_content_length`
-- `MAX_FORM_MEMORY_SIZE`- `Request.max_form_memory_size`- `multipart/form-data`field can be. It is set to 500kB by default.
-- `MAX_FORM_PARTS`- `Request.max_form_parts`- `multipart/form-data`fields can be parsed. It is set to 1000 by default. Combined with the default- `max_form_memory_size`, this means that a form will occupy at most 500MB of memory.
+- [`MAX_CONTENT_LENGTH`](../config/#MAX_CONTENT_LENGTH) or[`Request.max_content_length`](../api/#flask.Request.max_content_length) controls
+how much data will be read from a request. It is not set by default,
+although it will still block truly unlimited streams unless the WSGI server
+indicates support.
+- [`MAX_FORM_MEMORY_SIZE`](../config/#MAX_FORM_MEMORY_SIZE) or[`Request.max_form_memory_size`](../api/#flask.Request.max_form_memory_size) controls how large any non-file`multipart/form-data` field can be. It is
+set to 500kB by default.
+- [`MAX_FORM_PARTS`](../config/#MAX_FORM_PARTS) or[`Request.max_form_parts`](../api/#flask.Request.max_form_parts) controls how many`multipart/form-data` fields can be parsed. It is set to 1000 by default.
+Combined with the default`max_form_memory_size` , this means that a form
+will occupy at most 500MB of memory.
 
 Regardless of these settings, you should also review what settings are available from your operating system, container deployment (Docker etc), WSGI server, HTTP server, and hosting platform. They typically have ways to set process resource limits, timeouts, and other checks regardless of how Flask is configured.
 
@@ -31,10 +37,10 @@ on [Cross-Site Scripting](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
 Flask configures Jinja to automatically escape all values unless explicitly told otherwise. This should rule out all XSS problems caused in templates, but there are still other places where you have to be careful:
 
-- generating HTML without the help of Jinja 
-- calling - `Markup`on data submitted by users
-- sending out HTML from uploaded files, never do that, use the - `Content-Disposition: attachment`header to prevent that problem.
-- sending out textfiles from uploaded files. Some browsers are using content-type guessing based on the first few bytes so users could trick a browser to execute HTML. 
+- generating HTML without the help of Jinja
+- calling `Markup` on data submitted by users
+- sending out HTML from uploaded files, never do that, use the `Content-Disposition: attachment` header to prevent that problem.
+- sending out textfiles from uploaded files. Some browsers are using content-type guessing based on the first few bytes so users could trick a browser to execute HTML.
 
 Another thing that is very important are unquoted attributes. While Jinja can protect you from XSS issues by escaping HTML, there is one thing it cannot protect you from: XSS by attribute injection. To counter this possible attack vector, be sure to always quote your attributes with either double or single quotes when using Jinja expressions in them:
 
@@ -141,10 +147,10 @@ through, and assumes any host is valid. Although browsers do not allow setting
 the `Host` header, requests made by attackers in other scenarios could set
 the `Host` header to a value they want.
 
-When deploying your application, set [ TRUSTED_HOSTS](../config/#TRUSTED_HOSTS) to restrict what
-values the 
+When deploying your application, set [`TRUSTED_HOSTS`](../config/#TRUSTED_HOSTS) to restrict what
+values the `Host` header may be.
 
-`Host` header may be.The `Host` header may be modified by proxies in between the client and your
+The `Host` header may be modified by proxies in between the client and your
 application. See [Tell Flask it is Behind a Proxy](../deploying/proxy_fix/) to tell your app which proxy values
 to trust.
 

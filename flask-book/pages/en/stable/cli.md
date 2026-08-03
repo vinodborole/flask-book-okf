@@ -2,7 +2,7 @@
 type: Web Page
 title: Command Line Interface — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/cli
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Command Line Interface
@@ -22,9 +22,10 @@ While `--app` supports a variety of options for specifying your
 application, most use cases should be simple. Here are the typical values:
 
 - (nothing)
-- The name “app” or “wsgi” is imported (as a “.py” file, or package), automatically detecting an app ( - `app`or- `application`) or factory (- `create_app`or- `make_app`).
+- The name “app” or “wsgi” is imported (as a “.py” file, or package), automatically detecting an app ( `app` or`application` ) or
+factory (`create_app` or`make_app` ).
 - `--app hello`
-- The given name is imported, automatically detecting an app ( - `app`or- `application`) or factory (- `create_app`or- `make_app`).
+- The given name is imported, automatically detecting an app ( `app` or`application` ) or factory (`create_app` or`make_app` ).
 
 `--app` has three parts: an optional path that sets the current working
 directory, a Python file or dotted import path, and an optional variable
@@ -33,13 +34,13 @@ be followed by arguments in parentheses. The following values demonstrate these
 parts:
 
 - `--app src/hello`
-- Sets the current working directory to - `src`then imports- `hello`.
+- Sets the current working directory to `src` then imports`hello` .
 - `--app hello.web`
-- Imports the path - `hello.web`.
+- Imports the path `hello.web` .
 - `--app hello:app2`
-- Uses the - `app2`Flask instance in- `hello`.
+- Uses the `app2` Flask instance in`hello` .
 - `--app 'hello:create_app("dev")'`
-- The - `create_app`factory in- `hello`is called with the string- `'dev'`as the argument.
+- The `create_app` factory in`hello` is called with the string`'dev'` as the argument.
 
 If `--app` is not set, the command will try to import “app” or
 “wsgi” (as a “.py” file, or package) and try to detect an application
@@ -54,12 +55,10 @@ If parentheses follow the factory name, their contents are parsed as Python lite
 
 ## Run the Development Server
 
-The [ run](../api/#flask.cli.run_command) command will start the development server. It
-replaces the 
+The [`run`](../api/#flask.cli.run_command) command will start the development server. It
+replaces the [`Flask.run()`](../api/#flask.Flask.run) method in most cases.
 
-[method in most cases.](../api/#flask.Flask.run)
-
-`Flask.run()````
+```
 $ flask --app hello run
  * Serving Flask app "hello"
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
@@ -109,13 +108,14 @@ $ flask run --extra-files file1:dirA/file2:dirB/
  * Running on http://127.0.0.1:8000/
  * Detected change in '/path/to/file1', reloading
 ```
-The reloader can also ignore files using [ fnmatch](https://docs.python.org/3/library/fnmatch.html#module-fnmatch) patterns with the
-
+The reloader can also ignore files using [`fnmatch`](https://docs.python.org/3/library/fnmatch.html#module-fnmatch) patterns with the
 `--exclude-patterns` option. Multiple patterns are separated with `:`, or `;` on
-Windows.## Open a Shell
+Windows.
+
+## Open a Shell
 
 To explore the data in your application, you can start an interactive Python
-shell with the [ shell](../api/#flask.cli.shell_command) command. An application
+shell with the [`shell`](../api/#flask.cli.shell_command) command. An application
 context will be active, and the app instance will be imported.
 
 ```
@@ -125,7 +125,7 @@ App: example [production]
 Instance: /home/david/Projects/pallets/flask/instance
 >>>
 ```
-Use [ shell_context_processor()](../api/#flask.Flask.shell_context_processor) to add other automatic imports.
+Use [`shell_context_processor()`](../api/#flask.Flask.shell_context_processor) to add other automatic imports.
 
 ## Environment Variables From dotenv
 
@@ -152,12 +152,10 @@ Directories are scanned upwards from the directory you call `flask`
 from to locate the files.
 
 The files are only loaded by the `flask` command or calling
-[ run()](../api/#flask.Flask.run). If you would like to load these files when running in
-production, you should call 
+[`run()`](../api/#flask.Flask.run). If you would like to load these files when running in
+production, you should call [`load_dotenv()`](../api/#flask.cli.load_dotenv) manually.
 
-[manually.](../api/#flask.cli.load_dotenv)
-
-`load_dotenv()`### Setting Command Options
+### Setting Command Options
 
 Click is configured to load default values for command options from
 environment variables. The variables use the pattern
@@ -311,11 +309,11 @@ app.register_blueprint(bp)
 $ flask students create alice
 ```
 You can alter the group name by specifying the `cli_group` parameter
-when creating the [ Blueprint](../api/#flask.Blueprint) object, or later with
+when creating the [`Blueprint`](../api/#flask.Blueprint) object, or later with
+[`app.register_blueprint(bp, cli_group='...')`](../api/#flask.Flask.register_blueprint).
+The following are equivalent:
 
-[. The following are equivalent:](../api/#flask.Flask.register_blueprint)
-
-`app.register_blueprint(bp, cli_group='...')````
+```
 bp = Blueprint('students', __name__, cli_group='other')
 # or
 app.register_blueprint(bp, cli_group='other')
@@ -336,13 +334,14 @@ $ flask create alice
 ```
 ### Application Context
 
-Commands added using the Flask app’s [ cli](../api/#flask.Flask.cli) or
+Commands added using the Flask app’s [`cli`](../api/#flask.Flask.cli) or
+`FlaskGroup`[`command()`](../api/#flask.cli.AppGroup.command) decorator
+will be executed with an application context pushed, so your custom
+commands and parameters have access to the app and its configuration. The
+[`with_appcontext()`](../api/#flask.cli.with_appcontext) decorator can be used to get the same
+behavior, but is not needed in most cases.
 
-`FlaskGroup`[decorator will be executed with an application context pushed, so your custom commands and parameters have access to the app and its configuration. The](../api/#flask.cli.AppGroup.command)
-
-`command()`[decorator can be used to get the same behavior, but is not needed in most cases.](../api/#flask.cli.with_appcontext)
-
-`with_appcontext()````
+```
 import click
 from flask.cli import with_appcontext
 @click.command()
@@ -380,7 +379,7 @@ your own Click script. Instead of using `--app` and letting Flask load
 your application, you can create your own Click object and export it as a
 [console script](https://packaging.python.org/tutorials/packaging-projects/#console-scripts) entry point.
 
-Create an instance of [ FlaskGroup](../api/#flask.cli.FlaskGroup) and pass it the factory:
+Create an instance of [`FlaskGroup`](../api/#flask.cli.FlaskGroup) and pass it the factory:
 
 ```
 import click

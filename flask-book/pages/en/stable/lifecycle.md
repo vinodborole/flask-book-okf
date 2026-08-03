@@ -2,7 +2,7 @@
 type: Web Page
 title: Application Structure and Lifecycle — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/lifecycle
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Application Structure and Lifecycle
@@ -12,7 +12,7 @@ Flask makes it pretty easy to write a web application. But there are quite a few
 ## Application Setup
 
 The first step in creating a Flask application is creating the application object. Each
-Flask application is an instance of the [ Flask](../api/#flask.Flask) class, which collects all
+Flask application is an instance of the [`Flask`](../api/#flask.Flask) class, which collects all
 configuration, extensions, and views.
 
 ```
@@ -38,13 +38,13 @@ However, it is not possible for Flask to detect all cases of out-of-order setup.
 general, don’t do anything to modify the `Flask` app object and `Blueprint` objects
 from within view functions that run during requests. This includes:
 
-- Adding routes, view functions, and other request handlers with - `@app.route`,- `@app.errorhandler`,- `@app.before_request`, etc.
-- Registering blueprints. 
-- Loading configuration with - `app.config`.
-- Setting up the Jinja template environment with - `app.jinja_env`.
-- Setting a session interface, instead of the default itsdangerous cookie. 
-- Setting a JSON provider with - `app.json`, instead of the default provider.
-- Creating and initializing Flask extensions. 
+- Adding routes, view functions, and other request handlers with `@app.route` ,`@app.errorhandler` ,`@app.before_request` , etc.
+- Registering blueprints.
+- Loading configuration with `app.config` .
+- Setting up the Jinja template environment with `app.jinja_env` .
+- Setting a session interface, instead of the default itsdangerous cookie.
+- Setting a JSON provider with `app.json` , instead of the default provider.
+- Creating and initializing Flask extensions.
 
 ## Serving the Application
 
@@ -53,20 +53,20 @@ development, Flask, through Werkzeug, provides a development WSGI server with th
 `flask run` CLI command. When you are done with development, use a production server
 to serve your application, see [Deploying to Production](../deploying/).
 
-Regardless of what server you’re using, it will follow the [ PEP 3333](https://peps.python.org/pep-3333/) WSGI spec. The
+Regardless of what server you’re using, it will follow the [**PEP 3333**](https://peps.python.org/pep-3333/) WSGI spec. The
 WSGI server will be told how to access your Flask application object, which is the WSGI
 application. Then it will start listening for HTTP requests, translate the request data
 into a WSGI environ, and call the WSGI application with that data. The WSGI application
 will return data that is translated into an HTTP response.
 
-- Browser or other client makes HTTP request. 
-- WSGI server receives request. 
-- WSGI server converts HTTP data to WSGI - `environ`dict.
-- WSGI server calls WSGI application with the - `environ`.
-- Flask, the WSGI application, does all its internal processing to route the request to a view function, handle errors, etc. 
-- Flask translates View function return into WSGI response data, passes it to WSGI server. 
-- WSGI server creates and send an HTTP response. 
-- Client receives the HTTP response. 
+1. Browser or other client makes HTTP request.
+2. WSGI server receives request.
+3. WSGI server converts HTTP data to WSGI `environ` dict.
+4. WSGI server calls WSGI application with the `environ` .
+5. Flask, the WSGI application, does all its internal processing to route the request to a view function, handle errors, etc.
+6. Flask translates View function return into WSGI response data, passes it to WSGI server.
+7. WSGI server creates and send an HTTP response.
+8. Client receives the HTTP response.
 
 ### Middleware
 
@@ -75,7 +75,7 @@ The WSGI application above is a callable that behaves in a certain way. Middlewa
 From the WSGI server’s perspective, there is one WSGI application, the one it calls directly. Typically, Flask is the “real” application at the end of the chain of middleware. But even Flask can call further WSGI applications, although that’s an advanced, uncommon use case.
 
 A common middleware you’ll see used with Flask is Werkzeug’s
-[ ProxyFix](https://werkzeug.palletsprojects.com/en/stable/middleware/proxy_fix/#werkzeug.middleware.proxy_fix.ProxyFix), which modifies the request to look
+[`ProxyFix`](https://werkzeug.palletsprojects.com/en/stable/middleware/proxy_fix/#werkzeug.middleware.proxy_fix.ProxyFix), which modifies the request to look
 like it came directly from a client even if it passed through HTTP proxies on the way.
 There are other middleware that can handle serving static files, authentication, etc.
 
@@ -83,33 +83,40 @@ There are other middleware that can handle serving static files, authentication,
 
 For us, the interesting part of the steps above is when Flask gets called by the WSGI server (or middleware). At that point, it will do quite a lot to handle the request and generate the response. At the most basic, it will match the URL to a view function, call the view function, and pass the return value back to the server. But there are many more parts that you can use to customize its behavior.
 
-- WSGI server calls the Flask object, which calls - `Flask.wsgi_app()`
-- A - `RequestContext`- `environ`dict into a- `Request`- `AppContext`object.
-- The - [app context](../appcontext/)is pushed, which makes- `current_app`- `g`
-- The - `appcontext_pushed`
-- The - [request context](../reqcontext/)is pushed, which makes- `request`- `session`
-- The session is opened, loading any existing session data using the app’s - `session_interface`- `SessionInterface`
-- The URL is matched against the URL rules registered with the - `route()`
-- The - `request_started`
-- Any - `url_value_preprocessor()`
-- Any - `before_request()`
-- If the URL didn’t match a route a few steps ago, that error is raised now. 
-- The - `route()`
-- If any step so far raised an exception, and there is an - `errorhandler()`
-- Whatever returned a response value - a before request function, the view, or an error handler, that value is converted to a - `Response`
-- Any - `after_this_request()`
-- Any - `after_request()`
-- The session is saved, persisting any modified session data using the app’s - `session_interface`
-- The - `request_finished`
-- If any step so far raised an exception, and it was not handled by an error handler function, it is handled now. HTTP exceptions are treated as responses with their corresponding status code, other exceptions are converted to a generic 500 response. The - `got_request_exception`
-- The response object’s status, headers, and body are returned to the WSGI server. 
-- Any - `teardown_request()`
-- The - `request_tearing_down`
-- The request context is popped, - `request`- `session`
-- Any - `teardown_appcontext()`
-- The - `appcontext_tearing_down`
-- The app context is popped, - `current_app`- `g`
-- The - `appcontext_popped`
+1. WSGI server calls the Flask object, which calls [`Flask.wsgi_app()`](../api/#flask.Flask.wsgi_app) .
+2. A [`RequestContext`](../api/#flask.ctx.RequestContext) object is created. This converts the WSGI`environ` dict into a[`Request`](../api/#flask.Request) object. It also creates an`AppContext` object.
+3. The [app context](../appcontext/) is pushed, which makes[`current_app`](../api/#flask.current_app) and[`g`](../api/#flask.g) available.
+4. The [`appcontext_pushed`](../api/#flask.appcontext_pushed) signal is sent.
+5. The [request context](../reqcontext/) is pushed, which makes[`request`](../api/#flask.request) and[`session`](../api/#flask.session) available.
+6. The session is opened, loading any existing session data using the app’s [`session_interface`](../api/#flask.Flask.session_interface) , an instance of[`SessionInterface`](../api/#flask.sessions.SessionInterface) .
+7. The URL is matched against the URL rules registered with the [`route()`](../api/#flask.Flask.route) decorator during application setup. If there is no match, the error - usually a 404,
+405, or redirect - is stored to be handled later.
+8. The [`request_started`](../api/#flask.request_started) signal is sent.
+9. Any [`url_value_preprocessor()`](../api/#flask.Flask.url_value_preprocessor) decorated functions are called.
+10. Any [`before_request()`](../api/#flask.Flask.before_request) decorated functions are called. If any of
+these function returns a value it is treated as the response immediately.
+11. If the URL didn’t match a route a few steps ago, that error is raised now.
+12. The [`route()`](../api/#flask.Flask.route) decorated view function associated with the matched URL
+is called and returns a value to be used as the response.
+13. If any step so far raised an exception, and there is an [`errorhandler()`](../api/#flask.Flask.errorhandler) decorated function that matches the exception class or HTTP error code, it is
+called to handle the error and return a response.
+14. Whatever returned a response value - a before request function, the view, or an error handler, that value is converted to a [`Response`](../api/#flask.Response) object.
+15. Any [`after_this_request()`](../api/#flask.after_this_request) decorated functions are called, then cleared.
+16. Any [`after_request()`](../api/#flask.Flask.after_request) decorated functions are called, which can modify
+the response object.
+17. The session is saved, persisting any modified session data using the app’s [`session_interface`](../api/#flask.Flask.session_interface) .
+18. The [`request_finished`](../api/#flask.request_finished) signal is sent.
+19. If any step so far raised an exception, and it was not handled by an error handler function, it is handled now. HTTP exceptions are treated as responses with their corresponding status code, other exceptions are converted to a generic 500 response. The [`got_request_exception`](../api/#flask.got_request_exception) signal is sent.
+20. The response object’s status, headers, and body are returned to the WSGI server.
+21. Any [`teardown_request()`](../api/#flask.Flask.teardown_request) decorated functions are called.
+22. The [`request_tearing_down`](../api/#flask.request_tearing_down) signal is sent.
+23. The request context is popped, [`request`](../api/#flask.request) and[`session`](../api/#flask.session) are no longer
+available.
+24. Any [`teardown_appcontext()`](../api/#flask.Flask.teardown_appcontext) decorated functions are called.
+25. The [`appcontext_tearing_down`](../api/#flask.appcontext_tearing_down) signal is sent.
+26. The app context is popped, [`current_app`](../api/#flask.current_app) and[`g`](../api/#flask.g) are no longer
+available.
+27. The [`appcontext_popped`](../api/#flask.appcontext_popped) signal is sent.
 
 There are even more decorators and customization points than this, but that aren’t part
 of every request lifecycle. They’re more specific to certain things you might use during

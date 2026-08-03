@@ -2,7 +2,7 @@
 type: Web Page
 title: Message Flashing — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/flashing
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Message Flashing
@@ -92,13 +92,13 @@ categories can be used to give the user better feedback.  For example
 error messages could be displayed with a red background.
 
 To flash a message with a different category, just use the second argument
-to the [ flash()](../../api/#flask.flash) function:
+to the [`flash()`](../../api/#flask.flash) function:
 
 ```
 flash('Invalid password provided', 'error')
 ```
 Inside the template you then have to tell the
-[ get_flashed_messages()](../../api/#flask.get_flashed_messages) function to also return the
+[`get_flashed_messages()`](../../api/#flask.get_flashed_messages) function to also return the
 categories.  The loop looks slightly different in that situation then:
 
 ```
@@ -123,7 +123,7 @@ might also use the category to add a prefix such as
 Added in version 0.9.
 
 Optionally you can pass a list of categories which filters the results of
-[ get_flashed_messages()](../../api/#flask.get_flashed_messages).  This is useful if you wish to
+[`get_flashed_messages()`](../../api/#flask.get_flashed_messages).  This is useful if you wish to
 render each category in a separate block.
 
 ```

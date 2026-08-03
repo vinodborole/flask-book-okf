@@ -2,7 +2,7 @@
 type: Web Page
 title: Form Validation with WTForms — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/wtforms
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Form Validation with WTForms
@@ -62,9 +62,10 @@ the code as necessary.
 
 Things to remember:
 
-- create the form from the request - `form`value if the data is submitted via the HTTP- `POST`method and- `args`if the data is submitted as- `GET`.
-- to validate the data, call the - `validate()`method, which will return- `True`if the data validates,- `False`otherwise.
-- to access individual values from the form, access - `form.<NAME>.data`.
+1. create the form from the request `form` value if
+the data is submitted via the HTTP`POST` method and`args` if the data is submitted as`GET` .
+2. to validate the data, call the `validate()` method, which will return`True` if the data validates,`False` otherwise.
+3. to access individual values from the form, access `form.<NAME>.data` .
 
 ## Forms in Templates
 

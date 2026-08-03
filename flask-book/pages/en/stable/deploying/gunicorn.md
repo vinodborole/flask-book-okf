@@ -2,7 +2,7 @@
 type: Web Page
 title: Gunicorn — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/gunicorn
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Gunicorn
@@ -10,10 +10,10 @@ timestamp: '2026-07-09T12:16:47.677177+00:00'
 [Gunicorn](https://gunicorn.org/) is a pure Python WSGI server with simple configuration and
 multiple worker implementations for performance tuning.
 
-- It tends to integrate easily with hosting platforms. 
-- It does not support Windows (but does run on WSL). 
-- It is easy to install as it does not require additional dependencies or compilation. 
-- It has built-in async worker support using gevent. 
+- It tends to integrate easily with hosting platforms.
+- It does not support Windows (but does run on WSL).
+- It is easy to install as it does not require additional dependencies or compilation.
+- It has built-in async worker support using gevent.
 
 This page outlines the basics of running Gunicorn. Be sure to read its
 [documentation](https://docs.gunicorn.org/) and use `gunicorn --help` to understand what features

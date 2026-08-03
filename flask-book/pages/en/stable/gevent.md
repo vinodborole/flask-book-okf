@@ -2,7 +2,7 @@
 type: Web Page
 title: Async with Gevent — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/gevent
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Async with Gevent
@@ -34,7 +34,7 @@ When deploying in production, use [Gunicorn](../deploying/gunicorn/) or
 [uWSGI](../deploying/uwsgi/) with a gevent worker, as described on those pages.
 
 To run concurrent tasks within your own code, such as views, use
-[ gevent.spawn()](https://www.gevent.org/api/gevent.html#gevent.spawn):
+[`gevent.spawn()`](https://www.gevent.org/api/gevent.html#gevent.spawn):
 
 ```
 @app.post("/send")
@@ -43,11 +43,11 @@ def send_email():
     return "Email is being sent."
 ```
 If you need to access `request` or other Flask context globals within the
-spawned function, decorate the function with [ stream_with_context()](../api/#flask.stream_with_context) or
+spawned function, decorate the function with [`stream_with_context()`](../api/#flask.stream_with_context) or
+[`copy_current_request_context()`](../api/#flask.copy_current_request_context). Prefer passing the exact data you need
+when spawning the function, rather than using the decorators.
 
-[. Prefer passing the exact data you need when spawning the function, rather than using the decorators.](../api/#flask.copy_current_request_context)
-
-`copy_current_request_context()`Note
+Note
 
 When using gevent, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is required.
 
@@ -55,7 +55,7 @@ When using gevent, greenlet>=1.0 is required. When using PyPy, PyPy>=7.3.7 is re
 
 Gevent’s patching does not interact well with Flask’s built-in asyncio support.
 If you want to use Gevent and asyncio in the same app, you’ll need to override
-[ flask.Flask.async_to_sync()](../api/#flask.Flask.async_to_sync) to run async functions inside gevent.
+[`flask.Flask.async_to_sync()`](../api/#flask.Flask.async_to_sync) to run async functions inside gevent.
 
 ```
 import gevent.monkey

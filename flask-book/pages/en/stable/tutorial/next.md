@@ -2,7 +2,7 @@
 type: Web Page
 title: Keep Developing! — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/next
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Keep Developing!
@@ -24,15 +24,15 @@ validating form data easier and more powerful.
 
 If you want to keep developing your Flaskr project, here are some ideas for what to try next:
 
-- A detail view to show a single post. Click a post’s title to go to its page. 
-- Like / unlike a post. 
-- Comments. 
-- Tags. Clicking a tag shows all the posts with that tag. 
-- A search box that filters the index page by name. 
-- Paged display. Only show 5 posts per page. 
-- Upload an image to go along with a post. 
-- Format posts using Markdown. 
-- An RSS feed of new posts. 
+- A detail view to show a single post. Click a post’s title to go to its page.
+- Like / unlike a post.
+- Comments.
+- Tags. Clicking a tag shows all the posts with that tag.
+- A search box that filters the index page by name.
+- Paged display. Only show 5 posts per page.
+- Upload an image to go along with a post.
+- Format posts using Markdown.
+- An RSS feed of new posts.
 
 Have fun and make awesome applications!
 

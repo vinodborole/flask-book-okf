@@ -2,7 +2,7 @@
 type: Web Page
 title: Testing Flask Applications — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/testing
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Testing Flask Applications
@@ -74,17 +74,17 @@ information.
 The `client` has methods that match the common HTTP request methods,
 such as `client.get()` and `client.post()`. They take many arguments
 for building the request; you can find the full documentation in
-[ EnvironBuilder](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.EnvironBuilder). Typically you’ll use 
+[`EnvironBuilder`](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.EnvironBuilder). Typically you’ll use `path`,
+`query_string`, `headers`, and `data` or `json`.
 
-`path`,
-`query_string`, `headers`, and `data` or `json`.To make a request, call the method the request should use with the path
-to the route to test. A [ TestResponse](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.TestResponse) is returned
+To make a request, call the method the request should use with the path
+to the route to test. A [`TestResponse`](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.TestResponse) is returned
 to examine the response data. It has all the usual properties of a
-response object. You’ll usually look at 
-
-`response.data`, which is the
+response object. You’ll usually look at `response.data`, which is the
 bytes returned by the view. If you want to use text, Werkzeug 2.1
-provides `response.text`, or use `response.get_data(as_text=True)`.```
+provides `response.text`, or use `response.get_data(as_text=True)`.
+
+```
 def test_request_example(client):
     response = client.get("/posts")
     assert b"<h2>Hello, World!</h2>" in response.data
@@ -155,13 +155,12 @@ is a redirect. By passing `follow_redirects=True` to a request method,
 the client will continue to make requests until a non-redirect response
 is returned.
 
-[ TestResponse.history](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.TestResponse.history) is
+[`TestResponse.history`](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.TestResponse.history) is
 a tuple of the responses that led up to the final response. Each
-response has a 
+response has a [`request`](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.TestResponse.request) attribute
+which records the request that produced that response.
 
-[attribute which records the request that produced that response.](https://werkzeug.palletsprojects.com/en/stable/test/#werkzeug.test.TestResponse.request)
-
-`request````
+```
 def test_logout_redirect(client):
     response = client.get("/logout", follow_redirects=True)
     # Check that there was one redirect response.
@@ -172,12 +171,11 @@ def test_logout_redirect(client):
 ## Accessing and Modifying the Session
 
 To access Flask’s context variables, mainly
-[ session](../api/#flask.session), use the client in a 
+[`session`](../api/#flask.session), use the client in a `with` statement.
+The app and request context will remain active *after* making a request,
+until the `with` block ends.
 
-`with` statement.
-The app and request context will remain active *after*making a request, until the
-
-`with` block ends.```
+```
 from flask import session
 def test_access_session(client):
     with client:
@@ -188,10 +186,11 @@ def test_access_session(client):
 ```
 If you want to access or set a value in the session *before* making a
 request, use the client’s
-[ session_transaction()](../api/#flask.testing.FlaskClient.session_transaction) method in a
-
+[`session_transaction()`](../api/#flask.testing.FlaskClient.session_transaction) method in a
 `with` statement. It returns a session object, and will save the
-session once the block ends.```
+session once the block ends.
+
+```
 from flask import session
 def test_modify_session(client):
     with client.session_transaction() as session:
@@ -203,19 +202,17 @@ def test_modify_session(client):
 ```
 ## Running Commands with the CLI Runner
 
-Flask provides [ test_cli_runner()](../api/#flask.Flask.test_cli_runner) to create a
+Flask provides [`test_cli_runner()`](../api/#flask.Flask.test_cli_runner) to create a
+[`FlaskCliRunner`](../api/#flask.testing.FlaskCliRunner), which runs CLI commands in
+isolation and captures the output in a [`Result`](https://click.palletsprojects.com/en/stable/api/#click.testing.Result)
+object. Flask’s runner extends [Click’s runner](https://click.palletsprojects.com/en/stable/testing/),
+see those docs for additional information.
 
-[, which runs CLI commands in isolation and captures the output in a](../api/#flask.testing.FlaskCliRunner)
+Use the runner’s [`invoke()`](../api/#flask.testing.FlaskCliRunner.invoke) method to
+call commands in the same way they would be called with the `flask`
+command from the command line.
 
-`FlaskCliRunner`[object. Flask’s runner extends](https://click.palletsprojects.com/en/stable/api/#click.testing.Result)
-
-`Result`[Click’s runner](https://click.palletsprojects.com/en/stable/testing/), see those docs for additional information.
-
-Use the runner’s [ invoke()](../api/#flask.testing.FlaskCliRunner.invoke) method to
-call commands in the same way they would be called with the 
-
-`flask`
-command from the command line.```
+```
 import click
 @app.cli.command("hello")
 @click.option("--name", default="World")

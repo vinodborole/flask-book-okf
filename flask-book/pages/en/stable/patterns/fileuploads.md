@@ -2,16 +2,17 @@
 type: Web Page
 title: Uploading Files — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/fileuploads
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Uploading Files
 
 Ah yes, the good old problem of file uploads. The basic idea of file uploads is actually quite simple. It basically works like this:
 
-- A - `<form>`tag is marked with- `enctype=multipart/form-data`and an- `<input type=file>`is placed in that form.
-- The application accesses the file from the - `files`dictionary on the request object.
-- use the - `save()`
+1. A `<form>` tag is marked with`enctype=multipart/form-data` and an`<input type=file>` is placed in that form.
+2. The application accesses the file from the `files` dictionary on the request object.
+3. use the [`save()`](https://werkzeug.palletsprojects.com/en/stable/datastructures/#werkzeug.datastructures.FileStorage.save) method of the file to save
+the file permanently somewhere on the filesystem.
 
 ## A Gentle Introduction
 
@@ -71,7 +72,7 @@ def upload_file():
     </form>
     '''
 ```
-So what does that [ secure_filename()](https://werkzeug.palletsprojects.com/en/stable/utils/#werkzeug.utils.secure_filename) function actually do?
+So what does that [`secure_filename()`](https://werkzeug.palletsprojects.com/en/stable/utils/#werkzeug.utils.secure_filename) function actually do?
 Now the problem is that there is that principle called “never trust user
 input”.  This is also true for the filename of an uploaded file.  All
 submitted form data can be forged, and filenames can be dangerous.  For
@@ -80,12 +81,12 @@ before storing it directly on the filesystem.
 
 Information for the Pros
 
-So you’re interested in what that [ secure_filename()](https://werkzeug.palletsprojects.com/en/stable/utils/#werkzeug.utils.secure_filename)
+So you’re interested in what that [`secure_filename()`](https://werkzeug.palletsprojects.com/en/stable/utils/#werkzeug.utils.secure_filename)
 function does and what the problem is if you’re not using it?  So just
-imagine someone would send the following information as 
+imagine someone would send the following information as `filename` to
+your application:
 
-`filename` to
-your application:```
+```
 filename = "../../../../home/username/.bashrc"
 ```
 Assuming the number of `../` is correct and you would join this with
@@ -128,20 +129,20 @@ Added in version 0.6.
 
 So how exactly does Flask handle uploads?  Well it will store them in the
 webserver’s memory if the files are reasonably small, otherwise in a
-temporary location (as returned by [ tempfile.gettempdir()](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir)).  But how
+temporary location (as returned by [`tempfile.gettempdir()`](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir)).  But how
 do you specify the maximum file size after which an upload is aborted?  By
 default Flask will happily accept file uploads with an unlimited amount of
-memory, but you can limit that by setting the 
+memory, but you can limit that by setting the `MAX_CONTENT_LENGTH`
+config key:
 
-`MAX_CONTENT_LENGTH`
-config key:```
+```
 from flask import Flask, Request
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
 ```
 The code above will limit the maximum allowed payload to 16 megabytes.
 If a larger file is transmitted, Flask will raise a
-[ RequestEntityTooLarge](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.RequestEntityTooLarge) exception.
+[`RequestEntityTooLarge`](https://werkzeug.palletsprojects.com/en/stable/exceptions/#werkzeug.exceptions.RequestEntityTooLarge) exception.
 
 Connection Reset Issue
 

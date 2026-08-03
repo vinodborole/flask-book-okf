@@ -2,7 +2,7 @@
 type: Web Page
 title: uWSGI — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/uwsgi
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # uWSGI
@@ -10,10 +10,10 @@ timestamp: '2026-07-09T12:16:47.677177+00:00'
 [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) is a fast, compiled server suite with extensive configuration
 and capabilities beyond a basic server.
 
-- It can be very performant due to being a compiled program. 
-- It is complex to configure beyond the basic application, and has so many options that it can be difficult for beginners to understand. 
-- It does not support Windows (but does run on WSL). 
-- It requires a compiler to install in some cases. 
+- It can be very performant due to being a compiled program.
+- It is complex to configure beyond the basic application, and has so many options that it can be difficult for beginners to understand.
+- It does not support Windows (but does run on WSL).
+- It requires a compiler to install in some cases.
 
 This page outlines the basics of running uWSGI. Be sure to read its documentation to understand what features are available.
 

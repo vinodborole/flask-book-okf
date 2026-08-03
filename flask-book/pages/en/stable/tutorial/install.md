@@ -2,7 +2,7 @@
 type: Web Page
 title: Make the Project Installable — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/install
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Make the Project Installable
@@ -14,9 +14,10 @@ using all the standard Python tools to manage everything.
 
 Installing also comes with other benefits that might not be obvious from the tutorial or as a new Python user, including:
 
-- Currently, Python and Flask understand how to use the - `flaskr`package only because you’re running from your project’s directory. Installing means you can import it no matter where you run from.
-- You can manage your project’s dependencies just like other packages do, so - `pip install yourproject.whl`installs them.
-- Test tools can isolate your test environment from your development environment. 
+- Currently, Python and Flask understand how to use the `flaskr` package only because you’re running from your project’s directory.
+Installing means you can import it no matter where you run from.
+- You can manage your project’s dependencies just like other packages do, so `pip install yourproject.whl` installs them.
+- Test tools can isolate your test environment from your development environment.
 
 Note
 

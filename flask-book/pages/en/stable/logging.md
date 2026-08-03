@@ -2,19 +2,17 @@
 type: Web Page
 title: Logging — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/logging
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Logging
 
-Flask uses standard Python [ logging](https://docs.python.org/3/library/logging.html#module-logging). Messages about your Flask
-application are logged with 
+Flask uses standard Python [`logging`](https://docs.python.org/3/library/logging.html#module-logging). Messages about your Flask
+application are logged with [`app.logger`](../api/#flask.Flask.logger),
+which takes the same name as [`app.name`](../api/#flask.Flask.name). This
+logger can also be used to log your own messages.
 
-[, which takes the same name as](../api/#flask.Flask.logger)
-
-`app.logger`[. This logger can also be used to log your own messages.](../api/#flask.Flask.name)
-
-`app.name````
+```
 @app.route('/login', methods=['POST'])
 def login():
     user = get_user(request.form['username'])
@@ -31,11 +29,11 @@ If you don’t configure logging, Python’s default log level is usually ‘war
 ## Basic Configuration
 
 When you want to configure logging for your project, you should do it as soon
-as possible when the program starts. If [ app.logger](../api/#flask.Flask.logger)
+as possible when the program starts. If [`app.logger`](../api/#flask.Flask.logger)
 is accessed before logging is configured, it will add a default handler. If
 possible, configure logging before creating the application object.
 
-This example uses [ dictConfig()](https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig) to create a logging
+This example uses [`dictConfig()`](https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig) to create a logging
 configuration similar to Flask’s default, except for all logs:
 
 ```
@@ -60,19 +58,15 @@ app = Flask(__name__)
 ### Default Configuration
 
 If you do not configure logging yourself, Flask will add a
-[ StreamHandler](https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler) to 
+[`StreamHandler`](https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler) to [`app.logger`](../api/#flask.Flask.logger)
+automatically. During requests, it will write to the stream specified by the
+WSGI server in `environ['wsgi.errors']` (which is usually
+[`sys.stderr`](https://docs.python.org/3/library/sys.html#sys.stderr)). Outside a request, it will log to [`sys.stderr`](https://docs.python.org/3/library/sys.html#sys.stderr).
 
-[automatically. During requests, it will write to the stream specified by the WSGI server in](../api/#flask.Flask.logger)
-
-`app.logger``environ['wsgi.errors']` (which is usually
-[). Outside a request, it will log to](https://docs.python.org/3/library/sys.html#sys.stderr)
-
-`sys.stderr`[.](https://docs.python.org/3/library/sys.html#sys.stderr)
-
-`sys.stderr`### Removing the Default Handler
+### Removing the Default Handler
 
 If you configured logging after accessing
-[ app.logger](../api/#flask.Flask.logger), and need to remove the default
+[`app.logger`](../api/#flask.Flask.logger), and need to remove the default
 handler, you can import and remove it:
 
 ```
@@ -84,7 +78,7 @@ app.logger.removeHandler(default_handler)
 When running the application on a remote server for production, you probably won’t be looking at the log messages very often. The WSGI server will probably send log messages to a file, and you’ll only check that file if a user tells you something went wrong.
 
 To be proactive about discovering and fixing bugs, you can configure a
-[ logging.handlers.SMTPHandler](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.SMTPHandler) to send an email when errors and higher
+[`logging.handlers.SMTPHandler`](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.SMTPHandler) to send an email when errors and higher
 are logged.
 
 ```
@@ -108,7 +102,7 @@ This requires that you have an SMTP server set up on the same server. See the Py
 ## Injecting Request Information
 
 Seeing more information about the request, such as the IP address, may help
-debugging some errors. You can subclass [ logging.Formatter](https://docs.python.org/3/library/logging.html#logging.Formatter) to inject
+debugging some errors. You can subclass [`logging.Formatter`](https://docs.python.org/3/library/logging.html#logging.Formatter) to inject
 your own fields that can be used in messages. You can change the formatter for
 Flask’s default handler, the mail handler defined above, or any other
 handler.
@@ -157,12 +151,12 @@ for logger in (
 
 Werkzeug logs basic request/response information to the `'werkzeug'` logger.
 If the root logger has no handlers configured, Werkzeug adds a
-[ StreamHandler](https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler) to its logger.
+[`StreamHandler`](https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler) to its logger.
 
 ### Flask Extensions
 
 Depending on the situation, an extension may choose to log to
-[ app.logger](../api/#flask.Flask.logger) or its own named logger. Consult each
+[`app.logger`](../api/#flask.Flask.logger) or its own named logger. Consult each
 extension’s documentation for details.
 
 # Citations

@@ -2,7 +2,7 @@
 type: Web Page
 title: Streaming Contents — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/streaming
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Streaming Contents
@@ -41,11 +41,10 @@ debug environments with profilers and other things you might have enabled.
 
 The Jinja template engine supports rendering a template piece by
 piece, returning an iterator of strings. Flask provides the
-[ stream_template()](../../api/#flask.stream_template) and 
+[`stream_template()`](../../api/#flask.stream_template) and [`stream_template_string()`](../../api/#flask.stream_template_string)
+functions to make this easier to use.
 
-[functions to make this easier to use.](../../api/#flask.stream_template_string)
-
-`stream_template_string()````
+```
 from flask import stream_template
 @app.get("/timeline")
 def timeline():
@@ -55,12 +54,12 @@ The parts yielded by the render stream tend to match statement blocks in the tem
 
 ## Streaming with Context
 
-The [ request](../../api/#flask.request) will not be active while the generator is
+The [`request`](../../api/#flask.request) will not be active while the generator is
 running, because the view has already returned at that point. If you try
-to access 
+to access `request`, you’ll get a `RuntimeError`.
 
-`request`, you’ll get a `RuntimeError`.If your generator function relies on data in `request`, use the
-[ stream_with_context()](../../api/#flask.stream_with_context) wrapper. This will keep the request
+If your generator function relies on data in `request`, use the
+[`stream_with_context()`](../../api/#flask.stream_with_context) wrapper. This will keep the request
 context active during the generator.
 
 ```
@@ -82,13 +81,9 @@ def generate():
     ...
 return generate()
 ```
-The [ stream_template()](../../api/#flask.stream_template) and
-
-[functions automatically use](../../api/#flask.stream_template_string)
-
-`stream_template_string()`[if a request is active.](../../api/#flask.stream_with_context)
-
-`stream_with_context()`
+The [`stream_template()`](../../api/#flask.stream_template) and
+[`stream_template_string()`](../../api/#flask.stream_template_string) functions automatically
+use [`stream_with_context()`](../../api/#flask.stream_with_context) if a request is active.
 
 # Citations
 

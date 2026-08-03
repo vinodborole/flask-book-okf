@@ -2,7 +2,7 @@
 type: Web Page
 title: View Decorators — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/viewdecorators
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # View Decorators
@@ -10,7 +10,7 @@ timestamp: '2026-07-09T12:16:47.677177+00:00'
 Python has a really interesting feature called function decorators.  This
 allows some really neat things for web applications.  Because each view in
 Flask is a function, decorators can be used to inject additional
-functionality to one or more functions.  The [ route()](../../api/#flask.Flask.route)
+functionality to one or more functions.  The [`route()`](../../api/#flask.Flask.route)
 decorator is the one you probably used already.  But there are use cases
 for implementing your own decorator.  For instance, imagine you have a
 view that should only be used by people that are logged in.  If a user
@@ -23,7 +23,7 @@ excellent solution.
 So let’s implement such a decorator.  A decorator is a function that
 wraps and replaces another function.  Since the original function is
 replaced, you need to remember to copy the original function’s information
-to the new function.  Use [ functools.wraps()](https://docs.python.org/3/library/functools.html#functools.wraps) to handle this for you.
+to the new function.  Use [`functools.wraps()`](https://docs.python.org/3/library/functools.html#functools.wraps) to handle this for you.
 
 This example assumes that the login page is called `'login'` and that
 the current user is stored in `g.user` and is `None` if there is no-one
@@ -42,7 +42,7 @@ def login_required(f):
 ```
 To use the decorator, apply it as innermost decorator to a view function.
 When applying further decorators, always remember
-that the [ route()](../../api/#flask.Flask.route) decorator is the outermost.
+that the [`route()`](../../api/#flask.Flask.route) decorator is the outermost.
 
 ```
 @app.route('/secret_page')
@@ -71,9 +71,9 @@ Here is an example cache function. It generates the cache key from a specific pr
 
 The decorated function will then work as follows
 
-- get the unique cache key for the current request based on the current path. 
-- get the value for that key from the cache. If the cache returned something we will return that value. 
-- otherwise the original function is called and the return value is stored in the cache for the timeout provided (by default 5 minutes). 
+1. get the unique cache key for the current request based on the current path.
+2. get the value for that key from the cache. If the cache returned something we will return that value.
+3. otherwise the original function is called and the return value is stored in the cache for the timeout provided (by default 5 minutes).
 
 Here the code:
 
@@ -146,7 +146,7 @@ def templated(template=None):
 ## Endpoint Decorator
 
 When you want to use the werkzeug routing system for more flexibility you
-need to map the endpoint as defined in the [ Rule](https://werkzeug.palletsprojects.com/en/stable/routing/#werkzeug.routing.Rule)
+need to map the endpoint as defined in the [`Rule`](https://werkzeug.palletsprojects.com/en/stable/routing/#werkzeug.routing.Rule)
 to a view function. This is possible with this decorator. For example:
 
 ```

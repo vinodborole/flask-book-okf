@@ -2,7 +2,7 @@
 type: Web Page
 title: Extensions — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/extensions
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Extensions
@@ -18,7 +18,7 @@ search PyPI for packages tagged with [Framework :: Flask](https://pypi.org/searc
 
 Consult each extension’s documentation for installation, configuration,
 and usage instructions. Generally, extensions pull their own
-configuration from [ app.config](../api/#flask.Flask.config) and are
+configuration from [`app.config`](../api/#flask.Flask.config) and are
 passed an application instance during initialization. For example,
 an extension called “Flask-Foo” might be used like this:
 

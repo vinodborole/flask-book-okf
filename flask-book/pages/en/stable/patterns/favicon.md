@@ -2,7 +2,7 @@
 type: Web Page
 title: Adding a favicon — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/patterns/favicon
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Adding a favicon
@@ -30,7 +30,7 @@ app.add_url_rule(
 )
 ```
 If you want to save the extra redirect request you can also write a view
-using [ send_from_directory()](../../api/#flask.send_from_directory):
+using [`send_from_directory()`](../../api/#flask.send_from_directory):
 
 ```
 import os
@@ -46,7 +46,8 @@ The above will serve the icon via your application and if possible it’s better
 
 ## See also
 
-- The - [Favicon](https://en.wikipedia.org/wiki/Favicon)article on Wikipedia
+- The [Favicon](https://en.wikipedia.org/wiki/Favicon) article on
+Wikipedia
 
 # Citations
 

@@ -2,7 +2,7 @@
 type: Web Page
 title: Signals — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/signals
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Signals
@@ -13,11 +13,14 @@ Signals are implemented by the [Blinker](https://pypi.org/project/blinker/) libr
 information. Flask provides some built-in signals. Extensions may provide their own.
 
 Many signals mirror Flask’s decorator-based callbacks with similar names. For example,
-the [ request_started](../api/#flask.request_started) signal is similar to the 
+the [`request_started`](../api/#flask.request_started) signal is similar to the [`before_request()`](../api/#flask.Flask.before_request)
+decorator. The advantage of signals over handlers is that they can be subscribed to
+temporarily, and can’t directly affect the application. This is useful for testing,
+metrics, auditing, and more. For example, if you want to know what templates were
+rendered at what parts of what requests, there is a signal that will notify you of that
+information.
 
-[decorator. The advantage of signals over handlers is that they can be subscribed to temporarily, and can’t directly affect the application. This is useful for testing, metrics, auditing, and more. For example, if you want to know what templates were rendered at what parts of what requests, there is a signal that will notify you of that information.](../api/#flask.Flask.before_request)
-
-`before_request()`## Core Signals
+## Core Signals
 
 See [Signals](../api/#core-signals-list) for a list of all built-in signals. The [Application Structure and Lifecycle](../lifecycle/)
 page also describes the order that signals and decorators execute.
@@ -92,7 +95,7 @@ with captured_templates(app, templates, **extra):
 
 If you want to use signals in your own application, you can use the
 blinker library directly.  The most common use case are named signals in a
-custom [ Namespace](https://blinker.readthedocs.io/en/stable/#blinker.Namespace).  This is what is recommended
+custom [`Namespace`](https://blinker.readthedocs.io/en/stable/#blinker.Namespace).  This is what is recommended
 most of the time:
 
 ```
@@ -127,26 +130,20 @@ function, you can pass `current_app._get_current_object()` as sender.
 
 Passing Proxies as Senders
 
-Never pass [ current_app](../api/#flask.current_app) as sender to a signal.  Use
-
+Never pass [`current_app`](../api/#flask.current_app) as sender to a signal.  Use
 `current_app._get_current_object()` instead.  The reason for this is
-that [is a proxy and not the real application object.](../api/#flask.current_app)
+that [`current_app`](../api/#flask.current_app) is a proxy and not the real application
+object.
 
-`current_app`## Signals and Flask’s Request Context
+## Signals and Flask’s Request Context
 
 Signals fully support [The Request Context](../reqcontext/) when receiving signals.
 Context-local variables are consistently available between
-[ request_started](../api/#flask.request_started) and 
+[`request_started`](../api/#flask.request_started) and [`request_finished`](../api/#flask.request_finished), so you can
+rely on [`flask.g`](../api/#flask.g) and others as needed.  Note the limitations described
+in [Sending Signals](#signals-sending) and the [`request_tearing_down`](../api/#flask.request_tearing_down) signal.
 
-[, so you can rely on](../api/#flask.request_finished)
-
-`request_finished`[and others as needed. Note the limitations described in](../api/#flask.g)
-
-`flask.g`[Sending Signals](#signals-sending)and the
-
-[signal.](../api/#flask.request_tearing_down)
-
-`request_tearing_down`## Decorator Based Signal Subscriptions
+## Decorator Based Signal Subscriptions
 
 You can also easily subscribe to signals by using the
 `connect_via()` decorator:

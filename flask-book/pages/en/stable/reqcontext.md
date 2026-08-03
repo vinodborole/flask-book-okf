@@ -2,34 +2,32 @@
 type: Web Page
 title: The Request Context — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/reqcontext
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # The Request Context
 
 The request context keeps track of the request-level data during a
 request. Rather than passing the request object to each function that
-runs during a request, the [ request](../api/#flask.request) and 
+runs during a request, the [`request`](../api/#flask.request) and [`session`](../api/#flask.session) proxies
+are accessed instead.
 
-[proxies are accessed instead.](../api/#flask.session)
-
-`session`This is similar to [The Application Context](../appcontext/), which keeps track of the
+This is similar to [The Application Context](../appcontext/), which keeps track of the
 application-level data independent of a request. A corresponding
 application context is pushed when a request context is pushed.
 
 ## Purpose of the Context
 
-When the [ Flask](../api/#flask.Flask) application handles a request, it creates a
-
-[object based on the environment it received from the WSGI server. Because a](../api/#flask.Request)
-
-`Request`*worker*(thread, process, or coroutine depending on the server) handles only one request at a time, the request data can be considered global to that worker during that request. Flask uses the term
-
-*context local*for this.
+When the [`Flask`](../api/#flask.Flask) application handles a request, it creates a
+[`Request`](../api/#flask.Request) object based on the environment it received from the
+WSGI server. Because a *worker* (thread, process, or coroutine depending
+on the server) handles only one request at a time, the request data can
+be considered global to that worker during that request. Flask uses the
+term *context local* for this.
 
 Flask automatically *pushes* a request context when handling a request.
 View functions, error handlers, and other functions that run during a
-request will have access to the [ request](../api/#flask.request) proxy, which points to
+request will have access to the [`request`](../api/#flask.request) proxy, which points to
 the request object for the current request.
 
 ## Lifetime of the Context
@@ -39,18 +37,18 @@ context, which also pushes an [app context](../appcontext/). When the
 request ends it pops the request context then the application context.
 
 The context is unique to each thread (or other worker type).
-[ request](../api/#flask.request) cannot be passed to another thread, the other thread has
+[`request`](../api/#flask.request) cannot be passed to another thread, the other thread has
 a different context space and will not know about the request the parent
 thread was pointing to.
 
-Context locals are implemented using Python’s [ contextvars](https://docs.python.org/3/library/contextvars.html#module-contextvars) and
-Werkzeug’s 
+Context locals are implemented using Python’s [`contextvars`](https://docs.python.org/3/library/contextvars.html#module-contextvars) and
+Werkzeug’s [`LocalProxy`](https://werkzeug.palletsprojects.com/en/stable/local/#werkzeug.local.LocalProxy). Python manages the
+lifetime of context vars automatically, and local proxy wraps that
+low-level interface to make the data easier to work with.
 
-[. Python manages the lifetime of context vars automatically, and local proxy wraps that low-level interface to make the data easier to work with.](https://werkzeug.palletsprojects.com/en/stable/local/#werkzeug.local.LocalProxy)
+## Manually Push a Context
 
-`LocalProxy`## Manually Push a Context
-
-If you try to access [ request](../api/#flask.request), or anything that uses it, outside
+If you try to access [`request`](../api/#flask.request), or anything that uses it, outside
 a request context, you’ll get this error message:
 
 ```
@@ -61,15 +59,12 @@ for information about how to avoid this problem.
 ```
 This should typically only happen when testing code that expects an
 active request. One option is to use the
-[ test client](../api/#flask.Flask.test_client) to simulate a full request. Or
-you can use 
+[`test client`](../api/#flask.Flask.test_client) to simulate a full request. Or
+you can use [`test_request_context()`](../api/#flask.Flask.test_request_context) in a `with` block, and
+everything that runs in the block will have access to [`request`](../api/#flask.request),
+populated with your test data.
 
-[in a](../api/#flask.Flask.test_request_context)
-
-`test_request_context()``with` block, and
-everything that runs in the block will have access to [, populated with your test data.](../api/#flask.request)
-
-`request````
+```
 def generate_report(year):
     format = request.args.get("format")
     ...
@@ -85,54 +80,54 @@ Python shell, see [Working with the Shell](../shell/).
 
 ## How the Context Works
 
-The [ Flask.wsgi_app()](../api/#flask.Flask.wsgi_app) method is called to handle each request. It
+The [`Flask.wsgi_app()`](../api/#flask.Flask.wsgi_app) method is called to handle each request. It
 manages the contexts during the request. Internally, the request and
 application contexts work like stacks. When contexts are pushed, the
 proxies that depend on them are available and point at information from
 the top item.
 
-When the request starts, a [ RequestContext](../api/#flask.ctx.RequestContext) is created and
-pushed, which creates and pushes an 
+When the request starts, a [`RequestContext`](../api/#flask.ctx.RequestContext) is created and
+pushed, which creates and pushes an [`AppContext`](../api/#flask.ctx.AppContext) first if
+a context for that application is not already the top context. While
+these contexts are pushed, the [`current_app`](../api/#flask.current_app), [`g`](../api/#flask.g),
+[`request`](../api/#flask.request), and [`session`](../api/#flask.session) proxies are available to the
+original thread handling the request.
 
-[first if a context for that application is not already the top context. While these contexts are pushed, the](../api/#flask.ctx.AppContext)
-
-`AppContext`[,](../api/#flask.current_app)
-
-`current_app`[,](../api/#flask.g)
-
-`g`[, and](../api/#flask.request)
-
-`request`[proxies are available to the original thread handling the request.](../api/#flask.session)
-
-`session`Other contexts may be pushed to change the proxies during a request. While this is not a common pattern, it can be used in advanced applications to, for example, do internal redirects or chain different applications together.
+Other contexts may be pushed to change the proxies during a request. While this is not a common pattern, it can be used in advanced applications to, for example, do internal redirects or chain different applications together.
 
 After the request is dispatched and a response is generated and sent,
 the request context is popped, which then pops the application context.
-Immediately before they are popped, the [ teardown_request()](../api/#flask.Flask.teardown_request)
-and 
+Immediately before they are popped, the [`teardown_request()`](../api/#flask.Flask.teardown_request)
+and [`teardown_appcontext()`](../api/#flask.Flask.teardown_appcontext) functions are executed. These
+execute even if an unhandled exception occurred during dispatch.
 
-[functions are executed. These execute even if an unhandled exception occurred during dispatch.](../api/#flask.Flask.teardown_appcontext)
-
-`teardown_appcontext()`## Callbacks and Errors
+## Callbacks and Errors
 
 Flask dispatches a request in multiple stages which can affect the request, response, and how errors are handled. The contexts are active during all of these stages.
 
-A [ Blueprint](../api/#flask.Blueprint) can add handlers for these events that are specific
+A [`Blueprint`](../api/#flask.Blueprint) can add handlers for these events that are specific
 to the blueprint. The handlers for a blueprint will run if the blueprint
 owns the route that matches the request.
 
-- Before each request, - `before_request()`
-- If the - `before_request()`
-- The return value of the view is converted into an actual response object and passed to the - `after_request()`
-- After the response is returned, the contexts are popped, which calls the - `teardown_request()`- `teardown_appcontext()`
+1. Before each request, [`before_request()`](../api/#flask.Flask.before_request) functions are
+called. If one of these functions return a value, the other
+functions are skipped. The return value is treated as the response
+and the view function is not called.
+2. If the [`before_request()`](../api/#flask.Flask.before_request) functions did not return a
+response, the view function for the matched route is called and
+returns a response.
+3. The return value of the view is converted into an actual response object and passed to the [`after_request()`](../api/#flask.Flask.after_request) functions. Each function returns a modified or new response object.
+4. After the response is returned, the contexts are popped, which calls the [`teardown_request()`](../api/#flask.Flask.teardown_request) and[`teardown_appcontext()`](../api/#flask.Flask.teardown_appcontext) functions. These functions are
+called even if an unhandled exception was raised at any point above.
 
 If an exception is raised before the teardown functions, Flask tries to
-match it with an [ errorhandler()](../api/#flask.Flask.errorhandler) function to handle the
+match it with an [`errorhandler()`](../api/#flask.Flask.errorhandler) function to handle the
 exception and return a response. If no error handler is found, or the
 handler itself raises an exception, Flask returns a generic
-
 `500 Internal Server Error` response. The teardown functions are still
-called, and are passed the exception object.If debug mode is enabled, unhandled exceptions are not converted to a
+called, and are passed the exception object.
+
+If debug mode is enabled, unhandled exceptions are not converted to a
 `500` response and instead are propagated to the WSGI server. This
 allows the development server to present the interactive debugger with
 the traceback.
@@ -143,10 +138,10 @@ The teardown callbacks are independent of the request dispatch, and are instead 
 
 During testing, it can be useful to defer popping the contexts after the
 request ends, so that their data can be accessed in the test function.
-Use the [ test_client()](../api/#flask.Flask.test_client) as a 
+Use the [`test_client()`](../api/#flask.Flask.test_client) as a `with` block to preserve the
+contexts until the `with` block exits.
 
-`with` block to preserve the
-contexts until the `with` block exits.```
+```
 from flask import Flask, request
 app = Flask(__name__)
 @app.route('/')
@@ -170,10 +165,13 @@ with app.test_client() as client:
 
 The following signals are sent:
 
-- `request_started`- `before_request()`
-- `request_finished`- `after_request()`
-- `got_request_exception`- `errorhandler()`
-- `request_tearing_down`- `teardown_request()`
+1. [`request_started`](../api/#flask.request_started) is sent before the[`before_request()`](../api/#flask.Flask.before_request) functions
+are called.
+2. [`request_finished`](../api/#flask.request_finished) is sent after the[`after_request()`](../api/#flask.Flask.after_request) functions
+are called.
+3. [`got_request_exception`](../api/#flask.got_request_exception) is sent when an exception begins to be handled, but
+before an[`errorhandler()`](../api/#flask.Flask.errorhandler) is looked up or called.
+4. [`request_tearing_down`](../api/#flask.request_tearing_down) is sent after the[`teardown_request()`](../api/#flask.Flask.teardown_request) functions are called.
 
 ## Notes On Proxies
 
@@ -181,8 +179,9 @@ Some of the objects provided by Flask are proxies to other objects. The proxies 
 
 Most of the time you don’t have to care about that, but there are some exceptions where it is good to know that this object is actually a proxy:
 
-- The proxy objects cannot fake their type as the actual object types. If you want to perform instance checks, you have to do that on the object being proxied. 
-- The reference to the proxied object is needed in some situations, such as sending - [Signals](../signals/)or passing data to a background thread.
+- The proxy objects cannot fake their type as the actual object types. If you want to perform instance checks, you have to do that on the object being proxied.
+- The reference to the proxied object is needed in some situations, such as sending [Signals](../signals/) or passing data to a background
+thread.
 
 If you need to access the underlying object that is proxied, use the
 `_get_current_object()` method:

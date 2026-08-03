@@ -2,7 +2,7 @@
 type: Web Page
 title: Working with the Shell — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/shell
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Working with the Shell
@@ -16,11 +16,11 @@ One of the reasons everybody loves Python is the interactive shell. It basically
 There are however some handy helpers to make playing around in the shell a
 more pleasant experience.  The main issue with interactive console
 sessions is that you’re not triggering a request like a browser does which
-means that [ g](../api/#flask.g), 
+means that [`g`](../api/#flask.g), [`request`](../api/#flask.request) and others are not
+available.  But the code you want to test might depend on them, so what
+can you do?
 
-[and others are not available. But the code you want to test might depend on them, so what can you do?](../api/#flask.request)
-
-`request`This is where some helper functions come in handy. Keep in mind however that these functions are not only there for interactive shell usage, but also for unit testing and other situations that require a faked request context.
+This is where some helper functions come in handy. Keep in mind however that these functions are not only there for interactive shell usage, but also for unit testing and other situations that require a faked request context.
 
 Generally it’s recommended that you read [The Request Context](../reqcontext/) first.
 
@@ -36,18 +36,16 @@ For more information see [Command Line Interface](../cli/).
 ## Creating a Request Context
 
 The easiest way to create a proper request context from the shell is by
-using the [ test_request_context](../api/#flask.Flask.test_request_context) method which creates
-us a 
+using the [`test_request_context`](../api/#flask.Flask.test_request_context) method which creates
+us a [`RequestContext`](../api/#flask.ctx.RequestContext):
 
-[:](../api/#flask.ctx.RequestContext)
-
-`RequestContext````
+```
 >>> ctx = app.test_request_context()
 ```
 Normally you would use the `with` statement to make this request object
 active, but in the shell it’s easier to use the
 `push()` and
-[ pop()](../api/#flask.ctx.RequestContext.pop) methods by hand:
+[`pop()`](../api/#flask.ctx.RequestContext.pop) methods by hand:
 
 ```
 >>> ctx.push()
@@ -64,21 +62,21 @@ By just creating a request context, you still don’t have run the code that
 is normally run before a request.  This might result in your database
 being unavailable if you are connecting to the database in a
 before-request callback or the current user not being stored on the
-[ g](../api/#flask.g) object etc.
+[`g`](../api/#flask.g) object etc.
 
 This however can easily be done yourself.  Just call
-[ preprocess_request()](../api/#flask.Flask.preprocess_request):
+[`preprocess_request()`](../api/#flask.Flask.preprocess_request):
 
 ```
 >>> ctx = app.test_request_context()
 >>> ctx.push()
 >>> app.preprocess_request()
 ```
-Keep in mind that the [ preprocess_request()](../api/#flask.Flask.preprocess_request) function
+Keep in mind that the [`preprocess_request()`](../api/#flask.Flask.preprocess_request) function
 might return a response object, in that case just ignore it.
 
 To shutdown a request, you need to trick a bit before the after request
-functions (triggered by [ process_response()](../api/#flask.Flask.process_response)) operate on
+functions (triggered by [`process_response()`](../api/#flask.Flask.process_response)) operate on
 a response object:
 
 ```
@@ -86,7 +84,7 @@ a response object:
 <Response 0 bytes [200 OK]>
 >>> ctx.pop()
 ```
-The functions registered as [ teardown_request()](../api/#flask.Flask.teardown_request) are
+The functions registered as [`teardown_request()`](../api/#flask.Flask.teardown_request) are
 automatically called when the context is popped.  So this is the perfect
 place to automatically tear down resources that were needed by the request
 context (such as database connections).

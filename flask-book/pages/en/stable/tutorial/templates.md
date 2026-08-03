@@ -2,7 +2,7 @@
 type: Web Page
 title: Templates — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/templates
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Templates
@@ -10,11 +10,11 @@ timestamp: '2026-07-09T12:16:47.677177+00:00'
 You’ve written the authentication views for your application, but if
 you’re running the server and try to go to any of the URLs, you’ll see a
 `TemplateNotFound` error. That’s because the views are calling
-[ render_template()](../../api/#flask.render_template), but you haven’t written the templates yet.
-The template files will be stored in the 
+[`render_template()`](../../api/#flask.render_template), but you haven’t written the templates yet.
+The template files will be stored in the `templates` directory inside
+the `flaskr` package.
 
-`templates` directory inside
-the `flaskr` package.Templates are files that contain static data as well as placeholders
+Templates are files that contain static data as well as placeholders
 for dynamic data. A template is rendered with specific data to produce a
 final document. Flask uses the [Jinja](https://jinja.palletsprojects.com/templates/) template library to render
 templates.
@@ -68,22 +68,25 @@ specific sections.
   {% block content %}{% endblock %}
 </section>
 ```
-[ g](../../api/#flask.g) is automatically available in templates. Based on if
-
+[`g`](../../api/#flask.g) is automatically available in templates. Based on if
 `g.user` is set (from `load_logged_in_user`), either the username
 and a log out link are displayed, or links to register and log in
-are displayed. [is also automatically available, and is used to generate URLs to views instead of writing them out manually.](../../api/#flask.url_for)
+are displayed. [`url_for()`](../../api/#flask.url_for) is also automatically available, and is
+used to generate URLs to views instead of writing them out manually.
 
-`url_for()`After the page title, and before the content, the template loops over
-each message returned by [ get_flashed_messages()](../../api/#flask.get_flashed_messages). You used
+After the page title, and before the content, the template loops over
+each message returned by [`get_flashed_messages()`](../../api/#flask.get_flashed_messages). You used
+[`flash()`](../../api/#flask.flash) in the views to show error messages, and this is the code
+that will display them.
 
-[in the views to show error messages, and this is the code that will display them.](../../api/#flask.flash)
+There are three blocks defined here that will be overridden in the other templates:
 
-`flash()`There are three blocks defined here that will be overridden in the other templates:
-
-- `{% block title %}`will change the title displayed in the browser’s tab and window title.
-- `{% block header %}`is similar to- `title`but will change the title displayed on the page.
-- `{% block content %}`is where the content of each page goes, such as the login form or a blog post.
+1. `{% block title %}` will change the title displayed in the
+browser’s tab and window title.
+2. `{% block header %}` is similar to`title` but will change the
+title displayed on the page.
+3. `{% block content %}` is where the content of each page goes, such
+as the login form or a blog post.
 
 The base template is directly in the `templates` directory. To keep
 the others organized, the templates for a blueprint will be placed in a
@@ -153,7 +156,7 @@ Try clicking the “Register” button without filling out the form and see
 that the browser shows an error message. Try removing the `required`
 attributes from the `register.html` template and click “Register”
 again. Instead of the browser showing an error, the page will reload and
-the error from [ flash()](../../api/#flask.flash) in the view will be shown.
+the error from [`flash()`](../../api/#flask.flash) in the view will be shown.
 
 Fill out a username and password and you’ll be redirected to the login
 page. Try entering an incorrect username, or the correct username and

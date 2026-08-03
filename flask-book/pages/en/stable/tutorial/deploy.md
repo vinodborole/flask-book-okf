@@ -2,7 +2,7 @@
 type: Web Page
 title: Deploy to Production — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/tutorial/deploy
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Deploy to Production
@@ -50,11 +50,11 @@ a different directory for the instance folder. You can find it at
 ## Configure the Secret Key
 
 In the beginning of the tutorial that you gave a default value for
-[ SECRET_KEY](../../config/#SECRET_KEY). This should be changed to some random bytes in
-production. Otherwise, attackers could use the public 
+[`SECRET_KEY`](../../config/#SECRET_KEY). This should be changed to some random bytes in
+production. Otherwise, attackers could use the public `'dev'` key to
+modify the session cookie, or anything else that uses the secret key.
 
-`'dev'` key to
-modify the session cookie, or anything else that uses the secret key.You can use the following command to output a random secret key:
+You can use the following command to output a random secret key:
 
 ```
 $ python -c 'import secrets; print(secrets.token_hex())'

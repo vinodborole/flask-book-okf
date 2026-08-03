@@ -2,7 +2,7 @@
 type: Web Page
 title: Debugging Application Errors — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/debugging
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Debugging Application Errors
@@ -62,9 +62,9 @@ app.run(debug=True, use_debugger=False, use_reloader=False)
 ```
 Disabling these isn’t required, an external debugger will continue to work with the following caveats.
 
-- If the built-in debugger is not disabled, it will catch unhandled exceptions before the external debugger can. 
-- If the reloader is not disabled, it could cause an unexpected reload if code changes during a breakpoint. 
-- The development server will still catch unhandled exceptions if the built-in debugger is disabled, otherwise it would crash on any error. If you want that (and usually you don’t) pass - `passthrough_errors=True`to- `app.run`.- app.run( debug=True, passthrough_errors=True, use_debugger=False, use_reloader=False )
+- If the built-in debugger is not disabled, it will catch unhandled exceptions before the external debugger can.
+- If the reloader is not disabled, it could cause an unexpected reload if code changes during a breakpoint.
+- The development server will still catch unhandled exceptions if the built-in debugger is disabled, otherwise it would crash on any error. If you want that (and usually you don’t) pass `passthrough_errors=True` to`app.run` .app.run( debug=True, passthrough_errors=True, use_debugger=False, use_reloader=False )
 
 # Citations
 

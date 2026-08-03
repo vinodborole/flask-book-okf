@@ -2,7 +2,7 @@
 type: Web Page
 title: Templates — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/templating
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Templates
@@ -19,32 +19,38 @@ more information.
 
 Unless customized, Jinja is configured by Flask as follows:
 
-- autoescaping is enabled for all templates ending in - `.html`,- `.htm`,- `.xml`,- `.xhtml`, as well as- `.svg`when using- `render_template()`.
-- autoescaping is enabled for all strings when using - `render_template_string()`.
-- a template has the ability to opt in/out autoescaping with the - `{% autoescape %}`tag.
-- Flask inserts a couple of global functions and helpers into the Jinja context, additionally to the values that are present by default. 
+- autoescaping is enabled for all templates ending in `.html` ,`.htm` ,`.xml` ,`.xhtml` , as well as`.svg` when using`render_template()` .
+- autoescaping is enabled for all strings when using `render_template_string()` .
+- a template has the ability to opt in/out autoescaping with the `{% autoescape %}` tag.
+- Flask inserts a couple of global functions and helpers into the Jinja context, additionally to the values that are present by default.
 
 ## Standard Context
 
 The following global variables are available within Jinja templates by default:
 
 - config
-- The current configuration object ( - `flask.Flask.config`- ## Changelog- Changed in version 0.10: This is now always available, even in imported templates. - Added in version 0.6. 
+- The current configuration object ( [`flask.Flask.config`](../api/#flask.Flask.config) )## ChangelogChanged in version 0.10: This is now always available, even in imported templates. Added in version 0.6.
 
 - request
-- The current request object ( - `flask.request`
+- The current request object ( [`flask.request`](../api/#flask.request) ).  This variable is
+unavailable if the template was rendered without an active request
+context.
 
 - session
-- The current session object ( - `flask.session`
+- The current session object ( [`flask.session`](../api/#flask.session) ).  This variable
+is unavailable if the template was rendered without an active request
+context.
 
 - g
-- The request-bound object for global variables ( - `flask.g`
+- The request-bound object for global variables ( [`flask.g`](../api/#flask.g) ).  This
+variable is unavailable if the template was rendered without an active
+request context.
 
 - url_for()
-- The - `flask.url_for()`
+- The [`flask.url_for()`](../api/#flask.url_for) function.
 
 - get_flashed_messages()
-- The - `flask.get_flashed_messages()`
+- The [`flask.get_flashed_messages()`](../api/#flask.get_flashed_messages) function.
 
 The Jinja Context Behavior
 
@@ -52,8 +58,8 @@ These variables are added to the context of variables, they are not global varia
 
 What does this mean for you? If you have a macro you want to import, that needs to access the request object you have two possibilities:
 
-- you explicitly pass the request to the macro as parameter, or the attribute of the request object you are interested in. 
-- you import the macro “with context”. 
+1. you explicitly pass the request to the macro as parameter, or the attribute of the request object you are interested in.
+2. you import the macro “with context”.
 
 Importing with context looks like this:
 
@@ -75,9 +81,11 @@ Sometimes however you will need to disable autoescaping in templates. This can b
 
 There are three ways to accomplish that:
 
-- In the Python code, wrap the HTML string in a - `Markup`object before passing it to the template. This is in general the recommended way.
-- Inside the template, use the - `|safe`filter to explicitly mark a string as safe HTML (- `{{ myvariable|safe }}`)
-- Temporarily disable the autoescape system altogether. 
+- In the Python code, wrap the HTML string in a `Markup` object before passing it to the template.  This is in general the
+recommended way.
+- Inside the template, use the `|safe` filter to explicitly mark a
+string as safe HTML (`{{ myvariable|safe }}` )
+- Temporarily disable the autoescape system altogether.
 
 To disable the autoescape system in templates, you can use the ```
 {%
@@ -97,11 +105,10 @@ Whenever you do this, please be very cautious about the variables you are using 
 
 If you want to register your own filters in Jinja you have two ways to do
 that.  You can either put them by hand into the
-[ jinja_env](../api/#flask.Flask.jinja_env) of the application or use the
+[`jinja_env`](../api/#flask.Flask.jinja_env) of the application or use the
+[`template_filter()`](../api/#flask.Flask.template_filter) decorator.
 
-[decorator.](../api/#flask.Flask.template_filter)
-
-`template_filter()`The two following examples work the same and both reverse an object:
+The two following examples work the same and both reverse an object:
 
 ```
 @app.template_filter('reverse')
@@ -159,22 +166,21 @@ It can be useful to not render the whole template as one complete string, instea
 
 The Jinja template engine supports rendering a template piece
 by piece, returning an iterator of strings. Flask provides the
-[ stream_template()](../api/#flask.stream_template) and 
+[`stream_template()`](../api/#flask.stream_template) and [`stream_template_string()`](../api/#flask.stream_template_string)
+functions to make this easier to use.
 
-[functions to make this easier to use.](../api/#flask.stream_template_string)
-
-`stream_template_string()````
+```
 from flask import stream_template
 @app.get("/timeline")
 def timeline():
     return stream_template("timeline.html")
 ```
 These functions automatically apply the
-[ stream_with_context()](../api/#flask.stream_with_context) wrapper if a request is active, so that
+[`stream_with_context()`](../api/#flask.stream_with_context) wrapper if a request is active, so that
+`request`, `session`, and [`g`](../api/#flask.g) remain available in the
+template.
 
-`request`, `session`, and [remain available in the template.](../api/#flask.g)
-
-`g`More headers cannot be sent after the body has begun. Therefore, you must
+More headers cannot be sent after the body has begun. Therefore, you must
 make sure all headers are set before starting the response. In particular,
 if the template will access `session`, be sure to do so in the view as
 well so that the `Vary: cookie` header will be set.

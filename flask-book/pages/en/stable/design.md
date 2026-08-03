@@ -2,7 +2,7 @@
 type: Web Page
 title: Design Decisions in Flask — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/design
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Design Decisions in Flask
@@ -13,7 +13,7 @@ If you are curious why Flask does certain things the way it does and not differe
 
 A Python web application based on WSGI has to have one central callable
 object that implements the actual application.  In Flask this is an
-instance of the [ Flask](../api/#flask.Flask) class.  Each Flask application has
+instance of the [`Flask`](../api/#flask.Flask) class.  Each Flask application has
 to create an instance of this class itself and pass it the name of the
 module, but why can’t Flask do that itself?
 
@@ -38,7 +38,7 @@ There are three major reasons for this. The most important one is that implicit 
 
 Another thing that becomes possible when you have an explicit object lying
 around in your code is that you can subclass the base class
-([ Flask](../api/#flask.Flask)) to alter specific behavior.  This would not be
+([`Flask`](../api/#flask.Flask)) to alter specific behavior.  This would not be
 possible without hacks if the object were created ahead of time for you
 based on a class that is not exposed to you.
 
@@ -48,7 +48,7 @@ create a Flask instance you usually pass it `__name__` as package name.
 Flask depends on that information to properly load resources relative
 to your module.  With Python’s outstanding support for reflection it can
 then access the package to figure out where the templates and static files
-are stored (see [ open_resource()](../api/#flask.Flask.open_resource)).  Now obviously there
+are stored (see [`open_resource()`](../api/#flask.Flask.open_resource)).  Now obviously there
 are frameworks around that do not need any configuration and will still be
 able to load templates relative to your application module.  But they have
 to use the current working directory for that, which is a very unreliable
@@ -63,7 +63,7 @@ The third reason is “explicit is better than implicit”.  That object is
 your WSGI application, you don’t have to remember anything else.  If you
 want to apply a WSGI middleware, just wrap it and you’re done (though
 there are better ways to do that so that you do not lose the reference
-to the application object [ wsgi_app()](../api/#flask.Flask.wsgi_app)).
+to the application object [`wsgi_app()`](../api/#flask.Flask.wsgi_app)).
 
 Furthermore this design makes it possible to use a factory function to
 create the application which is very helpful for unit testing and similar
@@ -107,7 +107,7 @@ Flask is a framework that takes advantage of the work already done by Werkzeug t
 
 Flask uses thread local objects (context local objects in fact, they
 support greenlet contexts as well) for request, session and an extra
-object you can put your own things on ([ g](../api/#flask.g)).  Why is that and
+object you can put your own things on ([`g`](../api/#flask.g)).  Why is that and
 isn’t that a bad idea?
 
 Yes it is usually not such a bright idea to use thread locals. They cause troubles for servers that are not based on the concept of threads and make large applications harder to maintain. However Flask is just not designed for large applications or asynchronous servers. Flask wants to make it quick and easy to write a traditional web application.

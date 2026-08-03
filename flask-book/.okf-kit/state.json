@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://flask.palletsprojects.com/en/stable",
-  "updated_at": "2026-07-27T09:46:39.608200+00:00",
+  "updated_at": "2026-08-03T09:38:59.588412+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -16,61 +16,61 @@
       "path": "pages/en/stable.md",
       "url": "https://flask.palletsprojects.com/en/stable",
       "title": "Welcome to Flask — Flask Documentation (3.1.x)",
-      "hash": "69e4885be103a9d1bb02630d207471d95152147446d405ec1678238f79a0203d"
+      "hash": "63176ce1d62472c7443000d85c55aa014d493391485bcd01269b7b7d217a219e"
     },
     {
       "path": "pages/en/stable/api.md",
       "url": "https://flask.palletsprojects.com/en/stable/api",
       "title": "API — Flask Documentation (3.1.x)",
-      "hash": "d79fb5f8cbfda047db228127dfa2ab89e5e78addc9c1dd5f79b41df61c5b0fdd"
+      "hash": "e1ff4ca025e3a6cf97272a6f377b6fe34c1a1b862f23bc6ed9b6394f714fed8c"
     },
     {
       "path": "pages/en/stable/appcontext.md",
       "url": "https://flask.palletsprojects.com/en/stable/appcontext",
       "title": "The Application Context — Flask Documentation (3.1.x)",
-      "hash": "eea0f3f276dd8a89fc5d58658c443822dc50c46a9b16cbdfe2337faf97d72e05"
+      "hash": "23bc4c1b99dd359cddd6a3cc3084cbb3ac4cc186c1f099509e53d4a08dbe6e3c"
     },
     {
       "path": "pages/en/stable/async-await.md",
       "url": "https://flask.palletsprojects.com/en/stable/async-await",
       "title": "Using async and await — Flask Documentation (3.1.x)",
-      "hash": "0fc088f1834a021948778278d968b66c569f37e8696139d8c59bcd8edb3426db"
+      "hash": "8e40cee28f9b6e53c6aa1eb32874917106156a18ac48329a7db0fb6b56ce7002"
     },
     {
       "path": "pages/en/stable/blueprints.md",
       "url": "https://flask.palletsprojects.com/en/stable/blueprints",
       "title": "Modular Applications with Blueprints — Flask Documentation (3.1.x)",
-      "hash": "734210f932533fdb3ab11fdb668722af8e2ba7d2691a7ab8f416ae76fec12ff3"
+      "hash": "c2b6bc3d1e48290a0cfb7cb6812442292801aa206390b02f461582614cb86860"
     },
     {
       "path": "pages/en/stable/changes.md",
       "url": "https://flask.palletsprojects.com/en/stable/changes",
       "title": "Changes — Flask Documentation (3.1.x)",
-      "hash": "e47e08f4bee8446692ccc3e0b31cbef1187f2d7e2321083c3644ce7379edbbf5"
+      "hash": "a5f0cbf83755a4545e27131f6143b8c3ec58c27f9c34090e0035c8529279cbf7"
     },
     {
       "path": "pages/en/stable/cli.md",
       "url": "https://flask.palletsprojects.com/en/stable/cli",
       "title": "Command Line Interface — Flask Documentation (3.1.x)",
-      "hash": "cc46b30291f5e7a0b926a9ddfa7f8c5e8113b50334664108d2dcdabb497cccbf"
+      "hash": "411981c1411c42a5267d7f387f28e277fc39d719fdf4557a22e703db59ab4e60"
     },
     {
       "path": "pages/en/stable/config.md",
       "url": "https://flask.palletsprojects.com/en/stable/config",
       "title": "Configuration Handling — Flask Documentation (3.1.x)",
-      "hash": "627288abd0db6f20e1919266eed658d75fcfb47824bbb883da5370f9e7f92d15"
+      "hash": "81917c5e92586b14eb045129615b2674e1694aa0bbc12a76e361b9491cff9079"
     },
     {
       "path": "pages/en/stable/contributing.md",
       "url": "https://flask.palletsprojects.com/en/stable/contributing",
       "title": "Contributing — Flask Documentation (3.1.x)",
-      "hash": "455a47ee523977ab743e664aabe071910a936d56c9c9f89191e61bdd139c5589"
+      "hash": "afd01c18067a970d4538471a9528baa2f59dcc9849f5f65afa148d881c3df451"
     },
     {
       "path": "pages/en/stable/debugging.md",
       "url": "https://flask.palletsprojects.com/en/stable/debugging",
       "title": "Debugging Application Errors — Flask Documentation (3.1.x)",
-      "hash": "5d1350b7643a85810ba8e662ae15c147790f51ed76b3fb593c38f601faadd36f"
+      "hash": "16e9d7d89cce93ac1553e030fc95b62ec521b38d72ee289a40ca566d4ea6053d"
     },
     {
       "path": "pages/en/stable/deploying.md",
@@ -100,13 +100,13 @@
       "path": "pages/en/stable/deploying/gunicorn.md",
       "url": "https://flask.palletsprojects.com/en/stable/deploying/gunicorn",
       "title": "Gunicorn — Flask Documentation (3.1.x)",
-      "hash": "00259cd5f06443a3b68a0d030968f2b9cd6396ed2ea8162d6afc57961536e312"
+      "hash": "92112b6e5cead65f9e88a8a319e4914d86b9c9790b68d049e71219fa1b56e24d"
     },
     {
       "path": "pages/en/stable/deploying/mod_wsgi.md",
       "url": "https://flask.palletsprojects.com/en/stable/deploying/mod_wsgi",
       "title": "mod_wsgi — Flask Documentation (3.1.x)",
-      "hash": "114c8512d6526d9755612a6d5c52f2d9749a6175bf96ed581d36e03475e7110f"
+      "hash": "4982a4e0ec521548a29405edc458cd5ab9cb0d7accd406d24054280ffc13838f"
     },
     {
       "path": "pages/en/stable/deploying/nginx.md",
@@ -124,37 +124,37 @@
       "path": "pages/en/stable/deploying/uwsgi.md",
       "url": "https://flask.palletsprojects.com/en/stable/deploying/uwsgi",
       "title": "uWSGI — Flask Documentation (3.1.x)",
-      "hash": "0d00e625c1bcfe3042159a58d1137653a5b42983f7c36d0353091ea26db9c5a0"
+      "hash": "feb4c1244c363ebb501613beee057f3aea47838a91600a87c158814852868eaf"
     },
     {
       "path": "pages/en/stable/deploying/waitress.md",
       "url": "https://flask.palletsprojects.com/en/stable/deploying/waitress",
       "title": "Waitress — Flask Documentation (3.1.x)",
-      "hash": "407ef79e6ad008429b895087ee55b648ddff4a8f5579dd0cb04e91e4a8ddfd84"
+      "hash": "c7418872fe2edcf8cd7737061a666c21614c929c0bafa7ba8c38d98e1a11c8f6"
     },
     {
       "path": "pages/en/stable/design.md",
       "url": "https://flask.palletsprojects.com/en/stable/design",
       "title": "Design Decisions in Flask — Flask Documentation (3.1.x)",
-      "hash": "acb0da78d1e974fd8658942696b9c7b21c2f7d2311b6edaeb6f7426b51e60a63"
+      "hash": "877efc756dd606e5beb0548010efcc2bc1c9eaf8c50ff8214c5b9f38cdc8812a"
     },
     {
       "path": "pages/en/stable/errorhandling.md",
       "url": "https://flask.palletsprojects.com/en/stable/errorhandling",
       "title": "Handling Application Errors — Flask Documentation (3.1.x)",
-      "hash": "24ec84d186bdd1ebc1a702210135632c478f22bb0fb318826a2e8e64c7149742"
+      "hash": "014739d9be3ceec337659a706cc02c9ff085f835e7c25e3f411c9e6f57945b9f"
     },
     {
       "path": "pages/en/stable/extensiondev.md",
       "url": "https://flask.palletsprojects.com/en/stable/extensiondev",
       "title": "Flask Extension Development — Flask Documentation (3.1.x)",
-      "hash": "a87bb91c22782234fa23d42196983741d866b1a6ea1beaa2b49bc6f7099ddce9"
+      "hash": "f7595161339c56a17055f45cdbd9638a043c114be6e246c3bb4de5bcff4bcea3"
     },
     {
       "path": "pages/en/stable/extensions.md",
       "url": "https://flask.palletsprojects.com/en/stable/extensions",
       "title": "Extensions — Flask Documentation (3.1.x)",
-      "hash": "10f430c4cbd6315cff50b970d5a14f50b192c879099189fffe2f33e828eef264"
+      "hash": "83439ef63c6de5e42f4967d00c8f21c440f6a3084e55edd3da7e77965b055b1d"
     },
     {
       "path": "pages/en/stable/genindex.md",
@@ -166,13 +166,13 @@
       "path": "pages/en/stable/gevent.md",
       "url": "https://flask.palletsprojects.com/en/stable/gevent",
       "title": "Async with Gevent — Flask Documentation (3.1.x)",
-      "hash": "7b251cc04c1a00e45c85323d921a7f3b6a495822deafd68f49e35de93ab36d76"
+      "hash": "e0672abc949411ba217b436efcc832a71e614b5ffa0a74bad48ea1267978d406"
     },
     {
       "path": "pages/en/stable/installation.md",
       "url": "https://flask.palletsprojects.com/en/stable/installation",
       "title": "Installation — Flask Documentation (3.1.x)",
-      "hash": "b62206fd2db707d94cf4a451b42f3bf76823a855dd53d892b589d7b360c1d12f"
+      "hash": "d634e4394608d4b43254e0adb582717e5835fde16de7c86ce2a128e1622f8c4c"
     },
     {
       "path": "pages/en/stable/license.md",
@@ -184,19 +184,19 @@
       "path": "pages/en/stable/lifecycle.md",
       "url": "https://flask.palletsprojects.com/en/stable/lifecycle",
       "title": "Application Structure and Lifecycle — Flask Documentation (3.1.x)",
-      "hash": "589f34c1f53208c402acb65ea41e172aa5e8b9fbb336888a584c444843eab8c9"
+      "hash": "65f20a939242f7f52c48e7cd371f244dfed5c06b0e5ca106c1fa2433240e7554"
     },
     {
       "path": "pages/en/stable/logging.md",
       "url": "https://flask.palletsprojects.com/en/stable/logging",
       "title": "Logging — Flask Documentation (3.1.x)",
-      "hash": "1397be7cd94e7df5ae5127b220ef0eb01df019bcc77b62971f77fdfc5077e351"
+      "hash": "98391105322872f1792aa4bdf1514e61d995f23d7bf202b572fd2fb7887c4be3"
     },
     {
       "path": "pages/en/stable/patterns.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns",
       "title": "Patterns for Flask — Flask Documentation (3.1.x)",
-      "hash": "5d3284d808f9f975394a5b14f0e4f878c60ced493aefc5a40dd4bf10bed4b581"
+      "hash": "2b1ed6e3199044537ab08257235d27e1be75a2f7ca950753db8bdc84dfc859fa"
     },
     {
       "path": "pages/en/stable/patterns/appdispatch.md",
@@ -208,7 +208,7 @@
       "path": "pages/en/stable/patterns/appfactories.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/appfactories",
       "title": "Application Factories — Flask Documentation (3.1.x)",
-      "hash": "05faa8e3c72257b308efd6b3c8eafb2418c01a5bff3985bf47419695c62895d8"
+      "hash": "acb83dcd876e928049496c11a96d63572acd731509ced5051bd6db6f629ef930"
     },
     {
       "path": "pages/en/stable/patterns/caching.md",
@@ -226,37 +226,37 @@
       "path": "pages/en/stable/patterns/deferredcallbacks.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/deferredcallbacks",
       "title": "Deferred Request Callbacks — Flask Documentation (3.1.x)",
-      "hash": "0b668fa7362e9c10acd8dbfbdda908ab27e702e464bba9d143e4ecef781a98ee"
+      "hash": "42f16ea85e61075fd06753e6b063776441e18f44f09ef8b0e7b6ae7d4fbb8c55"
     },
     {
       "path": "pages/en/stable/patterns/favicon.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/favicon",
       "title": "Adding a favicon — Flask Documentation (3.1.x)",
-      "hash": "f75ceb8a905638a77b449a91445d8dab9fe7d1d965f6ec7d9fd8c75c4647b816"
+      "hash": "1475788480040be6d851196fcbf9a184dc6acd270fcaf7d3e1e61b94aafa9045"
     },
     {
       "path": "pages/en/stable/patterns/fileuploads.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/fileuploads",
       "title": "Uploading Files — Flask Documentation (3.1.x)",
-      "hash": "264b3706c909ae1f58c922fce76302bf89b273fa4d0ccd7d86f0a13d694d990d"
+      "hash": "96d6d346bc220a519e170bc110761c8bc908ee300fa37f2eb050d83217434d77"
     },
     {
       "path": "pages/en/stable/patterns/flashing.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/flashing",
       "title": "Message Flashing — Flask Documentation (3.1.x)",
-      "hash": "634247968b5ed14da9fbad0f9f85d7993b4894f9564da27b9be5742a255c50a2"
+      "hash": "13d66a7b67147197b4b6ae68de5cc9f1a9a9d5bf5df6f08d8ee5e1615676952f"
     },
     {
       "path": "pages/en/stable/patterns/javascript.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/javascript",
       "title": "JavaScript, fetch, and JSON — Flask Documentation (3.1.x)",
-      "hash": "c36651ff24254e1ac64523ce4b161d37e7fa26e9b63dd592279538d1ee619dff"
+      "hash": "aa4142ac82b7c77d9a0669ae26640a41939da1aadc3f76a28f7414cf100223d9"
     },
     {
       "path": "pages/en/stable/patterns/lazyloading.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/lazyloading",
       "title": "Lazily Loading Views — Flask Documentation (3.1.x)",
-      "hash": "6ed71580703bcd5ba39084e001b78a538b50f8d8606d9cd039eb2eabd2156bdb"
+      "hash": "e0af3bd3789245dbdf7a1abe6bc1b3d815d02a6d50e85317e4d88f4c39320d4d"
     },
     {
       "path": "pages/en/stable/patterns/methodoverrides.md",
@@ -274,7 +274,7 @@
       "path": "pages/en/stable/patterns/packages.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/packages",
       "title": "Large Applications as Packages — Flask Documentation (3.1.x)",
-      "hash": "a8760d36a9bfb8ade36547df54e900f26345cfc97ce2bb164ec0b2f7c4b3138b"
+      "hash": "203177a14c2d3c8290d847e44df2c63f9f5c7a09827d539cf67b7b2cf40778f7"
     },
     {
       "path": "pages/en/stable/patterns/requestchecksum.md",
@@ -292,7 +292,7 @@
       "path": "pages/en/stable/patterns/sqlalchemy.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/sqlalchemy",
       "title": "SQLAlchemy in Flask — Flask Documentation (3.1.x)",
-      "hash": "50657b8d3f36f38a2f305849f2b4155134ee1665c72dd1d21250b432c0801469"
+      "hash": "2022acfd03052ade1c0f37b3adc6cfbc9f74bc7d4b9ee639645cbf8a1fa96098"
     },
     {
       "path": "pages/en/stable/patterns/sqlite3.md",
@@ -304,13 +304,13 @@
       "path": "pages/en/stable/patterns/streaming.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/streaming",
       "title": "Streaming Contents — Flask Documentation (3.1.x)",
-      "hash": "0275b03d5aaea81cbc9a952f5a73e1396879ad1561df1d05a39724f905325872"
+      "hash": "2167dc88c5ad4978dc65f4047a894bc9a56451d152de4c527466689ed3d4f071"
     },
     {
       "path": "pages/en/stable/patterns/subclassing.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/subclassing",
       "title": "Subclassing Flask — Flask Documentation (3.1.x)",
-      "hash": "e7bb1e34f6b79163bd99ec436d99edee8d945f98ef9eb9bb4a33e297e7cfcb9d"
+      "hash": "69a8c0b86e7b508eae61316112d4ffdff84efa04f4d7e7ed7e6c916e4325b693"
     },
     {
       "path": "pages/en/stable/patterns/templateinheritance.md",
@@ -322,19 +322,19 @@
       "path": "pages/en/stable/patterns/urlprocessors.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/urlprocessors",
       "title": "Using URL Processors — Flask Documentation (3.1.x)",
-      "hash": "074120471ed90e778f214f225d28719b0bb0df6fce29fefd807111c74075df40"
+      "hash": "0dbe101d0f63172b96986067701fe9c1c4822e1c23fd7ecd1b529f0a6e1533f8"
     },
     {
       "path": "pages/en/stable/patterns/viewdecorators.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/viewdecorators",
       "title": "View Decorators — Flask Documentation (3.1.x)",
-      "hash": "fe24051d2905440a4919a7cf0d0ec74e42ee92720d637769de5ff9589d2f09ab"
+      "hash": "f837276ae8647dca5b7e77c3219a4fbd364109f4df7d2b8f162735ceda5361fe"
     },
     {
       "path": "pages/en/stable/patterns/wtforms.md",
       "url": "https://flask.palletsprojects.com/en/stable/patterns/wtforms",
       "title": "Form Validation with WTForms — Flask Documentation (3.1.x)",
-      "hash": "7b1a2df8196c8adfb4c4dbbe61dd3677772da2b23af4b1a20cc49adef58af091"
+      "hash": "31206e83c920b4ae71c011488847a567b0b73c0295849f9f71eaa0bb828406a1"
     },
     {
       "path": "pages/en/stable/py-modindex.md",
@@ -346,43 +346,43 @@
       "path": "pages/en/stable/quickstart.md",
       "url": "https://flask.palletsprojects.com/en/stable/quickstart",
       "title": "Quickstart — Flask Documentation (3.1.x)",
-      "hash": "b6ee706f46486eae685f0f4b124c728b3d4d5ab080ba1ffdfbd72beabb5f673d"
+      "hash": "7bb326dfc4e1171fc7234dab11c73484e58d362a7ce9871f1d30e70d7dc61e1a"
     },
     {
       "path": "pages/en/stable/reqcontext.md",
       "url": "https://flask.palletsprojects.com/en/stable/reqcontext",
       "title": "The Request Context — Flask Documentation (3.1.x)",
-      "hash": "c6c6748ab4ad01a39fcf29074f866c88a38a13e19e2b1ecd19959a3d92506cc6"
+      "hash": "9191bfd0d5a2102c359af9342f42fbe15eb78afc26938041f4731c71fcd40b84"
     },
     {
       "path": "pages/en/stable/server.md",
       "url": "https://flask.palletsprojects.com/en/stable/server",
       "title": "Development Server — Flask Documentation (3.1.x)",
-      "hash": "d667583e9c5836d0c5710c1051c0d07b539efd4b5d67117f036055fb2876546a"
+      "hash": "aaf87c086885a0bcb3f963cdbb1ffc180ee19904392a1b26c6254e724668bc0c"
     },
     {
       "path": "pages/en/stable/shell.md",
       "url": "https://flask.palletsprojects.com/en/stable/shell",
       "title": "Working with the Shell — Flask Documentation (3.1.x)",
-      "hash": "205637f87b4b862b419493aa925044a218249b44a8de285bf1545f14994cb345"
+      "hash": "8f65c6db87d1ae5639dabb498b9acbbfb9ae64caacc221ff557957fc4fe8acc3"
     },
     {
       "path": "pages/en/stable/signals.md",
       "url": "https://flask.palletsprojects.com/en/stable/signals",
       "title": "Signals — Flask Documentation (3.1.x)",
-      "hash": "53bd3b0c1c0ce110331f721651922d6a8a5dda17635968de0b19e01f6a28fc23"
+      "hash": "a6c525357c970fd8a82965a9556c6a4957f0f5665a48174ef218552a9b5b4bf6"
     },
     {
       "path": "pages/en/stable/templating.md",
       "url": "https://flask.palletsprojects.com/en/stable/templating",
       "title": "Templates — Flask Documentation (3.1.x)",
-      "hash": "dff280feb7b8cb5f012c666fa9a4901ae57334366eb5be35451665691bf06550"
+      "hash": "09e68f2574df76a621e2e6d8928b254b6e606192471b28492e24ad653ae26905"
     },
     {
       "path": "pages/en/stable/testing.md",
       "url": "https://flask.palletsprojects.com/en/stable/testing",
       "title": "Testing Flask Applications — Flask Documentation (3.1.x)",
-      "hash": "14a0dbcaae7fc4b3e258c22be8e28776f96750e9e42b31efd77ff0310c21861c"
+      "hash": "294093bc696d274bd9bf64d40c1a2f346c22cb3130c2cfa3a2c4b99c41c48667"
     },
     {
       "path": "pages/en/stable/tutorial.md",
@@ -394,43 +394,43 @@
       "path": "pages/en/stable/tutorial/blog.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/blog",
       "title": "Blog Blueprint — Flask Documentation (3.1.x)",
-      "hash": "d9229c50ea4d1cf1f0cd3c03db576dbf9886165e0c8cf8ab8f93cc68f5f0ea82"
+      "hash": "104b047d106f431b9d926e447d971781afd3c6945f23df6778a045194e1627a0"
     },
     {
       "path": "pages/en/stable/tutorial/database.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/database",
       "title": "Define and Access the Database — Flask Documentation (3.1.x)",
-      "hash": "1237e0756dcdf85f571f5626ca3064b66f05f99d92cec7a2d526146c87763033"
+      "hash": "ae36dd09f57696f11d6352e40b6158f1758bfca79cbe88cc15ac8abc4e62d3ef"
     },
     {
       "path": "pages/en/stable/tutorial/deploy.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/deploy",
       "title": "Deploy to Production — Flask Documentation (3.1.x)",
-      "hash": "e168b91e4fffb9581b37f34837912f251d4768a22b0d43c51937e7381e01b120"
+      "hash": "04f95461658c44ca99c283ac3389c06fe2d4e3af1396b52413d80072049cf30d"
     },
     {
       "path": "pages/en/stable/tutorial/factory.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/factory",
       "title": "Application Setup — Flask Documentation (3.1.x)",
-      "hash": "a44d45f936e5adb1b4ea23d6057d59833e517a4bbdc5b86a3495a3d4f3de5971"
+      "hash": "fafe4423eee06b6dcd976a469f6e01f2407f2234de8724dfde39fe198f07e783"
     },
     {
       "path": "pages/en/stable/tutorial/install.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/install",
       "title": "Make the Project Installable — Flask Documentation (3.1.x)",
-      "hash": "d0d3daadf3504a2c69bf8e50b0c58c0f48cb022b1feffcc0cf6066eefc5f27a0"
+      "hash": "7b527895029b88d9dc1b8efa2e2b179b721fe35157880ab3cef54db4eef579d1"
     },
     {
       "path": "pages/en/stable/tutorial/layout.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/layout",
       "title": "Project Layout — Flask Documentation (3.1.x)",
-      "hash": "93218475542881ae8a2d4cf15a1c63d68d1ddceeaf6eed6efe6eeddc0b5f3e1a"
+      "hash": "534decf7f7d57c81ee92fd8310a6c8183c0f6fe6fe2c2398500e0f16a200ab1e"
     },
     {
       "path": "pages/en/stable/tutorial/next.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/next",
       "title": "Keep Developing! — Flask Documentation (3.1.x)",
-      "hash": "811e915b9cc019a56b2218fbc192cd78b9e4a7178feb71c57e56ce68a8bdff7e"
+      "hash": "24e4faede46773039dc0207c9043e7ddf67188034701a340af679d2c3eeff821"
     },
     {
       "path": "pages/en/stable/tutorial/static.md",
@@ -442,31 +442,31 @@
       "path": "pages/en/stable/tutorial/templates.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/templates",
       "title": "Templates — Flask Documentation (3.1.x)",
-      "hash": "9f384b1a1dffe9d887153fb2aaa0c12a4f194e18bac9e24d3c94ea9dc4900052"
+      "hash": "5daeb74eeba6d6310438c75b0011f99f13e27deb38485c64fd88aeac2be8c874"
     },
     {
       "path": "pages/en/stable/tutorial/tests.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/tests",
       "title": "Test Coverage — Flask Documentation (3.1.x)",
-      "hash": "f4c8bf686d3e7b90239575f20be5cca0cc38135f045e6e7fd9a3b859d3aba8ca"
+      "hash": "7a2484e2d8deee96bb0f0777786f2a3be86eae789db9e1d10dae7c46c0dd79cd"
     },
     {
       "path": "pages/en/stable/tutorial/views.md",
       "url": "https://flask.palletsprojects.com/en/stable/tutorial/views",
       "title": "Blueprints and Views — Flask Documentation (3.1.x)",
-      "hash": "b6cc0cf78ab3364e36a3de825f88c477b19fd45a1f64972d2c5ead0dc0faf67c"
+      "hash": "574a1ee9379659905f84956495841a800624ca48e689c98155d2ca1626a31618"
     },
     {
       "path": "pages/en/stable/views.md",
       "url": "https://flask.palletsprojects.com/en/stable/views",
       "title": "Class-based Views — Flask Documentation (3.1.x)",
-      "hash": "b7199c8b93768d606c0815ea4b534dd52fb96c3c82e236717380cb64e422a3ef"
+      "hash": "f6012dd86c414ad5a27c1a7a1d998237d097130a9ce3c3b8f7f836dbea9c5761"
     },
     {
       "path": "pages/en/stable/web-security.md",
       "url": "https://flask.palletsprojects.com/en/stable/web-security",
       "title": "Security Considerations — Flask Documentation (3.1.x)",
-      "hash": "97186dffad38dbb78ebdf5eec23ec531c9d7cdf945b39d1a650cd8f39e438281"
+      "hash": "15b5b2f2956774624c3c7d22f340cd60c0a812e7307639b1444b7e1f93e48c49"
     }
   ],
   "edges": [
@@ -1612,9 +1612,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-07-27T09:46:39.576506+00:00",
+    "synced_at": "2026-08-03T09:38:59.550167+00:00",
     "added": 0,
-    "changed": 0,
+    "changed": 56,
     "removed": 0,
     "pages": 76
   }

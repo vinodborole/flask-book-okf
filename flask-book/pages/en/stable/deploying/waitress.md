@@ -2,18 +2,18 @@
 type: Web Page
 title: Waitress — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/deploying/waitress
-timestamp: '2026-07-09T12:16:47.677177+00:00'
+timestamp: '2026-08-03T09:38:59.518818+00:00'
 ---
 
 # Waitress
 
 [Waitress](https://docs.pylonsproject.org/projects/waitress/) is a pure Python WSGI server.
 
-- It is easy to configure. 
-- It supports Windows directly. 
-- It is easy to install as it does not require additional dependencies or compilation. 
-- It does not support streaming requests, full request data is always buffered. 
-- It uses a single process with multiple thread workers. 
+- It is easy to configure.
+- It supports Windows directly.
+- It is easy to install as it does not require additional dependencies or compilation.
+- It does not support streaming requests, full request data is always buffered.
+- It uses a single process with multiple thread workers.
 
 This page outlines the basics of running Waitress. Be sure to read its
 documentation and `waitress-serve --help` to understand what features
