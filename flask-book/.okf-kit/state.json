@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://flask.palletsprojects.com/en/stable",
-  "updated_at": "2026-08-03T09:38:59.588412+00:00",
+  "updated_at": "2026-08-10T07:27:12.483025+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -1612,9 +1612,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-03T09:38:59.550167+00:00",
+    "synced_at": "2026-08-10T07:27:12.444974+00:00",
     "added": 0,
-    "changed": 56,
+    "changed": 0,
     "removed": 0,
     "pages": 76
   }
