@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://flask.palletsprojects.com/en/stable",
-  "updated_at": "2026-08-10T07:27:12.483025+00:00",
+  "updated_at": "2026-08-17T06:48:56.550151+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 90,
@@ -22,7 +22,7 @@
       "path": "pages/en/stable/api.md",
       "url": "https://flask.palletsprojects.com/en/stable/api",
       "title": "API — Flask Documentation (3.1.x)",
-      "hash": "e1ff4ca025e3a6cf97272a6f377b6fe34c1a1b862f23bc6ed9b6394f714fed8c"
+      "hash": "b4ae3b184092538a09125f32c950e44a66bd5b9fe6c885987541986dfecf7ab6"
     },
     {
       "path": "pages/en/stable/appcontext.md",
@@ -40,13 +40,13 @@
       "path": "pages/en/stable/blueprints.md",
       "url": "https://flask.palletsprojects.com/en/stable/blueprints",
       "title": "Modular Applications with Blueprints — Flask Documentation (3.1.x)",
-      "hash": "c2b6bc3d1e48290a0cfb7cb6812442292801aa206390b02f461582614cb86860"
+      "hash": "e99a76149b3f919fffe31870922cb95165b29f41c102ae324a63ba98c4b3efa0"
     },
     {
       "path": "pages/en/stable/changes.md",
       "url": "https://flask.palletsprojects.com/en/stable/changes",
       "title": "Changes — Flask Documentation (3.1.x)",
-      "hash": "a5f0cbf83755a4545e27131f6143b8c3ec58c27f9c34090e0035c8529279cbf7"
+      "hash": "97df5b9f1dfe057938787bf199e1d01172c9a1ec30068955690120c5ad8f7e9d"
     },
     {
       "path": "pages/en/stable/cli.md",
@@ -142,7 +142,7 @@
       "path": "pages/en/stable/errorhandling.md",
       "url": "https://flask.palletsprojects.com/en/stable/errorhandling",
       "title": "Handling Application Errors — Flask Documentation (3.1.x)",
-      "hash": "014739d9be3ceec337659a706cc02c9ff085f835e7c25e3f411c9e6f57945b9f"
+      "hash": "c0c98326459bcd50f5a52384c34182d420199b60ab3d75a3fbce684e243a7155"
     },
     {
       "path": "pages/en/stable/extensiondev.md",
@@ -1612,9 +1612,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-10T07:27:12.444974+00:00",
+    "synced_at": "2026-08-17T06:48:56.518343+00:00",
     "added": 0,
-    "changed": 0,
+    "changed": 4,
     "removed": 0,
     "pages": 76
   }

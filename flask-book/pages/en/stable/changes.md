@@ -2,7 +2,7 @@
 type: Web Page
 title: Changes — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/changes
-timestamp: '2026-08-03T09:38:59.518818+00:00'
+timestamp: '2026-08-17T06:48:56.513693+00:00'
 ---
 
 # Changes
@@ -1050,7 +1050,7 @@ Released 2010-06-18, codename Rakia
 dies with an exception and an error handling page kicks in.
 - Test client has not the ability to preserve the request context for a little longer. This can also be used to trigger custom requests that do not pop the request stack for testing.
 - Because the Python standard library caches loggers, the name of the logger is configurable now to better support unittests.
-- Added `TESTING` switch that can activate unittesting helpers.
+- Added `TESTING` switch that can activate unit testing helpers.
 - The logger switches to `DEBUG` mode now if debug is enabled.
 
 ## Version 0.3.1
@@ -1076,7 +1076,7 @@ example.
 
 ## Version 0.2
 
-Released 2010-05-12, codename J?germeister
+Released 2010-05-12, codename Jägermeister
 
 - Various bugfixes
 - Integrated JSON support

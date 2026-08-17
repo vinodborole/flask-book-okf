@@ -2,7 +2,7 @@
 type: Web Page
 title: Modular Applications with Blueprints — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/blueprints
-timestamp: '2026-08-03T09:38:59.518818+00:00'
+timestamp: '2026-08-17T06:48:56.513693+00:00'
 ---
 
 # Modular Applications with Blueprints
@@ -258,8 +258,8 @@ Here is an example for a “404 Page Not Found” exception:
 def page_not_found(e):
     return render_template('pages/404.html')
 ```
-Most errorhandlers will simply work as expected; however, there is a caveat
-concerning handlers for 404 and 405 exceptions.  These errorhandlers are only
+Most error handlers will simply work as expected; however, there is a caveat
+concerning handlers for 404 and 405 exceptions.  These error handlers are only
 invoked from an appropriate `raise` statement or a call to `abort` in another
 of the blueprint’s view functions; they are not invoked by, e.g., an invalid URL
 access.  This is because the blueprint does not “own” a certain URL space, so

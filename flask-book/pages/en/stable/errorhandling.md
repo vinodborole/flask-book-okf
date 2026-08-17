@@ -2,7 +2,7 @@
 type: Web Page
 title: Handling Application Errors — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/errorhandling
-timestamp: '2026-08-03T09:38:59.518818+00:00'
+timestamp: '2026-08-17T06:48:56.513693+00:00'
 ---
 
 # Handling Application Errors
@@ -12,7 +12,7 @@ Applications fail, servers fail. Sooner or later you will see an exception in pr
 - the client terminated the request early and the application was still reading from the incoming data
 - the database server was overloaded and could not handle the query
 - a filesystem is full
-- a harddrive crashed
+- a hard drive crashed
 - a backend server overloaded
 - a programming error in a library you are using
 - network connection of the server to another system failed

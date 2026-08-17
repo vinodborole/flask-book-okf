@@ -2,7 +2,7 @@
 type: Web Page
 title: API — Flask Documentation (3.1.x)
 resource: https://flask.palletsprojects.com/en/stable/api
-timestamp: '2026-08-03T09:38:59.518818+00:00'
+timestamp: '2026-08-17T06:48:56.513693+00:00'
 ---
 
 # API
@@ -292,9 +292,9 @@ for`view_rv` :
       - `bytes`
       - A response object is created with the bytes as the body.
       - `dict`
-      - A dictionary that will be jsonify’d before being returned.
+      - Converted to a JSON response.
       - `list`
-      - A list that will be jsonify’d before being returned.
+      - Converted to a JSON response.
       - `generator` or`iterator`
       - A generator that returns `str` or`bytes` to be
 streamed as the response.
